@@ -1,0 +1,50 @@
+﻿{
+  "version": "1.0.0",
+  "restore": {
+    "projectUniqueName": "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/Riderprojects/Ships/GameUI/GameUI.csproj",
+    "projectName": "GameUI",
+    "projectPath": "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/Riderprojects/Ships/GameUI/GameUI.csproj",
+    "outputPath": "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/Riderprojects/Ships/GameUI/obj/",
+    "projectStyle": "PackageReference",
+    "fallbackFolders": [
+      "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+    ],
+    "originalTargetFrameworks": [
+      "netstandard2.0"
+    ],
+    "frameworks": {
+      "netstandard2.0": {
+        "projectReferences": {
+          "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/Riderprojects/Ships/Domain/Domain.csproj": {
+            "projectPath": "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/Riderprojects/Ships/Domain/Domain.csproj"
+          },
+          "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/Riderprojects/Ships/Initializers/Initializers.csproj": {
+            "projectPath": "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/Riderprojects/Ships/Initializers/Initializers.csproj"
+          }
+        }
+      }
+    },
+    "warningProperties": {
+      "warnAsError": [
+        "NU1605"
+      ]
+    }
+  },
+  "frameworks": {
+    "netstandard2.0": {
+      "dependencies": {
+        "NETStandard.Library": {
+          "suppressParent": "All",
+          "target": "Package",
+          "version": "[2.0.3, )",
+          "autoReferenced": true
+        }
+      },
+      "imports": [
+        "net461"
+      ],
+      "assetTargetFallback": true,
+      "warn": true
+    }
+  }
+}

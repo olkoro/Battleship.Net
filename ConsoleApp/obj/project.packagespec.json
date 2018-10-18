@@ -1,0 +1,59 @@
+﻿{
+  "version": "1.0.0",
+  "restore": {
+    "projectUniqueName": "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/Riderprojects/Ships/ConsoleApp/ConsoleApp.csproj",
+    "projectName": "ConsoleApp",
+    "projectPath": "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/Riderprojects/Ships/ConsoleApp/ConsoleApp.csproj",
+    "outputPath": "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/Riderprojects/Ships/ConsoleApp/obj/",
+    "projectStyle": "PackageReference",
+    "fallbackFolders": [
+      "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+    ],
+    "originalTargetFrameworks": [
+      "netcoreapp2.1"
+    ],
+    "frameworks": {
+      "netcoreapp2.1": {
+        "projectReferences": {
+          "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/Riderprojects/Ships/DAL/DAL.csproj": {
+            "projectPath": "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/Riderprojects/Ships/DAL/DAL.csproj"
+          },
+          "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/Riderprojects/Ships/Domain/Domain.csproj": {
+            "projectPath": "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/Riderprojects/Ships/Domain/Domain.csproj"
+          },
+          "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/Riderprojects/Ships/GameUI/GameUI.csproj": {
+            "projectPath": "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/Riderprojects/Ships/GameUI/GameUI.csproj"
+          },
+          "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/Riderprojects/Ships/Initializers/Initializers.csproj": {
+            "projectPath": "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/Riderprojects/Ships/Initializers/Initializers.csproj"
+          },
+          "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/Riderprojects/Ships/MenuSystem/MenuSystem.csproj": {
+            "projectPath": "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/Riderprojects/Ships/MenuSystem/MenuSystem.csproj"
+          }
+        }
+      }
+    },
+    "warningProperties": {
+      "warnAsError": [
+        "NU1605"
+      ]
+    }
+  },
+  "frameworks": {
+    "netcoreapp2.1": {
+      "dependencies": {
+        "Microsoft.NETCore.App": {
+          "suppressParent": "All",
+          "target": "Package",
+          "version": "[2.1.0, )",
+          "autoReferenced": true
+        }
+      },
+      "imports": [
+        "net461"
+      ],
+      "assetTargetFallback": true,
+      "warn": true
+    }
+  }
+}

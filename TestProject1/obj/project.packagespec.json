@@ -1,0 +1,59 @@
+﻿{
+  "version": "1.0.0",
+  "restore": {
+    "projectUniqueName": "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/Riderprojects/Ships/TestProject1/TestProject1.csproj",
+    "projectName": "TestProject1",
+    "projectPath": "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/Riderprojects/Ships/TestProject1/TestProject1.csproj",
+    "outputPath": "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/Riderprojects/Ships/TestProject1/obj/",
+    "projectStyle": "PackageReference",
+    "fallbackFolders": [
+      "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+    ],
+    "originalTargetFrameworks": [
+      "netcoreapp2.1"
+    ],
+    "frameworks": {
+      "netcoreapp2.1": {
+        "projectReferences": {
+          "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/Riderprojects/Ships/Domain/Domain.csproj": {
+            "projectPath": "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/Riderprojects/Ships/Domain/Domain.csproj"
+          }
+        }
+      }
+    },
+    "warningProperties": {
+      "warnAsError": [
+        "NU1605"
+      ]
+    }
+  },
+  "frameworks": {
+    "netcoreapp2.1": {
+      "dependencies": {
+        "Microsoft.NET.Test.Sdk": {
+          "target": "Package",
+          "version": "[15.7.2, )"
+        },
+        "Microsoft.NETCore.App": {
+          "suppressParent": "All",
+          "target": "Package",
+          "version": "[2.1.0, )",
+          "autoReferenced": true
+        },
+        "NUnit3TestAdapter": {
+          "target": "Package",
+          "version": "[3.10.0, )"
+        },
+        "nunit": {
+          "target": "Package",
+          "version": "[3.10.1, )"
+        }
+      },
+      "imports": [
+        "net461"
+      ],
+      "assetTargetFallback": true,
+      "warn": true
+    }
+  }
+}
