@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Domain
 {
@@ -104,10 +105,14 @@ namespace Domain
                         index--;
                         break;
                     case ConsoleKey.Enter:
-                        ShipSettings(Ships[index]);
+                        Ships.Add(new Ship(1));
+                        index = Rules.Ships.Count - 1;
                         break;
                     case ConsoleKey.X:
                         done = true;
+                        break;
+                    case ConsoleKey.Backspace:
+                        Rules.Ships.Remove(Rules.Ships[index]);
                         break;
                     case ConsoleKey.RightArrow:
                         Ships[index].Length++;
@@ -139,6 +144,8 @@ namespace Domain
         private static void DrawShips(int index, List<Ship> ships)
         {
             Console.Clear();
+            Console.WriteLine("Available Ships:\n" +
+                              "----------------");
             for (int i = 0; i < ships.Count; i++)
             {
                 if (i == index)
@@ -156,6 +163,8 @@ namespace Domain
                     Console.WriteLine(" "+ships[i]);
                 }
             }
+            Console.WriteLine("--------------------------------------------------\n" +
+                              " X - Back, Enter - Add Ships, Backspace - Delete ship, Arrow Keys - Adjust size");
         }
     }
 }

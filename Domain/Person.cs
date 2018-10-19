@@ -13,6 +13,7 @@ namespace Domain
         public Color BGColor {get;set;}
         public GameBoard Board;
         public bool AI;
+        public List<Ship> Ships { get; set; } = new List<Ship>();
 
         public Player(string name, GameBoard board)
         {

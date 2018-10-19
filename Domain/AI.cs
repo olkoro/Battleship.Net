@@ -96,44 +96,44 @@ namespace Domain
             return true;
         }
         
-        public static bool AIPlacing(List<int> shipsList,GameBoard Board){
-            bool rotation = false;
-            Random rnd = new Random();
-            var shipsAmount = shipsList[0] + shipsList[1] + shipsList[2] + shipsList[3];
-            var shipLen = 4;
-            var tries = 0;
-            var row = 0;
-            var column = 0;
-            while (shipsAmount>0)
-            {
-                if (shipLen == 4 && shipsList[0] == 0 || shipLen == 3 && shipsList[1] == 0
-                                                      || shipLen == 2 && shipsList[2] == 0 || shipLen == 1 && shipsList[3] == 0)
-                {
-                    shipLen--;
-                    continue;
-                }
-                bool available = AI.CheckPlace(Board,row,column,shipLen,rotation);
-    
-                if (available == true)
-                {
-                    SetPlace(Board,row,column,shipLen,rotation);
-                    if(shipLen == 1){shipsList[3]--;}if(shipLen == 2){shipsList[2]--;}
-                    if(shipLen==3){shipsList[1]--;}if(shipLen==4){shipsList[0]--;}
-                }
-                row = row + 2;
-                if (tries == 5)
-                {
-                    column = column + 5;
-                    row = 0;
-                }
-                tries++;
-                shipsAmount = shipsList[0] + shipsList[1] + shipsList[2] + shipsList[3];
-                if (tries > 50)
-                {
-                    return false;
-                }
-            }
-
+        public static bool AIPlacing(List<Ship> shipsList,GameBoard Board){
+//            bool rotation = false;
+//            Random rnd = new Random();
+//            var shipsAmount = shipsList[0] + shipsList[1] + shipsList[2] + shipsList[3];
+//            var shipLen = 4;
+//            var tries = 0;
+//            var row = 0;
+//            var column = 0;
+//            while (shipsAmount>0)
+//            {
+//                if (shipLen == 4 && shipsList[0] == 0 || shipLen == 3 && shipsList[1] == 0
+//                                                      || shipLen == 2 && shipsList[2] == 0 || shipLen == 1 && shipsList[3] == 0)
+//                {
+//                    shipLen--;
+//                    continue;
+//                }
+//                bool available = AI.CheckPlace(Board,row,column,shipLen,rotation);
+//    
+//                if (available == true)
+//                {
+//                    SetPlace(Board,row,column,shipLen,rotation);
+//                    if(shipLen == 1){shipsList[3]--;}if(shipLen == 2){shipsList[2]--;}
+//                    if(shipLen==3){shipsList[1]--;}if(shipLen==4){shipsList[0]--;}
+//                }
+//                row = row + 2;
+//                if (tries == 5)
+//                {
+//                    column = column + 5;
+//                    row = 0;
+//                }
+//                tries++;
+//                shipsAmount = shipsList[0] + shipsList[1] + shipsList[2] + shipsList[3];
+//                if (tries > 50)
+//                {
+//                    return false;
+//                }
+//            }
+//
             return true;
         }
 

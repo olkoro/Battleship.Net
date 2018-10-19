@@ -44,7 +44,7 @@ namespace GameUI
             //player arranging
             Placing(Player1, Board1);
             List<int> shipsList = new List<int>(new int[]{1,2,3,4});
-            AI.AIPlacing(shipsList,Player2.Board);
+            AI.AIPlacing(new List<Ship>(Rules.Ships), Player2.Board);
             //game starts
             Console.Clear();
             if (!Abort)
@@ -133,11 +133,14 @@ namespace GameUI
             Placing(Player2,Board2);
             //game starts
             Console.Clear();
-            Console.WriteLine("\n\n\n\n\n\n           THE GAME IS STARTED\n           Press any key to continue");
-            switch (Console.ReadKey(true).Key)
-            {    
-                case ConsoleKey.Enter:
-                    break;
+            if (!Abort)
+            {
+                Console.WriteLine("\n\n\n\n\n\n           THE GAME IS STARTED\n           Press any key to continue");
+                switch (Console.ReadKey(true).Key)
+                {    
+                    case ConsoleKey.Enter:
+                        break;
+                }
             }
             var coords = new int[2]{0,0};
             var status = "|";
@@ -399,47 +402,22 @@ namespace GameUI
             }
         }
 
-        public static string DrawSwitcher(int shipLen, List<int> shipsList, Player player, bool rotation, string errorMessage)
-        {    
+        public static string DrawSwitcher(Player player, bool rotation, string errorMessage, Ship selectedShip)
+        {   
             StringBuilder message = new StringBuilder();
-            if (shipLen == 1)
+            message.Append("   1)Switch a Ship\n   2)Rotate\n   3)Remove a Ship\n   4)Random(BETA)\n   X)Back to Menu\n" +
+                           "   --------------\n   Available Ships:\n");
+            for (int i = 0; i < player.Ships.Count; i++)
             {
-                message.Append("   + + + + X"+shipsList[0]+"\n   + + + X" + shipsList[1]+"\n   + + X"+ shipsList[2]+"\n-> + X"+shipsList[3]);
-            }
-            if (shipLen == 2)
-            {
-                message.Append("   + + + + X"+shipsList[0]+"\n   + + + X" + shipsList[1]+"\n-> + + X"+ shipsList[2]+"\n   + X"+shipsList[3]);
-            }
-            if (shipLen == 3)
-            {
-                message.Append("   + + + + X"+shipsList[0]+"\n-> + + + X" + shipsList[1]+"\n   + + X"+ shipsList[2]+"\n   + X"+shipsList[3]);
-            }
-            if (shipLen == 4)
-            {
-                message.Append("-> + + + + X"+shipsList[0]+"\n   + + + X" + shipsList[1]+"\n   + + X"+ shipsList[2]+"\n   + X"+shipsList[3]);
-            }
-            message.Append("\n   --------------\n" + "   1)Switch a ship\n   2)Rotate\n   3)Remove a ship\n   4)Random(BETA)\n   X)Back to menu\n   --------------");
-            if (rotation == false)
-            {
-                message.Append("\n   Rotation:\n   ");
-                for (int i = 0; i < shipLen; i++)
+                if (player.Ships[i] == selectedShip)
                 {
-                    message.Append("+ ");
-                }
+                    message.Append("-> ");
+                }else{message.Append("   ");}
+                message.Append(player.Ships[i]+"\n");
             }
-            else
-            {
-                message.Append("\n   Rotation:");
-                for (int i = 0; i < shipLen; i++)
-                {
-                    message.Append("\n   +");
-                }
-            }
-            if (shipLen == 4 && shipsList[0] == 0 || shipLen == 3 && shipsList[1] == 0
-                                                  || shipLen == 2 && shipsList[2] == 0 || shipLen == 1 && shipsList[3] == 0)
-            {
-                errorMessage = "You are out of these ships!";
-            }
+
+            message.Append("   --------------\n");
+            
             if (errorMessage != "")
             {
                 message.Append("\n\n" + "   +--" + new string ('-', errorMessage.Length) + "--+\n"
@@ -473,6 +451,7 @@ namespace GameUI
 
         public static void Placing(Player player,GameBoard board, int[] coords = null)
         {
+            player.Ships = new List<Ship>(Rules.Ships);
             if (coords == null)
             {
                 coords = new[] {0, 0};
@@ -480,8 +459,7 @@ namespace GameUI
             bool rotation = false;
             var shipLen = 4;
             
-            List<int> shipsList = new List<int>(new int[]{1,2,3,4});
-            var shipsAmount = shipsList[0] + shipsList[1] + shipsList[2] + shipsList[3];
+            var shipsAmount = player.Ships.Count;
             var errorMessage = "";
             Console.WriteLine("BETA");
             Console.WriteLine("Press any key to continue");
@@ -489,14 +467,15 @@ namespace GameUI
             ConsoleColor shipcolor = ConsoleColor.Green;
             bool done = false;
             bool enough = true;
-            DrawPlacing(player,board,shipLen,rotation,coords,shipcolor, DrawSwitcher(shipLen, shipsList, player, rotation, errorMessage));
+            Ship selectedShip = player.Ships[0];
+            DrawPlacing(player,board,selectedShip.Length,rotation,coords,shipcolor, DrawSwitcher(player, rotation, errorMessage, selectedShip));
             while (shipsAmount>0)
             {
                 if (Abort)
                 {
                     break;
                 }
-                shipsAmount = shipsList[0] + shipsList[1] + shipsList[2] + shipsList[3];
+                shipsAmount = player.Ships.Count;
                 if (shipsAmount == 0)
                 {break;
                 }
@@ -507,7 +486,7 @@ namespace GameUI
                         {
                             if (coords[0] == 0)
                             {
-                                coords[0] = Rules.Boardrows - 1 - shipLen + 1;
+                                coords[0] = Rules.Boardrows - 1 - selectedShip.Length + 1;
                             }
                             else
                             {
@@ -538,7 +517,7 @@ namespace GameUI
                         {
                             if (coords[1] == 0)
                             {
-                                coords[1] = (Rules.Boardcolumns - 1) - shipLen + 1;
+                                coords[1] = (Rules.Boardcolumns - 1) - selectedShip.Length + 1;
                             }
                             else
                             {
@@ -562,18 +541,23 @@ namespace GameUI
                     case ConsoleKey.Enter:
                         if (shipcolor == ConsoleColor.Green)
                         {
-                            if (shipLen == 4 && shipsList[0] == 0 || shipLen == 3 && shipsList[1] == 0
-                                                                  || shipLen == 2 && shipsList[2] == 0 || shipLen == 1 && shipsList[3] == 0)
+//                            if (shipLen == 4 && shipsList[0] == 0 || shipLen == 3 && shipsList[1] == 0
+//                                                                  || shipLen == 2 && shipsList[2] == 0 || shipLen == 1 && shipsList[3] == 0)
+//                            {
+//                                errorMessage = "You are out of these ships!";
+//                                enough = false;
+//                                shipcolor = ConsoleColor.Red;
+//                                continue;
+//                            }
+                            AI.SetPlace(board,coords[0],coords[1],selectedShip.Length,rotation);
+                            player.Ships.Remove(selectedShip);
+                            if (player.Ships.Count != 0)
                             {
-                                errorMessage = "You are out of these ships!";
-                                enough = false;
-                                shipcolor = ConsoleColor.Red;
-                                continue;
+                                selectedShip = player.Ships[0];
                             }
-                            Console.WriteLine("ENTER");
-                            AI.SetPlace(board,coords[0],coords[1],shipLen,rotation);
-                            if(shipLen == 1){shipsList[3]--;}if(shipLen == 2){shipsList[2]--;}
-                            if(shipLen==3){shipsList[1]--;}if(shipLen==4){shipsList[0]--;}
+                            
+//                            if(shipLen == 1){shipsList[3]--;}if(shipLen == 2){shipsList[2]--;}
+//                            if(shipLen==3){shipsList[1]--;}if(shipLen==4){shipsList[0]--;}
                         }
                         break;
                     case ConsoleKey.X:
@@ -587,6 +571,15 @@ namespace GameUI
                         else
                         {
                             shipLen = 4;
+                        }
+
+                        if (player.Ships.IndexOf(selectedShip) == player.Ships.Count - 1)
+                        {
+                            selectedShip = player.Ships[0];
+                        }
+                        else
+                        {
+                            selectedShip = player.Ships[player.Ships.IndexOf(selectedShip) + 1];
                         }
                         break;
                     case ConsoleKey.D2://rotate
@@ -606,11 +599,9 @@ namespace GameUI
                             {
                                 board.Board[point[0]][point[1]] = BoardSquareState.Empty;
                             }
-                            if (shiptoremove.Length == 4)
-                            {
-                                shipsList[0]++;
-                            }
+                            player.Ships.Add(shiptoremove);
                             board.Ships.Remove(shiptoremove);
+                            selectedShip = shiptoremove;
                         }
                         catch (Exception e)
                         {
@@ -618,7 +609,7 @@ namespace GameUI
                         }
                         break;
                     case ConsoleKey.D4:
-                        AI.AIPlacing(shipsList, board);
+                        AI.AIPlacing(player.Ships, board);
                         break;
                 }
 
@@ -628,7 +619,7 @@ namespace GameUI
                     {
                         coords[0] = 0;
                     }
-                    if (coords[1] > (Rules.Boardcolumns - 1) - shipLen + 1)
+                    if (coords[1] > (Rules.Boardcolumns - 1) - selectedShip.Length + 1)
                     {
                         coords[1] = 0;
                     }
@@ -636,7 +627,7 @@ namespace GameUI
 
                 if (rotation)
                 {
-                    if (coords[0] > (Rules.Boardrows - 1) - shipLen + 1)
+                    if (coords[0] > (Rules.Boardrows - 1) - selectedShip.Length + 1)
                     {
                         coords[0] = 0;
                     }
@@ -645,7 +636,7 @@ namespace GameUI
                         coords[1] = 0;
                     }
                 }
-                if (AI.CheckPlace(board, coords[0], coords[1], shipLen, rotation))
+                if (AI.CheckPlace(board, coords[0], coords[1], selectedShip.Length, rotation))
                 {
                     shipcolor = ConsoleColor.Green;
                 }
@@ -653,17 +644,9 @@ namespace GameUI
                 {
                     shipcolor = ConsoleColor.Red;
                 }
-                if (shipLen == 4 && shipsList[0] == 0 || shipLen == 3 && shipsList[1] == 0
-                                                      || shipLen == 2 && shipsList[2] == 0 || shipLen == 1 && shipsList[3] == 0)
-                {
-                    errorMessage = "You are out of these ships!";
-                    enough = false;
-                    shipcolor = ConsoleColor.Red;
-                }
-
-                var menu = DrawSwitcher(shipLen, shipsList, player, rotation, errorMessage);
+                var menu = DrawSwitcher(player, rotation, errorMessage, selectedShip);
                 
-                DrawPlacing(player,board,shipLen,rotation,coords,shipcolor, menu);
+                DrawPlacing(player,board,selectedShip.Length,rotation,coords,shipcolor, menu);
             }
 
             if (!Abort)
