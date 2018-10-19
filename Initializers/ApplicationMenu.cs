@@ -99,7 +99,7 @@ namespace Initializers
                     LongDescription = "Ships",
                     ShortcutDescription = "4",
                     Shortcuts = new List<string>(){"4"},
-                    CommandToExecute = Rules.SetShips,
+                    //CommandToExecute = Rules.SetShips,
                 },
             }
         };

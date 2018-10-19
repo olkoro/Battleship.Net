@@ -23,6 +23,19 @@ namespace Domain
             "N",
             "O",
             "P",
+            "R",
+            "S",
+            "T",
+            "Q",
+            "R",
+            "S",
+            "T",
+            "U",
+            "V",
+            "W",
+            "X",
+            "Y",
+            "Z"
         });
         public List<List<BoardSquareState>> Board { get; set; } = new List<List<BoardSquareState>>();
         public List<Ship> Ships { get; set; } = new List<Ship>();

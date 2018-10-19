@@ -29,18 +29,19 @@ namespace Initializers
             {
                 new MenuElement()
                 {
-                    Title = "Yes",
+                    Title = "Yeah",
                     Method = Rules.SetTouchTrue,
                     GoBackAfter = true,
                 },
                 new MenuElement()
                 {
-                    Title = "No",
+                    Title = "Nah",
                     Method = Rules.SetTouchFalse,
                     GoBackAfter = true,
                 },
             }
         };
+        
         public static MenuUI RuleMenu = new MenuUI()
         {
             Title = "Rules menu: Battleships",
@@ -64,6 +65,7 @@ namespace Initializers
                 new MenuElement()
                 {
                     Title = "Ships",
+                    Method = Rules.SetShips,
                 },
             }
         };

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Text;
 
 namespace Domain
 {
@@ -18,6 +19,16 @@ namespace Domain
         public void SetHealth(int health)
         {
             Health = health;
+        }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < Length; i++)
+            {
+                sb.Append("+ ");
+            }
+            return sb.ToString();
         }
     }
 }

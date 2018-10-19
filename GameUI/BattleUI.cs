@@ -17,6 +17,7 @@ namespace GameUI
     {   
         //settings
         // -------------
+        public static bool Abort;
         static BattleUI()
         {
             
@@ -31,6 +32,7 @@ namespace GameUI
         }
         public static void RunGame()
         {
+            Abort = false;
             var Board1 = new GameBoard(Rules.Boardrows, Rules.Boardcolumns);
             var Board2 = new GameBoard(Rules.Boardrows,Rules.Boardcolumns);
             var Map1 = new GameBoard(Rules.Boardrows,Rules.Boardcolumns);
@@ -45,17 +47,21 @@ namespace GameUI
             AI.AIPlacing(shipsList,Player2.Board);
             //game starts
             Console.Clear();
-            Console.WriteLine("\n\n\n\n\n\n           THE GAME IS STARTED\n           Press any key to continue");
-            switch (Console.ReadKey(true).Key)
-            {    
-                case ConsoleKey.Enter:
-                    break;
+            if (!Abort)
+            {
+                Console.WriteLine("\n\n\n\n\n\n           THE GAME IS STARTED\n           Press any key to continue");
+                switch (Console.ReadKey(true).Key)
+                {    
+                    case ConsoleKey.Enter:
+                        break;
+                }
             }
             var coords = new int[2]{0,0};
             var status = "|";
             var turn = 0;
             while (true)//cycle
             {
+                if(Abort){break;}
                 if (turn == 0)
                 {
                     Draw(Player1,Board1.GetBoardString(), Map1.GetBoardString());
@@ -107,13 +113,14 @@ namespace GameUI
                         break;
                 }
             }
-            var res = ApplicationMenu.GameMenu.RunMenu();
+//            var res = ApplicationMenu.GameMenu.RunMenu();
             
 //            return res;
         }
         
         public static void RunPvPGame()
         {
+            Abort = false;
             var Board1 = new GameBoard(Rules.Boardrows,Rules.Boardcolumns);
             var Board2 = new GameBoard(Rules.Boardrows,Rules.Boardcolumns);
             var Map1 = new GameBoard(Rules.Boardrows,Rules.Boardcolumns);
@@ -137,6 +144,7 @@ namespace GameUI
             var turn = 0;
             while (true)//cycle
             {
+                if(Abort){break;}
                 if (turn == 0)
                 {
                     Draw(Player1,Board1.GetBoardString(), Map1.GetBoardString());
@@ -206,7 +214,7 @@ namespace GameUI
                 }
             }
 
-            var res = ApplicationMenu.GameMenu.RunMenu();
+            //var res = ApplicationMenu.GameMenu.RunMenu();
             
             //return res;
         }
@@ -384,6 +392,9 @@ namespace GameUI
                         break;
                     case ConsoleKey.Enter:
                         return new int[] {(y - 2)/2, (x -2)/4};
+                    case ConsoleKey.X:
+                        Abort = true;
+                        return new int[] {(y - 2)/2, (x -2)/4};
                 }
             }
         }
@@ -407,7 +418,7 @@ namespace GameUI
             {
                 message.Append("-> + + + + X"+shipsList[0]+"\n   + + + X" + shipsList[1]+"\n   + + X"+ shipsList[2]+"\n   + X"+shipsList[3]);
             }
-            message.Append("\n   --------------\n" + "   1)Switch a ship\n   2)Rotate\n   3)Remove a ship\n   4)Random(BETA)\n   --------------");
+            message.Append("\n   --------------\n" + "   1)Switch a ship\n   2)Rotate\n   3)Remove a ship\n   4)Random(BETA)\n   X)Back to menu\n   --------------");
             if (rotation == false)
             {
                 message.Append("\n   Rotation:\n   ");
@@ -481,6 +492,10 @@ namespace GameUI
             DrawPlacing(player,board,shipLen,rotation,coords,shipcolor, DrawSwitcher(shipLen, shipsList, player, rotation, errorMessage));
             while (shipsAmount>0)
             {
+                if (Abort)
+                {
+                    break;
+                }
                 shipsAmount = shipsList[0] + shipsList[1] + shipsList[2] + shipsList[3];
                 if (shipsAmount == 0)
                 {break;
@@ -562,7 +577,7 @@ namespace GameUI
                         }
                         break;
                     case ConsoleKey.X:
-                        done = true;
+                        Abort = true;
                         break;
                     case ConsoleKey.D1://switch
                         if (shipLen > 1)
@@ -650,17 +665,20 @@ namespace GameUI
                 
                 DrawPlacing(player,board,shipLen,rotation,coords,shipcolor, menu);
             }
-            var sb = new StringBuilder();
-            sb.Append("PRESS ANY KEY TO CONFIRM");
-            Draw(player ,board.GetBoardString(), sb.ToString());
-            switch (Console.ReadKey(true).Key)
+
+            if (!Abort)
             {
-                case ConsoleKey.Enter:
-                    break;
-                case ConsoleKey.X:
-                    break;
+                var sb = new StringBuilder();
+                sb.Append("PRESS ANY KEY TO CONFIRM");
+                Draw(player, board.GetBoardString(), sb.ToString());
+                switch (Console.ReadKey(true).Key)
+                {
+                    case ConsoleKey.Enter:
+                        break;
+                    case ConsoleKey.X:
+                        break;
+                }
             }
-            
         }
 
         public static void DrawPlacing(Player player, GameBoard board, int shipLen,

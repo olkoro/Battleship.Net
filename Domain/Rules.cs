@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace Domain
 {
@@ -7,6 +8,49 @@ namespace Domain
         public static int Boardrows = 10;
         public static int Boardcolumns = 10;
         public static bool CanTouch = false;
+        public static List<Ship> Ships = new List<Ship>()
+        {
+            new Ship(4)
+            {
+                
+            },
+            new Ship(3)
+            {
+                
+            },
+            new Ship(3)
+            {
+                
+            },
+            new Ship(2)
+            {
+                
+            },
+            new Ship(2)
+            {
+                
+            },
+            new Ship(2)
+            {
+                
+            },
+            new Ship(1)
+            {
+                
+            },
+            new Ship(1)
+            {
+                
+            },
+            new Ship(1)
+            {
+                
+            },
+            new Ship(1)
+            {
+                
+            },
+        };
 
         public Rules()
         {
@@ -44,79 +88,74 @@ namespace Domain
             Boardcolumns = Int32.Parse(input);
         }
 
-        public static void SetTouch()
+        public static void SetShips()
         {
-            Console.Clear();
-            var done = false;
-            Console.WriteLine("Can they touch?");
-            bool selected = true;
-            
-            Console.BackgroundColor = ConsoleColor.Blue;
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.Write("YES");
-            Console.ResetColor();
-            Console.Write("\n");
-            Console.WriteLine("NO");
-            
+            var index = 0;
+            bool done = false;
+            DrawShips(index,Ships);
             while (!done)
             {
                 switch (Console.ReadKey(true).Key)
                 {
                     case ConsoleKey.DownArrow:
-                        if (selected)
-                        {
-                            selected = false;
-                        }
-                        else
-                        {
-                            selected = true;
-                        }
-                        break;
-                    case ConsoleKey.Enter:
-                        done = true;
+                        index++;
                         break;
                     case ConsoleKey.UpArrow:
-                        if (selected)
-                        {
-                            selected = false;
-                        }
-                        else
-                        {
-                            selected = true;
-                        }
+                        index--;
+                        break;
+                    case ConsoleKey.Enter:
+                        ShipSettings(Ships[index]);
+                        break;
+                    case ConsoleKey.X:
+                        done = true;
+                        break;
+                    case ConsoleKey.RightArrow:
+                        Ships[index].Length++;
+                        Ships[index].Health++;
+                        break;
+                    case ConsoleKey.LeftArrow:
+                        Ships[index].Length--;
+                        Ships[index].Health--;
                         break;
                 }
-                Console.Clear();
-                Console.WriteLine("Can they touch?");
-                if (selected)
+                if (index < 0)
                 {
-                    Console.BackgroundColor = ConsoleColor.Blue;
+                    index = Ships.Count - 1;
+                }
+
+                if (index > Ships.Count - 1)
+                {
+                    index = 0;
+                }
+                DrawShips(index,Ships);
+            }
+        }
+
+        private static void ShipSettings(Ship ship)
+        {
+            
+        }
+
+        private static void DrawShips(int index, List<Ship> ships)
+        {
+            Console.Clear();
+            for (int i = 0; i < ships.Count; i++)
+            {
+                if (i == index)
+                {
                     Console.ForegroundColor = ConsoleColor.White;
-                    Console.Write("YES");
+                    Console.BackgroundColor = ConsoleColor.Blue;
+                    Console.Write(" ");
+                    Console.Write(ships[i]);
+                    Console.Write(" ");
                     Console.ResetColor();
                     Console.Write("\n");
-                    Console.WriteLine("NO");
                 }
                 else
                 {
-                    Console.WriteLine("YES");
-                    Console.BackgroundColor = ConsoleColor.Blue;
-                    Console.ForegroundColor = ConsoleColor.White;
-
-                    Console.Write("NO");
-                    Console.ResetColor();
-                    Console.Write("\n");
-
+                    Console.WriteLine(" "+ships[i]);
                 }
             }
-
-            CanTouch = selected;
-        }
-
-        public static string SetShips()
-        {
-            
-            return "return";
         }
     }
 }
