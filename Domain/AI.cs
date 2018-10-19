@@ -148,78 +148,81 @@ namespace Domain
                     map.Board[point[0]][point[1]] = BoardSquareState.Dead;
                 }
 
-                foreach (var point in ship.Locations)//marking misses
+                if (Rules.CanTouch == false)
                 {
-                    try
+                    foreach (var point in ship.Locations)//marking misses
                     {
-                        if (map.Board[point[0] - 1][point[1]] != BoardSquareState.Dead) //up
+                        try
                         {
-                            map.Board[point[0] - 1][point[1]] = BoardSquareState.Miss;
+                            if (map.Board[point[0] - 1][point[1]] != BoardSquareState.Dead) //up
+                            {
+                                map.Board[point[0] - 1][point[1]] = BoardSquareState.Miss;
+                            }
                         }
-                    }
-                    catch
-                    {
-                        
-                    }try
-                    {
-
-                        if (map.Board[point[0] + 1][point[1]] != BoardSquareState.Dead) //down
+                        catch
                         {
-                            map.Board[point[0] + 1][point[1]] = BoardSquareState.Miss;
-                        }
-                    }
-                    catch
-                    {
-                        
-                    }
-                    try
-                    { 
-
-                        if (map.Board[point[0]][point[1] + 1] != BoardSquareState.Dead) //right
+                            
+                        }try
                         {
-                            map.Board[point[0]][point[1] + 1] = BoardSquareState.Miss;
+    
+                            if (map.Board[point[0] + 1][point[1]] != BoardSquareState.Dead) //down
+                            {
+                                map.Board[point[0] + 1][point[1]] = BoardSquareState.Miss;
+                            }
                         }
-                    }
-                    catch
-                    {
-                        
-                    }
-                    try
-                    {
-                        if (map.Board[point[0]][point[1] - 1] != BoardSquareState.Dead) //right
+                        catch
                         {
-                            map.Board[point[0]][point[1] - 1] = BoardSquareState.Miss;
+                            
                         }
+                        try
+                        { 
+    
+                            if (map.Board[point[0]][point[1] + 1] != BoardSquareState.Dead) //right
+                            {
+                                map.Board[point[0]][point[1] + 1] = BoardSquareState.Miss;
+                            }
+                        }
+                        catch
+                        {
+                            
+                        }
+                        try
+                        {
+                            if (map.Board[point[0]][point[1] - 1] != BoardSquareState.Dead) //right
+                            {
+                                map.Board[point[0]][point[1] - 1] = BoardSquareState.Miss;
+                            }
+                        }
+                        catch
+                        {
+                            
+                        }try{
+                            map.Board[point[0] - 1][point[1] - 1] = BoardSquareState.Miss; //topright
+                        }
+                        catch
+                        {
+                            
+                        }try{
+                            map.Board[point[0] + 1][point[1] - 1] = BoardSquareState.Miss; //botright
+                        }
+                        catch
+                        {
+                            
+                        }try{
+                            map.Board[point[0] - 1][point[1] + 1] = BoardSquareState.Miss; //topleft
+                        }
+                        catch
+                        {
+                            
+                        }try{
+                            map.Board[point[0] + 1][point[1] + 1] = BoardSquareState.Miss; //botleft
+                        }
+                        catch
+                        {
+                            
+                        }
+    
                     }
-                    catch
-                    {
-                        
-                    }try{
-                        map.Board[point[0] - 1][point[1] - 1] = BoardSquareState.Miss; //topright
-                    }
-                    catch
-                    {
-                        
-                    }try{
-                        map.Board[point[0] + 1][point[1] - 1] = BoardSquareState.Miss; //botright
-                    }
-                    catch
-                    {
-                        
-                    }try{
-                        map.Board[point[0] - 1][point[1] + 1] = BoardSquareState.Miss; //topleft
-                    }
-                    catch
-                    {
-                        
-                    }try{
-                        map.Board[point[0] + 1][point[1] + 1] = BoardSquareState.Miss; //botleft
-                    }
-                    catch
-                    {
-                        
-                    }
-
                 }
 
                 board.Ships.Remove(ship);

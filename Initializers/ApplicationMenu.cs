@@ -56,14 +56,14 @@ namespace Initializers
                     LongDescription = "yeas",
                     ShortcutDescription = "1",
                     Shortcuts = new List<string>(){"1"},
-                    CommandToExecute = Rules.SetTouchFalse,
+                    //CommandToExecute = Rules.SetTouchFalse,
                 },
                 new MenuItem()
                 {
                     LongDescription = "nah",
                     ShortcutDescription = "2",
                     Shortcuts = new List<string>(){"2"},
-                    CommandToExecute = Rules.SetTouchTrue,
+                    //CommandToExecute = Rules.SetTouchTrue,
                 },
             }
         };
@@ -78,21 +78,28 @@ namespace Initializers
                     LongDescription = "Rows",
                     ShortcutDescription = "1",
                     Shortcuts = new List<string>(){"1"},
-                    CommandToExecute = Rules.SetRows,
+                    //CommandToExecute = Rules.SetRows,
                 },
                 new MenuItem()
                 {
                     LongDescription = "Columns",
                     ShortcutDescription = "2",
                     Shortcuts = new List<string>(){"2"},
-                    CommandToExecute = Rules.SetColumns,
+                    //CommandToExecute = Rules.SetColumns,
                 },
                 new MenuItem()
                 {
                     LongDescription = "Can ships touch each other",
                     ShortcutDescription = "3",
                     Shortcuts = new List<string>(){"3"},
-                    CommandToExecute = Rules.SetTouch,
+                    //CommandToExecute = Rules.SetTouch,
+                },
+                new MenuItem()
+                {
+                    LongDescription = "Ships",
+                    ShortcutDescription = "4",
+                    Shortcuts = new List<string>(){"4"},
+                    CommandToExecute = Rules.SetShips,
                 },
             }
         };

@@ -29,7 +29,7 @@ namespace GameUI
 
             
         }
-        public static string RunGame()
+        public static void RunGame()
         {
             var Board1 = new GameBoard(Rules.Boardrows, Rules.Boardcolumns);
             var Board2 = new GameBoard(Rules.Boardrows,Rules.Boardcolumns);
@@ -109,10 +109,10 @@ namespace GameUI
             }
             var res = ApplicationMenu.GameMenu.RunMenu();
             
-            return res;
+//            return res;
         }
         
-        public static string RunPvPGame()
+        public static void RunPvPGame()
         {
             var Board1 = new GameBoard(Rules.Boardrows,Rules.Boardcolumns);
             var Board2 = new GameBoard(Rules.Boardrows,Rules.Boardcolumns);
@@ -208,7 +208,7 @@ namespace GameUI
 
             var res = ApplicationMenu.GameMenu.RunMenu();
             
-            return res;
+            //return res;
         }
         
         public static void Draw(Player player,string left,string right, string message = "|", int[] shot = null)

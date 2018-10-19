@@ -20,35 +20,31 @@ namespace Domain
             CanTouch = touch;
         }
 
-        public static string SetTouchTrue()
+        public static void SetTouchTrue()
         {
             CanTouch = true;
-            return "return";
         }
-        public static string SetTouchFalse()
+        public static void SetTouchFalse()
         {
             CanTouch = false;
-            return "return";
         }
 
-        public static string SetRows()
+        public static void SetRows()
         {
             Console.Clear();
             Console.WriteLine("Input how many rows you want:");
             var input = Console.ReadLine().ToUpper().Trim();
             Boardrows = Int32.Parse(input);
-            return "return";
         }
-        public static string SetColumns()
+        public static void SetColumns()
         {
             Console.Clear();//j
             Console.WriteLine("Input how many columns you want:");
             var input = Console.ReadLine().ToUpper().Trim();
             Boardcolumns = Int32.Parse(input);
-            return "return";
         }
 
-        public static string SetTouch()
+        public static void SetTouch()
         {
             Console.Clear();
             var done = false;
@@ -115,6 +111,11 @@ namespace Domain
             }
 
             CanTouch = selected;
+        }
+
+        public static string SetShips()
+        {
+            
             return "return";
         }
     }

@@ -21,16 +21,23 @@ namespace ConsoleApp
             // Initialize extension method is added in DbInitializer class
             dbContext.Initialize();
 
-//            var gameUi = new ConnectXUI();
-            var menuItemStartSP = ApplicationMenu.ModeMenu.MenuItems.First();
-            menuItemStartSP.CommandToExecute = BattleUI.RunGame;
+//            var menuItemStartSP = ApplicationMenu.ModeMenu.MenuItems.First();
+//            menuItemStartSP.CommandToExecute = BattleUI.RunGame;
+//            
+//            var menuItemStartMP = ApplicationMenu.ModeMenu.MenuItems.Last();
+//            menuItemStartMP.CommandToExecute = BattleUI.RunPvPGame;
+//            
+//            ApplicationMenu.MainMenu.RunMenu();
             
-            var menuItemStartMP = ApplicationMenu.ModeMenu.MenuItems.Last();
-            menuItemStartMP.CommandToExecute = BattleUI.RunPvPGame;
+            var menuItemStartMP = TheMenu.StartMenu.MenuElements.First();
+            menuItemStartMP.Method = BattleUI.RunPvPGame;
             
-            ApplicationMenu.MainMenu.RunMenu();
-            
-            
+            var menuItemStartSP = TheMenu.StartMenu.MenuElements.Last();
+            menuItemStartSP.Method = BattleUI.RunGame;
+
+            TheMenu.MainMenu.Menu();
+
+
         }
 
 
