@@ -227,9 +227,7 @@ namespace GameUI
             Console.Clear();
             //Console.WriteLine(MyBoard.GetBoardString());
 
-            Console.WriteLine(
-                "-------------------------------------------------" + player +
-                "--------------------------------------------------------");
+            Console.WriteLine(GetHeader(player));
             
             var leftLines = Regex.Split(left, "\r\n|\r|\n");
             var rightLines = Regex.Split(right, "\r\n|\r|\n");
@@ -248,11 +246,6 @@ namespace GameUI
             {
                 Console.WriteLine(leftLines[i] + "          |          ");
             }
-
-//            Console.WriteLine(
-//                "\n------------------------------------------------" +
-//                "---------------------------------------------------------");
-//            Console.WriteLine("X - Back, S - Save");
         }
         
         public static int[] Target(string right, Player player, int[] coords = null,bool targetRight = false)
@@ -284,9 +277,7 @@ namespace GameUI
             while (true)
             {
                 Console.Clear();
-                Console.WriteLine(
-                    "-------------------------------------------------" + player +
-                    "--------------------------------------------------------");
+                Console.WriteLine(GetHeader(player));
                 if (coords[0] > Rules.Boardrows - 1)
                 {
                     coords[0] = 0;
@@ -307,6 +298,123 @@ namespace GameUI
                     coords[1] = Rules.Boardcolumns - 1;
                     x = (Rules.Boardcolumns - 1) * 4 + 3; //39
                 }
+                DrawTarget(right,player,coords,targetRight);
+//                if (targetRight)
+//                {
+//
+//                    for (int i = 0; i < leftlines.Length; i++)
+//                    {
+//                        if (coords[0] * 2 + 2 == i)
+//                        {
+//                            Console.Write(leftlines[i]);
+//                            Console.Write("          |          ");
+//                            Console.BackgroundColor = TargetBG;
+//                            Console.ForegroundColor =
+//                                TargetFG;
+//                            Console.Write(rightlines[i]);
+//                            Console.ResetColor();
+//                            Console.Write("\n");
+//
+//                        }
+//                        else
+//                        {
+//                            Console.Write(leftlines[i]);
+//                            Console.Write("          |          ");
+//                            Console.Write(rightlines[i].Substring(0, (coords[1])* 4 +3));
+//                            Console.ForegroundColor =
+//                                TargetFG;
+//                            Console.BackgroundColor = TargetBG;
+//                            Console.Write(rightlines[i].Substring((coords[1])* 4 +3, 3));
+//                            Console.ResetColor();
+//                            Console.Write(rightlines[i].Substring(x + 3, rightlines[i].Length - x - 3));
+//                            Console.Write("\n");
+//                            //Console.WriteLine(lines[i]);
+//                        }
+//                    }
+//                }
+//                else
+//                {
+//                    TargetBG = ConsoleColor.Blue;
+//                    TargetFG = ConsoleColor.Black;
+//                    for (int i = 0; i < leftlines.Length; i++)
+//                    {
+//                        if (i == y)
+//                        {
+//                            Console.BackgroundColor = TargetBG;
+//                            Console.ForegroundColor =
+//                                TargetFG;
+//                            Console.Write(leftlines[i]);
+//                            Console.ResetColor();
+//                            Console.Write("          |          ");
+//                            Console.Write(rightlines[i]);
+//                            Console.Write("\n");
+//
+//                        }
+//                        else
+//                        {
+//                            Console.Write(leftlines[i].Substring(0, x));
+//                            Console.ForegroundColor =
+//                                TargetFG;
+//                            Console.BackgroundColor = TargetBG;
+//                            Console.Write(leftlines[i].Substring(x, 3));
+//                            Console.ResetColor();
+//                            Console.Write(leftlines[i].Substring(x + 3, leftlines[i].Length - x - 3));
+//                            Console.Write("          |          ");
+//                            Console.Write(rightlines[i]);
+//                            Console.Write("\n");
+//                            //Console.WriteLine(lines[i]);
+//                        }
+//                    }
+//                }
+
+                switch (Console.ReadKey(true).Key)
+                {
+                    case ConsoleKey.DownArrow:
+                        y = y + 2;
+                        coords[0]++;
+                        break;
+                    case ConsoleKey.UpArrow:
+                        y = y - 2;
+                        coords[0]--;
+                        break;
+                    case ConsoleKey.RightArrow:
+                        x = x + 4;
+                        coords[1]++;
+                        break;
+                    case ConsoleKey.LeftArrow:
+                        x = x - 4;
+                        coords[1]--;
+                        break;
+                    case ConsoleKey.Enter:
+                        return new int[] {(y - 2)/2, (x -2)/4};
+                    case ConsoleKey.X:
+                        Abort = true;
+                        return new int[] {(y - 2)/2, (x -2)/4};
+                }
+            }
+        }
+        public static void DrawTarget(string right, Player player, int[] coords,bool targetRight = false)
+        {
+            var board = player.Board;
+            var x = (coords[1])* 4 +3 ;
+            var y = (coords[0])* 2 + 2;
+            var TargetBG = ConsoleColor.Red;
+            var TargetFG = ConsoleColor.Black;
+            var leftlines = Regex.Split(board.GetBoardString(), "\r\n|\r|\n");
+            var rightlines = new string[leftlines.Length];
+            var rightlinessplit = Regex.Split(right, "\r\n|\r|\n");
+            for (int i = 0; i < leftlines.Length; i++)
+            {
+                if (i<rightlinessplit.Length)
+                {
+                    rightlines[i] = rightlinessplit[i];
+                }
+                else
+                {
+                    rightlines[i] = " ";
+                }
+                
+            }
                 if (targetRight)
                 {
 
@@ -374,38 +482,12 @@ namespace GameUI
                         }
                     }
                 }
-
-                switch (Console.ReadKey(true).Key)
-                {
-                    case ConsoleKey.DownArrow:
-                        y = y + 2;
-                        coords[0]++;
-                        break;
-                    case ConsoleKey.UpArrow:
-                        y = y - 2;
-                        coords[0]--;
-                        break;
-                    case ConsoleKey.RightArrow:
-                        x = x + 4;
-                        coords[1]++;
-                        break;
-                    case ConsoleKey.LeftArrow:
-                        x = x - 4;
-                        coords[1]--;
-                        break;
-                    case ConsoleKey.Enter:
-                        return new int[] {(y - 2)/2, (x -2)/4};
-                    case ConsoleKey.X:
-                        Abort = true;
-                        return new int[] {(y - 2)/2, (x -2)/4};
-                }
-            }
         }
 
-        public static string DrawSwitcher(Player player, bool rotation, string errorMessage, Ship selectedShip)
+        public static string DrawSwitcher(Player player, Ship selectedShip)
         {   
             StringBuilder message = new StringBuilder();
-            message.Append("   1)Switch a Ship\n   2)Rotate\n   3)Remove a Ship\n   4)Random(BETA)\n   X)Back to Menu\n" +
+            message.Append("   1)Switch a Ship\n   2)Rotate\n   3)Remove a Ship\n   4)Random(BETA)\n" +
                            "   --------------\n   Available Ships:\n");
             for (int i = 0; i < player.Ships.Count; i++)
             {
@@ -417,30 +499,16 @@ namespace GameUI
             }
 
             message.Append("   --------------\n");
-            
-            if (errorMessage != "")
-            {
-                message.Append("\n\n" + "   +--" + new string ('-', errorMessage.Length) + "--+\n"
-                               + "   |  " + errorMessage + "  |\n"+"   +--"+ new string ('-', errorMessage.Length)+"--+");
-                errorMessage = "";
-            }
+
             return message.ToString();
         }
 
         public static void FullscreenMessage(string message)
         {
             Console.Clear();
-            Console.Write("+");
-            Console.Write(new string ('-', message.Length + 4));
-            
-            Console.Write("+\n");
-            Console.Write("|  ");
-            Console.Write(message);
-            Console.Write("  |\n");
-            
-            Console.Write("+");
-            Console.Write(new string ('-', message.Length + 4));
-            Console.Write("+\n");
+            Console.Write("+"+new string ('-', message.Length + 4));
+            Console.Write("+\n|  "+message+"  |\n");
+            Console.Write("+"+new string ('-', message.Length + 4)+"+\n");
             switch (Console.ReadKey(true).Key)
             {
                 case ConsoleKey.Enter:
@@ -457,18 +525,10 @@ namespace GameUI
                 coords = new[] {0, 0};
             }
             bool rotation = false;
-            var shipLen = 4;
-            
             var shipsAmount = player.Ships.Count;
-            var errorMessage = "";
-            Console.WriteLine("BETA");
-            Console.WriteLine("Press any key to continue");
-            string right = "   j\nj\n  \n\n";
             ConsoleColor shipcolor = ConsoleColor.Green;
-            bool done = false;
-            bool enough = true;
             Ship selectedShip = player.Ships[0];
-            DrawPlacing(player,board,selectedShip.Length,rotation,coords,shipcolor, DrawSwitcher(player, rotation, errorMessage, selectedShip));
+            DrawPlacing(player,selectedShip.Length,rotation,coords,shipcolor, DrawSwitcher(player, selectedShip));
             while (shipsAmount>0)
             {
                 if (Abort)
@@ -541,14 +601,6 @@ namespace GameUI
                     case ConsoleKey.Enter:
                         if (shipcolor == ConsoleColor.Green)
                         {
-//                            if (shipLen == 4 && shipsList[0] == 0 || shipLen == 3 && shipsList[1] == 0
-//                                                                  || shipLen == 2 && shipsList[2] == 0 || shipLen == 1 && shipsList[3] == 0)
-//                            {
-//                                errorMessage = "You are out of these ships!";
-//                                enough = false;
-//                                shipcolor = ConsoleColor.Red;
-//                                continue;
-//                            }
                             AI.SetPlace(board,coords[0],coords[1],selectedShip.Length,rotation);
                             player.Ships.Remove(selectedShip);
                             if (player.Ships.Count != 0)
@@ -556,23 +608,12 @@ namespace GameUI
                                 selectedShip = player.Ships[0];
                             }
                             
-//                            if(shipLen == 1){shipsList[3]--;}if(shipLen == 2){shipsList[2]--;}
-//                            if(shipLen==3){shipsList[1]--;}if(shipLen==4){shipsList[0]--;}
                         }
                         break;
                     case ConsoleKey.X:
                         Abort = true;
                         break;
                     case ConsoleKey.D1://switch
-                        if (shipLen > 1)
-                        {
-                            shipLen--;
-                        }
-                        else
-                        {
-                            shipLen = 4;
-                        }
-
                         if (player.Ships.IndexOf(selectedShip) == player.Ships.Count - 1)
                         {
                             selectedShip = player.Ships[0];
@@ -603,7 +644,7 @@ namespace GameUI
                             board.Ships.Remove(shiptoremove);
                             selectedShip = shiptoremove;
                         }
-                        catch (Exception e)
+                        catch (Exception)
                         {
                             break;
                         }
@@ -644,9 +685,9 @@ namespace GameUI
                 {
                     shipcolor = ConsoleColor.Red;
                 }
-                var menu = DrawSwitcher(player, rotation, errorMessage, selectedShip);
+                var menu = DrawSwitcher(player, selectedShip);
                 
-                DrawPlacing(player,board,selectedShip.Length,rotation,coords,shipcolor, menu);
+                DrawPlacing(player,selectedShip.Length,rotation,coords,shipcolor, menu);
             }
 
             if (!Abort)
@@ -664,12 +705,12 @@ namespace GameUI
             }
         }
 
-        public static void DrawPlacing(Player player, GameBoard board, int shipLen,
+        public static void DrawPlacing(Player player, int shipLen,
             bool rotation, int[] coords, ConsoleColor shipcolor, string right)
         {
             Console.Clear();
             GameBoard previewBoard = new GameBoard(Rules.Boardrows,Rules.Boardcolumns);
-            previewBoard = GameBoard.CloneBoard(board);
+            previewBoard = GameBoard.CloneBoard(player.Board);
             AI.SetPlace(previewBoard,coords[0],coords[1],shipLen,rotation);
             var lines = Regex.Split(previewBoard.GetBoardString(), "\r\n|\r|\n");
             var rightlines = new string[lines.Length];
@@ -686,9 +727,7 @@ namespace GameUI
                 }
             
             }
-            Console.WriteLine(
-                "-------------------------------------------------" + player +
-                "--------------------------------------------------------");
+            Console.WriteLine(GetHeader(player));
             bool drawship = false;
             if (rotation)
             {
@@ -759,6 +798,19 @@ namespace GameUI
                     }
                 }
             }
+            Console.WriteLine(GetFooter(player));
+        }
+
+        public static string GetHeader(Player player)
+        {
+            
+            return new string('-',Rules.Boardcolumns *5 + 3 - player.ToString().Length/2) + player +
+                   new string('-',Rules.Boardcolumns *5 + 3  - player.ToString().Length/2);
+        }
+        public static string GetFooter(Player player)
+        {
+
+            return new string('-',Rules.Boardcolumns *10 + player.ToString().Length)+"\n   X - Back to Menu, S - Save";
         }
         
     }
