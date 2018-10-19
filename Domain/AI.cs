@@ -24,7 +24,7 @@ namespace Domain
             return coords;
         }
 
-        public static bool CheckPlace(GameBoard Board, int row,int column,int shipLen,bool rotation)
+        public static bool CheckPlace(GameBoard Board, int[] coords,int shipLen,bool rotation)
         {
             for (int i = 0; i < shipLen; i++) //checking if the ship itself will fit inside the area
             {
@@ -32,7 +32,7 @@ namespace Domain
                 {
                     try
                     {
-                        if (Board.Board[row + i][column] == BoardSquareState.Ship)
+                        if (Board.Board[coords[0] + i][coords[1]] == BoardSquareState.Ship)
                         {
                             return false;
                         }
@@ -46,7 +46,7 @@ namespace Domain
                 {
                     try
                     {
-                        if (Board.Board[row][column + i] == BoardSquareState.Ship)
+                        if (Board.Board[coords[0]][coords[1] + i] == BoardSquareState.Ship)
                         {
                             return false;
                         }
@@ -67,7 +67,7 @@ namespace Domain
                         for (int j = 0; j < 3; j++)
                             try
                             {
-                                if (Board.Board[row + i - 1][column + j - 1] == BoardSquareState.Ship)
+                                if (Board.Board[coords[0] + i - 1][coords[1] + j - 1] == BoardSquareState.Ship)
                                 {
                                     return false;
                                 }
@@ -81,7 +81,7 @@ namespace Domain
                         {
                             try
                             {
-                                if (Board.Board[row + j - 1][column + i - 1] == BoardSquareState.Ship)
+                                if (Board.Board[coords[0] + j - 1][coords[1] + i - 1] == BoardSquareState.Ship)
                                 {
                                     return false;
                                 }
@@ -96,44 +96,34 @@ namespace Domain
             return true;
         }
         
-        public static bool AIPlacing(List<Ship> shipsList,GameBoard Board){
-//            bool rotation = false;
-//            Random rnd = new Random();
-//            var shipsAmount = shipsList[0] + shipsList[1] + shipsList[2] + shipsList[3];
-//            var shipLen = 4;
-//            var tries = 0;
-//            var row = 0;
-//            var column = 0;
-//            while (shipsAmount>0)
-//            {
-//                if (shipLen == 4 && shipsList[0] == 0 || shipLen == 3 && shipsList[1] == 0
-//                                                      || shipLen == 2 && shipsList[2] == 0 || shipLen == 1 && shipsList[3] == 0)
-//                {
-//                    shipLen--;
-//                    continue;
-//                }
-//                bool available = AI.CheckPlace(Board,row,column,shipLen,rotation);
-//    
-//                if (available == true)
-//                {
-//                    SetPlace(Board,row,column,shipLen,rotation);
-//                    if(shipLen == 1){shipsList[3]--;}if(shipLen == 2){shipsList[2]--;}
-//                    if(shipLen==3){shipsList[1]--;}if(shipLen==4){shipsList[0]--;}
-//                }
-//                row = row + 2;
-//                if (tries == 5)
-//                {
-//                    column = column + 5;
-//                    row = 0;
-//                }
-//                tries++;
-//                shipsAmount = shipsList[0] + shipsList[1] + shipsList[2] + shipsList[3];
-//                if (tries > 50)
-//                {
-//                    return false;
-//                }
-//            }
-//
+        public static bool AIPlacing(List<Ship> ships,GameBoard board)
+        {
+            bool rotation = false;
+            int iterations = 0;
+            while (ships.Count > 0)
+            {
+                iterations++;
+                if (iterations > 200)
+                {
+                    return false;
+                }
+                for (int i = 0; i < ships.Count; i++)
+                {
+                    if (rotation)
+                    {
+                        rotation = false;
+                    }
+                    else
+                    {
+                        rotation = true;}
+                    var coords = randomCoords(board);
+                    if (CheckPlace(board, coords,ships[i].Length,rotation))
+                    {
+                        SetPlace(board,coords,ships[i].Length,rotation);
+                        ships.Remove(ships[i]);
+                    }
+                }
+            }
             return true;
         }
 
@@ -249,8 +239,10 @@ namespace Domain
             return null;
         }
         
-        public static void SetPlace(GameBoard board, int row,int column,int shipLen,bool rotation)
+        public static void SetPlace(GameBoard board, int[] coords,int shipLen,bool rotation)
         {
+            var row = coords[0];
+            var column = coords[1];
             var ship = new Ship(shipLen);
             for (int i = 0; i < shipLen; i++)
             {    

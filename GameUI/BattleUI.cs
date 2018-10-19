@@ -399,7 +399,6 @@ namespace GameUI
             var x = (coords[1])* 4 +3 ;
             var y = (coords[0])* 2 + 2;
             var TargetBG = ConsoleColor.Red;
-            var TargetFG = ConsoleColor.Black;
             var leftlines = Regex.Split(board.GetBoardString(), "\r\n|\r|\n");
             var rightlines = new string[leftlines.Length];
             var rightlinessplit = Regex.Split(right, "\r\n|\r|\n");
@@ -425,8 +424,6 @@ namespace GameUI
                             Console.Write(leftlines[i]);
                             Console.Write("          |          ");
                             Console.BackgroundColor = TargetBG;
-                            Console.ForegroundColor =
-                                TargetFG;
                             Console.Write(rightlines[i]);
                             Console.ResetColor();
                             Console.Write("\n");
@@ -437,8 +434,6 @@ namespace GameUI
                             Console.Write(leftlines[i]);
                             Console.Write("          |          ");
                             Console.Write(rightlines[i].Substring(0, (coords[1])* 4 +3));
-                            Console.ForegroundColor =
-                                TargetFG;
                             Console.BackgroundColor = TargetBG;
                             Console.Write(rightlines[i].Substring((coords[1])* 4 +3, 3));
                             Console.ResetColor();
@@ -451,14 +446,11 @@ namespace GameUI
                 else
                 {
                     TargetBG = ConsoleColor.Blue;
-                    TargetFG = ConsoleColor.Black;
                     for (int i = 0; i < leftlines.Length; i++)
                     {
                         if (i == y)
                         {
                             Console.BackgroundColor = TargetBG;
-                            Console.ForegroundColor =
-                                TargetFG;
                             Console.Write(leftlines[i]);
                             Console.ResetColor();
                             Console.Write("          |          ");
@@ -469,8 +461,6 @@ namespace GameUI
                         else
                         {
                             Console.Write(leftlines[i].Substring(0, x));
-                            Console.ForegroundColor =
-                                TargetFG;
                             Console.BackgroundColor = TargetBG;
                             Console.Write(leftlines[i].Substring(x, 3));
                             Console.ResetColor();
@@ -601,7 +591,7 @@ namespace GameUI
                     case ConsoleKey.Enter:
                         if (shipcolor == ConsoleColor.Green)
                         {
-                            AI.SetPlace(board,coords[0],coords[1],selectedShip.Length,rotation);
+                            AI.SetPlace(board,coords,selectedShip.Length,rotation);
                             player.Ships.Remove(selectedShip);
                             if (player.Ships.Count != 0)
                             {
@@ -677,7 +667,7 @@ namespace GameUI
                         coords[1] = 0;
                     }
                 }
-                if (AI.CheckPlace(board, coords[0], coords[1], selectedShip.Length, rotation))
+                if (AI.CheckPlace(board, coords, selectedShip.Length, rotation))
                 {
                     shipcolor = ConsoleColor.Green;
                 }
@@ -711,7 +701,7 @@ namespace GameUI
             Console.Clear();
             GameBoard previewBoard = new GameBoard(Rules.Boardrows,Rules.Boardcolumns);
             previewBoard = GameBoard.CloneBoard(player.Board);
-            AI.SetPlace(previewBoard,coords[0],coords[1],shipLen,rotation);
+            AI.SetPlace(previewBoard,coords,shipLen,rotation);
             var lines = Regex.Split(previewBoard.GetBoardString(), "\r\n|\r|\n");
             var rightlines = new string[lines.Length];
             var rightlinessplit = Regex.Split(right, "\r\n|\r|\n");
