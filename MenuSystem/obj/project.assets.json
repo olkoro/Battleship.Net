@@ -182,11 +182,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/Riderprojects/Ships/MenuSystem/MenuSystem.csproj",
+      "projectUniqueName": "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/battleship-by-oleg-korotkov/MenuSystem/MenuSystem.csproj",
       "projectName": "MenuSystem",
-      "projectPath": "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/Riderprojects/Ships/MenuSystem/MenuSystem.csproj",
+      "projectPath": "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/battleship-by-oleg-korotkov/MenuSystem/MenuSystem.csproj",
       "packagesPath": "/Users/olkoro/.nuget/packages/",
-      "outputPath": "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/Riderprojects/Ships/MenuSystem/obj/",
+      "outputPath": "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/battleship-by-oleg-korotkov/MenuSystem/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"

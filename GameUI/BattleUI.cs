@@ -267,6 +267,7 @@ namespace GameUI
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.BackgroundColor = ConsoleColor.Blue;
                     Console.Write(" ");
+                    Console.Write((i+1).ToString() + ". ");
                     Console.Write(saves[i].Last());
                     Console.Write(" ");
                     Console.ResetColor();
@@ -274,7 +275,7 @@ namespace GameUI
                 }
                 else
                 {
-                    Console.WriteLine(" "+saves[i].Last());
+                    Console.WriteLine(" "+(i+1).ToString() + ". "+saves[i].Last());
                 }
             }
             Console.WriteLine("--------------------------------------------------\n" +
