@@ -9,16 +9,24 @@ namespace Domain
     {
         public string Name { get; set; }
 
-        public Color TextColor {get;set;}
-        public Color BGColor {get;set;}
         public GameBoard Board;
+        public GameBoard Map;
         public bool AI;
         public List<Ship> Ships { get; set; } = new List<Ship>();
 
-        public Player(string name, GameBoard board)
+        public Player(string name, GameBoard board, GameBoard map)
         {
             Name = name;
             Board = board;
+            Map = map;
+        }
+
+        public Player(Player player)
+        {
+            Name = player.Name;
+            Board = GameBoard.CloneBoard(player.Board);
+            Map = GameBoard.CloneBoard(player.Map);
+            Ships = new List<Ship>(player.Ships);
         }
         
 

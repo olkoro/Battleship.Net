@@ -34,6 +34,9 @@ namespace ConsoleApp
             
             var menuItemStartSP = TheMenu.StartMenu.MenuElements.Last();
             menuItemStartSP.Method = BattleUI.RunGame;
+            
+            var Saves = TheMenu.MainMenu.MenuElements[1];
+            Saves.Method = BattleUI.SavePick;
 
             TheMenu.MainMenu.Menu();
 

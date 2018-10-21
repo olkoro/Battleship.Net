@@ -69,6 +69,21 @@ namespace Initializers
                 },
             }
         };
+        public static MenuUI ReplayMenu = new MenuUI()
+        {
+            Title = "Replay menu: Battleships",
+            MenuElements = new List<MenuElement>()
+            {
+                new MenuElement()
+                {
+                    Title = "Watch replays as Player 1",
+                },
+                new MenuElement()
+                {
+                    Title = "Watch replays as Player 2",
+                },
+            }
+        };
         public static MenuUI MainMenu = new MenuUI()
         {
             Title = "Main menu: Battleships",
@@ -81,7 +96,8 @@ namespace Initializers
                 },
                 new MenuElement()
                 {
-                    Title = "Load game",
+                    Title = "Saves & Replays",
+                    Method = ReplayMenu.Menu,
                 },
                 new MenuElement()
                 {

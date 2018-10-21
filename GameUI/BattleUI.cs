@@ -37,85 +37,12 @@ namespace GameUI
             var Board2 = new GameBoard(Rules.Boardrows,Rules.Boardcolumns);
             var Map1 = new GameBoard(Rules.Boardrows,Rules.Boardcolumns);
             var Map2 = new GameBoard(Rules.Boardrows,Rules.Boardcolumns);
-            var Player1 = new Player("Player 1", Board1);
-            var Player2 = new Player("AI", Board2);
+            var Player1 = new Player("Player 1", Board1,Map1);
+            var Player2 = new Player("AI", Board2,Map2);
             Player2.AI = true;
             Console.Clear();
-            //player arranging
-            Placing(Player1, Board1);
-            List<int> shipsList = new List<int>(new int[]{1,2,3,4});
-            AI.AIPlacing(new List<Ship>(Rules.Ships), Player2.Board);
-            //game starts
-            Console.Clear();
-            if (!Abort)
-            {
-                Console.WriteLine("\n\n\n\n\n\n           THE GAME IS STARTED\n           Press any key to continue");
-                switch (Console.ReadKey(true).Key)
-                {    
-                    case ConsoleKey.Enter:
-                        break;
-                }
-            }
-            var coords = new int[2]{0,0};
-            var status = "|";
-            var turn = 0;
-            while (true)//cycle
-            {
-                if(Abort){break;}
-                if (turn == 0)
-                {
-                    Draw(Player1,Board1.GetBoardString(), Map1.GetBoardString());
-                    Console.WriteLine("Enter Where to shoot: ");
-                    coords = Target(Map1.GetBoardString(), Player1,coords, true);
-                    if (Map1.Board[coords[0]][coords[1]] != BoardSquareState.Empty)
-                    {
-                        continue;
-                    }
-                    status = GameBoard.Shoot(Board2, coords, Map1);
-                    Draw(Player1,Board1.GetBoardString(), Map1.GetBoardString(), status);
-                    if (status == "MISS ")
-                    {
-                        turn = 1;
-                    }
-                }
-                else
-                {
-                    FullscreenMessage("The AI is making a move.");
-                    status = AI.AIShoot(Board1, Map2);
-                    Draw(Player1,Board1.GetBoardString(), Map1.GetBoardString(), status);
-                    if (status == "MISS ")
-                    {
-                        turn = 0;
-                    }
-                }
-                //check win
-                if (Board1.Ships.Count == 0)
-                {
-                    StringBuilder sb = new StringBuilder();
-                    sb.Append(Player2);
-                    sb.Append(" won!");
-                    FullscreenMessage(sb.ToString());
-                    break;
-                }
-
-                if (Board2.Ships.Count == 0)
-                {
-                    StringBuilder sb = new StringBuilder();
-                    sb.Append(Player1);
-                    sb.Append(" won!");
-                    FullscreenMessage(sb.ToString());
-                    break;
-                }
-                Console.WriteLine("PRESS ENY KEY TO CONTINUE");
-                switch (Console.ReadKey(true).Key)
-                {
-                    case ConsoleKey.Enter:
-                        break;
-                }
-            }
-//            var res = ApplicationMenu.GameMenu.RunMenu();
-            
-//            return res;
+            SetUpGame(Player1,Player2);
+            PlayGame(Player1,Player2);
         }
         
         public static void RunPvPGame()
@@ -125,81 +52,115 @@ namespace GameUI
             var Board2 = new GameBoard(Rules.Boardrows,Rules.Boardcolumns);
             var Map1 = new GameBoard(Rules.Boardrows,Rules.Boardcolumns);
             var Map2 = new GameBoard(Rules.Boardrows,Rules.Boardcolumns);
-            var Player1 = new Player("Player 1", Board1);
-            var Player2 = new Player("Player 2", Board2);
+            var Player1 = new Player("Player 1", Board1,Map1);
+            var Player2 = new Player("Player 2", Board2,Map2);
             Console.Clear();
+            SetUpGame(Player1,Player2);
+            PlayGame(Player1,Player2);
+        }
+
+        public static void SetUpGame(Player Player1,Player Player2)
+        {
             //player arranging
-            Placing(Player1, Board1);
-            Placing(Player2,Board2);
-            //game starts
-            Console.Clear();
-            if (!Abort)
+            if (!Player1.AI)
             {
-                Console.WriteLine("\n\n\n\n\n\n           THE GAME IS STARTED\n           Press any key to continue");
-                switch (Console.ReadKey(true).Key)
-                {    
-                    case ConsoleKey.Enter:
-                        break;
+                Placing(Player1, Player1.Board);
+            }
+            else
+            {
+                if (AI.AIPlacing(new List<Ship>(Rules.Ships), Player1.Board) == false)
+                {
+                    Console.WriteLine("The AI could not place all the ships with your rules. You won, congratulations");
+                    switch (Console.ReadKey(true).Key)
+                    {    
+                        case ConsoleKey.Enter:
+                            break;
+                    }
+
+                    Abort = true;
                 }
             }
+
+            if (!Player2.AI)
+            {
+                Placing(Player2,Player2.Board);
+            }
+            else
+            {
+                if (AI.AIPlacing(new List<Ship>(Rules.Ships), Player2.Board) == false)
+                {
+                    Console.WriteLine("The AI could not place all the ships with your rules. You won, congratulations");
+                    switch (Console.ReadKey(true).Key)
+                    {    
+                        case ConsoleKey.Enter:
+                            break;
+                    }
+
+                    Abort = true;
+                }
+            }
+        }
+        public static void PlayGame(Player Player1,Player Player2, bool P2turn = false)
+        {
+            //game starts
+            Player winner = null;
             var coords = new int[2]{0,0};
             var status = "|";
-            var turn = 0;
             while (true)//cycle
             {
                 if(Abort){break;}
-                if (turn == 0)
+                if (!P2turn)
                 {
-                    Draw(Player1,Board1.GetBoardString(), Map1.GetBoardString());
-                    Console.WriteLine("Enter Where to shoot: ");
-                    //coords = GetCoordsFromInput();
-                    coords = Target(Map1.GetBoardString(), Player1,coords, true);
-                    if (Map1.Board[coords[0]][coords[1]] != BoardSquareState.Empty)
+                    coords = Target(Player1.Map.GetBoardString(), Player1,coords, true);
+                    if (Player1.Map.Board[coords[0]][coords[1]] != BoardSquareState.Empty)
                     {
                         continue;
                     }
-                    status = GameBoard.Shoot(Board2, coords, Map1);
-                    Draw(Player1,Board1.GetBoardString(), Map1.GetBoardString(), status);
+                    status = GameBoard.Shoot(Player2.Board, coords, Player1.Map);
+                    Draw(Player1,Player1.Board.GetBoardString(), Player1.Map.GetBoardString(), status);
                     if (status == "MISS ")
                     {
-                        turn = 1;
+                        P2turn = true;
                         coords[0] = 0;
                         coords[1] = 0;
                     }
                 }
                 else
                 {
-                    Draw(Player2,Board2.GetBoardString(), Map2.GetBoardString());
-                    Console.WriteLine("Enter Where to shoot: ");
-                    //coords = GetCoordsFromInput();
-                    coords = Target(Map2.GetBoardString(),Player2,coords, true);
-                    if (Map2.Board[coords[0]][coords[1]] != BoardSquareState.Empty)
+                    if (Player2.AI)
                     {
-                        continue;
+                        FullscreenMessage("The AI is making a move.");
+                        status = AI.AIShoot(Player1.Board, Player2.Map);
+                        Draw(Player1,Player1.Board.GetBoardString(), Player1.Map.GetBoardString(), status);
+                        if (status == "MISS ")
+                        {
+                            P2turn = false;
+                        }
                     }
-                    status = GameBoard.Shoot(Board1, coords, Map2);
-                    Draw(Player2,Board2.GetBoardString(), Map2.GetBoardString(), status);
-                    if (status == "MISS ")
+                    else
                     {
-                        turn = 0;
-                        coords[0] = 0;
-                        coords[1] = 0;
-                    }
-                }
-                //check win
-                if (Board1.Ships.Count == 0)
-                {
-                    StringBuilder sb = new StringBuilder();
-                    sb.Append(Player2);
-                    sb.Append(" won!");
-                    FullscreenMessage(sb.ToString());
-                    break;
-                }
+                        Draw(Player2, Player2.Board.GetBoardString(), Player2.Map.GetBoardString());
+                        coords = Target(Player2.Map.GetBoardString(), Player2, coords, true);
+                        if (Player2.Map.Board[coords[0]][coords[1]] != BoardSquareState.Empty)
+                        {
+                            continue;
+                        }
 
-                if (Board2.Ships.Count == 0)
+                        status = GameBoard.Shoot(Player1.Board, coords, Player2.Map);
+                        Draw(Player2, Player2.Board.GetBoardString(), Player2.Map.GetBoardString(), status);
+                        if (status == "MISS ")
+                        {
+                            P2turn = false;
+                            coords[0] = 0;
+                            coords[1] = 0;
+                        }
+                    }
+                }
+                //check win                
+                if (GetWinner(Player1,Player2) != null)
                 {
                     StringBuilder sb = new StringBuilder();
-                    sb.Append(Player1);
+                    sb.Append(GetWinner(Player1,Player2));
                     sb.Append(" won!");
                     FullscreenMessage(sb.ToString());
                     break;
@@ -211,21 +172,128 @@ namespace GameUI
                         break;
                 }
 
-                if (status == "MISS ")
+                if (status == "MISS " && !Player1.AI && !Player2.AI)
                 {
                     FullscreenMessage("PASS THE PC TO THE NEXT PLAYER");
                 }
+
+                var state = new State(new Player(Player1),new Player(Player2),Rules.CanTouch, P2turn);
+                SaveSystem.GameStates.Add(state);
+            }
+            SaveSystem.Saves.Add(new List<State>(SaveSystem.GameStates));
+            SaveSystem.GameStates = new List<State>();
+        }
+
+        public static void PlayReplay(List<State> replay)
+        {
+            Console.WriteLine("choose a replay to watch by index\n0 is the oldest\nyou have "+SaveSystem.Saves.Count+" replays");
+            State state = replay[0];
+            for (int i = 0; i < replay.Count; i++)
+            {
+                state = replay[i];
+                Draw(state.P1,state.P1 + new string(' ', 5) +"\n" + state.P1.Board.GetBoardString(),state.P2 + "\n" + state.P2.Board.GetBoardString());
+                switch (Console.ReadKey(true).Key)
+                {
+                    case ConsoleKey.Enter:
+                        break;
+                }
+            }
+        }
+
+        public static void LoadGame(List<State> save)
+        {
+            Console.WriteLine("Loading...");
+            Player player1 = save.Last().P1;
+            Player player2 = save.Last().P2;
+            Rules.CanTouch = save.Last().CanTouch;
+            //PlayGame(player1,player2, save.Last().P2Turn);
+
+        }
+
+        public static void SavePick()
+        {
+            var index = 0;
+            bool done = false;
+            DrawSaves(index,SaveSystem.Saves);
+            while (!done)
+            {
+                switch (Console.ReadKey(true).Key)
+                {
+                    case ConsoleKey.DownArrow:
+                        index++;
+                        break;
+                    case ConsoleKey.UpArrow:
+                        index--;
+                        break;
+                    case ConsoleKey.Enter:
+                        LoadGame(SaveSystem.Saves[index]);
+                        break;
+                    case ConsoleKey.X:
+                        done = true;
+                        break;
+                    case ConsoleKey.Backspace:
+                        SaveSystem.Saves.Remove(SaveSystem.Saves[index]);
+                        break;
+                    case ConsoleKey.R:
+                        PlayReplay(SaveSystem.Saves[index]);
+                        break;
+                }
+                if (index < 0)
+                {
+                    index = SaveSystem.Saves.Count - 1;
+                }
+
+                if (index > SaveSystem.Saves.Count - 1)
+                {
+                    index = 0;
+                }
+                DrawSaves(index,SaveSystem.Saves);
+            }
+        }
+        
+        private static void DrawSaves(int index, List<List<State>> saves)
+        {
+            Console.Clear();
+            Console.WriteLine("Available Saves:\n" +
+                              "----------------");
+            for (int i = 0; i < saves.Count; i++)
+            {
+                if (i == index)
+                {
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.BackgroundColor = ConsoleColor.Blue;
+                    Console.Write(" ");
+                    Console.Write(saves[i].Last());
+                    Console.Write(" ");
+                    Console.ResetColor();
+                    Console.Write("\n");
+                }
+                else
+                {
+                    Console.WriteLine(" "+saves[i].Last());
+                }
+            }
+            Console.WriteLine("--------------------------------------------------\n" +
+                              " X - Back, Enter - Load Save, Backspace - Delete Save, R - Replay Save");
+        }
+
+        public static Player GetWinner(Player player1, Player player2)
+        {
+            if (player1.Board.Ships.Count == 0)
+            {
+                return player2;
             }
 
-            //var res = ApplicationMenu.GameMenu.RunMenu();
-            
-            //return res;
+            if (player2.Board.Ships.Count == 0)
+            {
+                return player2;
+            }
+            return null;
         }
         
         public static void Draw(Player player,string left,string right, string message = "|", int[] shot = null)
         {
             Console.Clear();
-            //Console.WriteLine(MyBoard.GetBoardString());
 
             Console.WriteLine(GetHeader(player));
             
@@ -235,16 +303,16 @@ namespace GameUI
             {
                 if (i == leftLines.Length / 2 - 1)
                 {
-                    Console.WriteLine(leftLines[i] + new string (' ', 21 / 2 - message.Length /2) + message + new string (' ', 21 / 2 - message.Length /2) + rightLines[i]);
+                    Console.WriteLine(leftLines[i] + new string (' ', (GetSeparator().Length - message.Length - 1)/2)+" " + message + new string (' ', (GetSeparator().Length - message.Length - 1)/2) + rightLines[i]);
                 }
                 else
                 {
-                    Console.WriteLine(leftLines[i] + "          |          " + rightLines[i]);
+                    Console.WriteLine(leftLines[i] + GetSeparator() + rightLines[i]);
                 }
             }
             for (int i = rightLines.Length; i < leftLines.Length; i++)
             {
-                Console.WriteLine(leftLines[i] + "          |          ");
+                Console.WriteLine(leftLines[i] + GetSeparator());
             }
         }
         
@@ -278,95 +346,28 @@ namespace GameUI
             {
                 Console.Clear();
                 Console.WriteLine(GetHeader(player));
-                if (coords[0] > Rules.Boardrows - 1)
+                if (coords[0] > board.Board.Count - 1)
                 {
                     coords[0] = 0;
                     y = 2;
                 }
-                if (coords[1] > Rules.Boardcolumns - 1)
+                if (coords[1] > board.Board[0].Count - 1)
                 {
                     coords[1] = 0;
                     x = 3;
                 }
                 if (coords[0] < 0)
                 {
-                    coords[0] = Rules.Boardrows - 1;
-                    y = (Rules.Boardrows - 1) * 2 + 2;//20
+                    coords[0] = board.Board.Count - 1;
+                    y = (board.Board.Count - 1) * 2 + 2;//20
                 }
                 if (coords[1] < 0)
                 {
-                    coords[1] = Rules.Boardcolumns - 1;
-                    x = (Rules.Boardcolumns - 1) * 4 + 3; //39
+                    coords[1] = board.Board[0].Count - 1;
+                    x = (board.Board[0].Count - 1) * 4 + 3; //39
                 }
                 DrawTarget(right,player,coords,targetRight);
-//                if (targetRight)
-//                {
-//
-//                    for (int i = 0; i < leftlines.Length; i++)
-//                    {
-//                        if (coords[0] * 2 + 2 == i)
-//                        {
-//                            Console.Write(leftlines[i]);
-//                            Console.Write("          |          ");
-//                            Console.BackgroundColor = TargetBG;
-//                            Console.ForegroundColor =
-//                                TargetFG;
-//                            Console.Write(rightlines[i]);
-//                            Console.ResetColor();
-//                            Console.Write("\n");
-//
-//                        }
-//                        else
-//                        {
-//                            Console.Write(leftlines[i]);
-//                            Console.Write("          |          ");
-//                            Console.Write(rightlines[i].Substring(0, (coords[1])* 4 +3));
-//                            Console.ForegroundColor =
-//                                TargetFG;
-//                            Console.BackgroundColor = TargetBG;
-//                            Console.Write(rightlines[i].Substring((coords[1])* 4 +3, 3));
-//                            Console.ResetColor();
-//                            Console.Write(rightlines[i].Substring(x + 3, rightlines[i].Length - x - 3));
-//                            Console.Write("\n");
-//                            //Console.WriteLine(lines[i]);
-//                        }
-//                    }
-//                }
-//                else
-//                {
-//                    TargetBG = ConsoleColor.Blue;
-//                    TargetFG = ConsoleColor.Black;
-//                    for (int i = 0; i < leftlines.Length; i++)
-//                    {
-//                        if (i == y)
-//                        {
-//                            Console.BackgroundColor = TargetBG;
-//                            Console.ForegroundColor =
-//                                TargetFG;
-//                            Console.Write(leftlines[i]);
-//                            Console.ResetColor();
-//                            Console.Write("          |          ");
-//                            Console.Write(rightlines[i]);
-//                            Console.Write("\n");
-//
-//                        }
-//                        else
-//                        {
-//                            Console.Write(leftlines[i].Substring(0, x));
-//                            Console.ForegroundColor =
-//                                TargetFG;
-//                            Console.BackgroundColor = TargetBG;
-//                            Console.Write(leftlines[i].Substring(x, 3));
-//                            Console.ResetColor();
-//                            Console.Write(leftlines[i].Substring(x + 3, leftlines[i].Length - x - 3));
-//                            Console.Write("          |          ");
-//                            Console.Write(rightlines[i]);
-//                            Console.Write("\n");
-//                            //Console.WriteLine(lines[i]);
-//                        }
-//                    }
-//                }
-
+                
                 switch (Console.ReadKey(true).Key)
                 {
                     case ConsoleKey.DownArrow:
@@ -422,7 +423,7 @@ namespace GameUI
                         if (coords[0] * 2 + 2 == i)
                         {
                             Console.Write(leftlines[i]);
-                            Console.Write("          |          ");
+                            Console.Write(GetSeparator());
                             Console.BackgroundColor = TargetBG;
                             Console.Write(rightlines[i]);
                             Console.ResetColor();
@@ -432,7 +433,7 @@ namespace GameUI
                         else
                         {
                             Console.Write(leftlines[i]);
-                            Console.Write("          |          ");
+                            Console.Write(GetSeparator());
                             Console.Write(rightlines[i].Substring(0, (coords[1])* 4 +3));
                             Console.BackgroundColor = TargetBG;
                             Console.Write(rightlines[i].Substring((coords[1])* 4 +3, 3));
@@ -453,7 +454,7 @@ namespace GameUI
                             Console.BackgroundColor = TargetBG;
                             Console.Write(leftlines[i]);
                             Console.ResetColor();
-                            Console.Write("          |          ");
+                            Console.Write(GetSeparator());
                             Console.Write(rightlines[i]);
                             Console.Write("\n");
 
@@ -465,7 +466,7 @@ namespace GameUI
                             Console.Write(leftlines[i].Substring(x, 3));
                             Console.ResetColor();
                             Console.Write(leftlines[i].Substring(x + 3, leftlines[i].Length - x - 3));
-                            Console.Write("          |          ");
+                            Console.Write(GetSeparator());
                             Console.Write(rightlines[i]);
                             Console.Write("\n");
                             //Console.WriteLine(lines[i]);
@@ -536,7 +537,7 @@ namespace GameUI
                         {
                             if (coords[0] == 0)
                             {
-                                coords[0] = Rules.Boardrows - 1 - selectedShip.Length + 1;
+                                coords[0] = board.Board.Count - 1 - selectedShip.Length + 1;
                             }
                             else
                             {
@@ -547,7 +548,7 @@ namespace GameUI
                         {
                             if (coords[0] == 0)
                             {
-                                coords[0] = Rules.Boardrows - 1;
+                                coords[0] = board.Board.Count - 1;
                             }
                             else
                             {
@@ -567,7 +568,7 @@ namespace GameUI
                         {
                             if (coords[1] == 0)
                             {
-                                coords[1] = (Rules.Boardcolumns - 1) - selectedShip.Length + 1;
+                                coords[1] = (board.Board[0].Count - 1) - selectedShip.Length + 1;
                             }
                             else
                             {
@@ -578,7 +579,7 @@ namespace GameUI
                         {
                             if (coords[1] == 0)
                             {
-                                coords[1] = (Rules.Boardcolumns - 1);
+                                coords[1] = (board.Board[0].Count - 1);
                             }
                             else
                             {
@@ -646,11 +647,11 @@ namespace GameUI
 
                 if (rotation == false)
                 {
-                    if (coords[0] > (Rules.Boardrows - 1))
+                    if (coords[0] > (board.Board.Count - 1))
                     {
                         coords[0] = 0;
                     }
-                    if (coords[1] > (Rules.Boardcolumns - 1) - selectedShip.Length + 1)
+                    if (coords[1] > (board.Board[0].Count - 1) - selectedShip.Length + 1)
                     {
                         coords[1] = 0;
                     }
@@ -658,11 +659,11 @@ namespace GameUI
 
                 if (rotation)
                 {
-                    if (coords[0] > (Rules.Boardrows - 1) - selectedShip.Length + 1)
+                    if (coords[0] > (board.Board.Count - 1) - selectedShip.Length + 1)
                     {
                         coords[0] = 0;
                     }
-                    if (coords[1] > (Rules.Boardcolumns - 1))
+                    if (coords[1] > (board.Board[0].Count - 1))
                     {
                         coords[1] = 0;
                     }
@@ -699,7 +700,7 @@ namespace GameUI
             bool rotation, int[] coords, ConsoleColor shipcolor, string right)
         {
             Console.Clear();
-            GameBoard previewBoard = new GameBoard(Rules.Boardrows,Rules.Boardcolumns);
+            GameBoard previewBoard = new GameBoard(player.Board.Board.Count,player.Board.Board[0].Count);
             previewBoard = GameBoard.CloneBoard(player.Board);
             AI.SetPlace(previewBoard,coords,shipLen,rotation);
             var lines = Regex.Split(previewBoard.GetBoardString(), "\r\n|\r|\n");
@@ -742,14 +743,14 @@ namespace GameUI
                             }if (j == coords[1] * 4 + 2 + 4){Console.ResetColor();}
                             Console.Write(lines[i][j]);
                         }
-                        Console.Write("          |          ");
+                        Console.Write(GetSeparator());
                         Console.Write(rightlines[i]);
                         Console.Write("\n");
                     }
                     else
                     {
                         Console.Write(lines[i]);
-                        Console.Write("          |          ");
+                        Console.Write(GetSeparator());
                         Console.Write(rightlines[i]);
                         Console.Write("\n");
                     }
@@ -775,14 +776,14 @@ namespace GameUI
                             }
                             Console.Write(lines[i][j]);
                         }
-                        Console.Write("          |          ");
+                        Console.Write(GetSeparator());
                         Console.Write(rightlines[i]);
                         Console.Write("\n");
                     }
                     else
                     {
                         Console.Write(lines[i]);
-                        Console.Write("          |          ");
+                        Console.Write(GetSeparator());
                         Console.Write(rightlines[i]);
                         Console.Write("\n");
                     }
@@ -794,13 +795,23 @@ namespace GameUI
         public static string GetHeader(Player player)
         {
             
-            return new string('-',Rules.Boardcolumns *5 + 3 - player.ToString().Length/2) + player +
-                   new string('-',Rules.Boardcolumns *5 + 3  - player.ToString().Length/2);
+            return new string('-',player.Board.Board[0].Count *4 + 3 +GetSeparator().Length/2 - player.ToString().Length/2) + player +
+                   new string('-',player.Board.Board[0].Count *4 + 3 +GetSeparator().Length/2 - player.ToString().Length/2);
         }
         public static string GetFooter(Player player)
         {
 
-            return new string('-',Rules.Boardcolumns *10 + player.ToString().Length)+"\n   X - Back to Menu, S - Save";
+            return new string('-',player.Board.Board[0].Count *10 + player.ToString().Length)+"\n   X - Back to Menu, S - Save";
+        }
+
+        public static string GetSeparator()
+        {
+            return "   |  ";
+        }
+
+        public static void Replay()
+        {
+            
         }
         
     }
