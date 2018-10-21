@@ -194,7 +194,7 @@ namespace GameUI
             for (int i = 0; i < replay.Count; i++)
             {
                 state = replay[i];
-                Draw(state.P1,state.P1 + new string(' ', 5) +"\n" + state.P1.Board.GetBoardString(),state.P2 + "\n" + state.P2.Board.GetBoardString());
+                Draw(state.P1,state.P1 + new string(' ', state.P1.Board.Board[0].Count * 4 +3 - state.P1.Name.Length) +"\n" + state.P1.Board.GetBoardString(),state.P2 + "\n" + state.P2.Board.GetBoardString());
                 switch (Console.ReadKey(true).Key)
                 {
                     case ConsoleKey.Enter:
