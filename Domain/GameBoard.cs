@@ -40,8 +40,6 @@ namespace Domain
         public List<List<BoardSquareState>> Board { get; set; } = new List<List<BoardSquareState>>();
         public List<Ship> Ships { get; set; } = new List<Ship>();
 
-        public int ships = 0;
-
         public GameBoard(int boardRows, int boardCols)
         {
             for (int i = 0; i < boardRows; i++)
@@ -162,6 +160,7 @@ namespace Domain
                     clone.Board[i][j] = original.Board[i][j];
                 }
             }
+            clone.Ships = new List<Ship>(original.Ships);
 
             return clone;
         }

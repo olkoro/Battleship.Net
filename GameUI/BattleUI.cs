@@ -103,6 +103,7 @@ namespace GameUI
         public static void PlayGame(Player Player1,Player Player2, bool P2turn = false)
         {
             //game starts
+            Abort = false;
             Player winner = null;
             var coords = new int[2]{0,0};
             var status = "|";
@@ -206,7 +207,8 @@ namespace GameUI
             Player player1 = save.Last().P1;
             Player player2 = save.Last().P2;
             Rules.CanTouch = save.Last().CanTouch;
-            //PlayGame(player1,player2, save.Last().P2Turn);
+            bool p2Turn = save.Last().P2Turn;
+            PlayGame(player1,player2, p2Turn);
 
         }
 

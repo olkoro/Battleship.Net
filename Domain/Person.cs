@@ -27,6 +27,7 @@ namespace Domain
             Board = GameBoard.CloneBoard(player.Board);
             Map = GameBoard.CloneBoard(player.Map);
             Ships = new List<Ship>(player.Ships);
+            AI = player.AI;
         }
         
 
