@@ -107,13 +107,12 @@ namespace GameUI
             Player winner = null;
             var coords = new int[2]{0,0};
             var status = "|";
-            while (true)//cycle
+            while (Abort == false)//cycle
             {
-                if(Abort){break;}
                 if (!P2turn)
                 {
                     coords = Target(Player1.Map.GetBoardString(), Player1,coords, true);
-                    if (Player1.Map.Board[coords[0]][coords[1]] != BoardSquareState.Empty)
+                    if (Player1.Map.Board[coords[0]][coords[1]] != BoardSquareState.Empty || Abort)
                     {
                         continue;
                     }
@@ -142,7 +141,7 @@ namespace GameUI
                     {
                         Draw(Player2, Player2.Board.GetBoardString(), Player2.Map.GetBoardString());
                         coords = Target(Player2.Map.GetBoardString(), Player2, coords, true);
-                        if (Player2.Map.Board[coords[0]][coords[1]] != BoardSquareState.Empty)
+                        if (Player2.Map.Board[coords[0]][coords[1]] != BoardSquareState.Empty || Abort)
                         {
                             continue;
                         }
@@ -181,13 +180,16 @@ namespace GameUI
                 var state = new State(new Player(Player1),new Player(Player2),Rules.CanTouch, P2turn);
                 SaveSystem.GameStates.Add(state);
             }
-            SaveSystem.Saves.Add(new List<State>(SaveSystem.GameStates));
+
+            if (SaveSystem.GameStates.Count != 0)
+            {
+                SaveSystem.Saves.Add(new List<State>(SaveSystem.GameStates));
+            }
             SaveSystem.GameStates = new List<State>();
         }
 
         public static void PlayReplay(List<State> replay)
         {
-            Console.WriteLine("choose a replay to watch by index\n0 is the oldest\nyou have "+SaveSystem.Saves.Count+" replays");
             State state = replay[0];
             for (int i = 0; i < replay.Count; i++)
             {
@@ -475,6 +477,7 @@ namespace GameUI
                         }
                     }
                 }
+            Console.WriteLine(GetFooter(player));
         }
 
         public static string DrawSwitcher(Player player, Ship selectedShip)
@@ -803,7 +806,7 @@ namespace GameUI
         public static string GetFooter(Player player)
         {
 
-            return new string('-',player.Board.Board[0].Count *10 + player.ToString().Length)+"\n   X - Back to Menu, S - Save";
+            return new string('-',player.Board.Board[0].Count *8 + 3+3 +GetSeparator().Length)+"\n   X - Exit and Save";
         }
 
         public static string GetSeparator()
