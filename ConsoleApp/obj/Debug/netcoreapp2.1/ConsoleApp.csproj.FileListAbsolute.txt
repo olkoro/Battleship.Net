@@ -64,3 +64,25 @@
 /Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/battleship-by-oleg-korotkov/ConsoleApp/obj/Debug/netcoreapp2.1/ConsoleApp.csproj.CopyComplete
 /Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/battleship-by-oleg-korotkov/ConsoleApp/obj/Debug/netcoreapp2.1/ConsoleApp.dll
 /Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/battleship-by-oleg-korotkov/ConsoleApp/obj/Debug/netcoreapp2.1/ConsoleApp.pdb
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/ConsoleApp/bin/Debug/netcoreapp2.1/ConsoleApp.deps.json
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/ConsoleApp/bin/Debug/netcoreapp2.1/ConsoleApp.runtimeconfig.json
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/ConsoleApp/bin/Debug/netcoreapp2.1/ConsoleApp.runtimeconfig.dev.json
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/ConsoleApp/bin/Debug/netcoreapp2.1/ConsoleApp.dll
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/ConsoleApp/bin/Debug/netcoreapp2.1/ConsoleApp.pdb
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/ConsoleApp/bin/Debug/netcoreapp2.1/DAL.dll
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/ConsoleApp/bin/Debug/netcoreapp2.1/Domain.dll
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/ConsoleApp/bin/Debug/netcoreapp2.1/GameUI.dll
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/ConsoleApp/bin/Debug/netcoreapp2.1/Initializers.dll
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/ConsoleApp/bin/Debug/netcoreapp2.1/MenuSystem.dll
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/ConsoleApp/bin/Debug/netcoreapp2.1/DAL.pdb
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/ConsoleApp/bin/Debug/netcoreapp2.1/Domain.pdb
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/ConsoleApp/bin/Debug/netcoreapp2.1/GameUI.pdb
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/ConsoleApp/bin/Debug/netcoreapp2.1/Initializers.pdb
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/ConsoleApp/bin/Debug/netcoreapp2.1/MenuSystem.pdb
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/ConsoleApp/obj/Debug/netcoreapp2.1/ConsoleApp.csprojAssemblyReference.cache
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/ConsoleApp/obj/Debug/netcoreapp2.1/ConsoleApp.csproj.CoreCompileInputs.cache
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/ConsoleApp/obj/Debug/netcoreapp2.1/ConsoleApp.AssemblyInfoInputs.cache
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/ConsoleApp/obj/Debug/netcoreapp2.1/ConsoleApp.AssemblyInfo.cs
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/ConsoleApp/obj/Debug/netcoreapp2.1/ConsoleApp.csproj.CopyComplete
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/ConsoleApp/obj/Debug/netcoreapp2.1/ConsoleApp.dll
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/ConsoleApp/obj/Debug/netcoreapp2.1/ConsoleApp.pdb

@@ -251,17 +251,17 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/battleship-by-oleg-korotkov/GameUI/GameUI.csproj",
+      "projectUniqueName": "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/GameUI/GameUI.csproj",
       "projectName": "GameUI",
-      "projectPath": "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/battleship-by-oleg-korotkov/GameUI/GameUI.csproj",
+      "projectPath": "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/GameUI/GameUI.csproj",
       "packagesPath": "/Users/olkoro/.nuget/packages/",
-      "outputPath": "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/battleship-by-oleg-korotkov/GameUI/obj/",
+      "outputPath": "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/GameUI/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/Users/olkoro/.nuget/NuGet/NuGet.Config"
+        "/Users/olkoro/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"
@@ -272,11 +272,11 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/battleship-by-oleg-korotkov/Domain/Domain.csproj": {
-              "projectPath": "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/battleship-by-oleg-korotkov/Domain/Domain.csproj"
+            "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Domain/Domain.csproj": {
+              "projectPath": "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Domain/Domain.csproj"
             },
-            "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/battleship-by-oleg-korotkov/Initializers/Initializers.csproj": {
-              "projectPath": "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/battleship-by-oleg-korotkov/Initializers/Initializers.csproj"
+            "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Initializers/Initializers.csproj": {
+              "projectPath": "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Initializers/Initializers.csproj"
             }
           }
         }

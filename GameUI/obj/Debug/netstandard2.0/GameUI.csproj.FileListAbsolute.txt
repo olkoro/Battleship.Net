@@ -52,3 +52,21 @@
 /Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/battleship-by-oleg-korotkov/GameUI/obj/Debug/netstandard2.0/GameUI.csproj.CopyComplete
 /Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/battleship-by-oleg-korotkov/GameUI/obj/Debug/netstandard2.0/GameUI.dll
 /Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/battleship-by-oleg-korotkov/GameUI/obj/Debug/netstandard2.0/GameUI.pdb
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/GameUI/bin/Debug/netstandard2.0/GameUI.deps.json
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/GameUI/bin/Debug/netstandard2.0/GameUI.dll
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/GameUI/bin/Debug/netstandard2.0/GameUI.pdb
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/GameUI/bin/Debug/netstandard2.0/DAL.dll
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/GameUI/bin/Debug/netstandard2.0/Domain.dll
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/GameUI/bin/Debug/netstandard2.0/Initializers.dll
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/GameUI/bin/Debug/netstandard2.0/MenuSystem.dll
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/GameUI/bin/Debug/netstandard2.0/Domain.pdb
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/GameUI/bin/Debug/netstandard2.0/Initializers.pdb
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/GameUI/bin/Debug/netstandard2.0/DAL.pdb
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/GameUI/bin/Debug/netstandard2.0/MenuSystem.pdb
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/GameUI/obj/Debug/netstandard2.0/GameUI.csprojAssemblyReference.cache
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/GameUI/obj/Debug/netstandard2.0/GameUI.csproj.CoreCompileInputs.cache
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/GameUI/obj/Debug/netstandard2.0/GameUI.AssemblyInfoInputs.cache
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/GameUI/obj/Debug/netstandard2.0/GameUI.AssemblyInfo.cs
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/GameUI/obj/Debug/netstandard2.0/GameUI.csproj.CopyComplete
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/GameUI/obj/Debug/netstandard2.0/GameUI.dll
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/GameUI/obj/Debug/netstandard2.0/GameUI.pdb

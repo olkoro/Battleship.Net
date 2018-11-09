@@ -24,3 +24,12 @@
 /Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/battleship-by-oleg-korotkov/Domain/obj/Debug/netstandard2.0/Domain.AssemblyInfo.cs
 /Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/battleship-by-oleg-korotkov/Domain/obj/Debug/netstandard2.0/Domain.dll
 /Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/battleship-by-oleg-korotkov/Domain/obj/Debug/netstandard2.0/Domain.pdb
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Domain/bin/Debug/netstandard2.0/Domain.deps.json
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Domain/bin/Debug/netstandard2.0/Domain.dll
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Domain/bin/Debug/netstandard2.0/Domain.pdb
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Domain/obj/Debug/netstandard2.0/Domain.csprojAssemblyReference.cache
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Domain/obj/Debug/netstandard2.0/Domain.csproj.CoreCompileInputs.cache
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Domain/obj/Debug/netstandard2.0/Domain.AssemblyInfoInputs.cache
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Domain/obj/Debug/netstandard2.0/Domain.AssemblyInfo.cs
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Domain/obj/Debug/netstandard2.0/Domain.dll
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Domain/obj/Debug/netstandard2.0/Domain.pdb

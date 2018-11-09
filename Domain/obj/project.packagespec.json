@@ -1,10 +1,10 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/battleship-by-oleg-korotkov/Domain/Domain.csproj",
+    "projectUniqueName": "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Domain/Domain.csproj",
     "projectName": "Domain",
-    "projectPath": "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/battleship-by-oleg-korotkov/Domain/Domain.csproj",
-    "outputPath": "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/battleship-by-oleg-korotkov/Domain/obj/",
+    "projectPath": "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Domain/Domain.csproj",
+    "outputPath": "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Domain/obj/",
     "projectStyle": "PackageReference",
     "fallbackFolders": [
       "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"

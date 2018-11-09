@@ -1,10 +1,10 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/battleship-by-oleg-korotkov/ConsoleApp/ConsoleApp.csproj",
+    "projectUniqueName": "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/ConsoleApp/ConsoleApp.csproj",
     "projectName": "ConsoleApp",
-    "projectPath": "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/battleship-by-oleg-korotkov/ConsoleApp/ConsoleApp.csproj",
-    "outputPath": "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/battleship-by-oleg-korotkov/ConsoleApp/obj/",
+    "projectPath": "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/ConsoleApp/ConsoleApp.csproj",
+    "outputPath": "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/ConsoleApp/obj/",
     "projectStyle": "PackageReference",
     "fallbackFolders": [
       "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
@@ -15,20 +15,20 @@
     "frameworks": {
       "netcoreapp2.1": {
         "projectReferences": {
-          "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/battleship-by-oleg-korotkov/DAL/DAL.csproj": {
-            "projectPath": "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/battleship-by-oleg-korotkov/DAL/DAL.csproj"
+          "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/DAL/DAL.csproj": {
+            "projectPath": "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/DAL/DAL.csproj"
           },
-          "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/battleship-by-oleg-korotkov/Domain/Domain.csproj": {
-            "projectPath": "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/battleship-by-oleg-korotkov/Domain/Domain.csproj"
+          "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Domain/Domain.csproj": {
+            "projectPath": "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Domain/Domain.csproj"
           },
-          "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/battleship-by-oleg-korotkov/GameUI/GameUI.csproj": {
-            "projectPath": "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/battleship-by-oleg-korotkov/GameUI/GameUI.csproj"
+          "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/GameUI/GameUI.csproj": {
+            "projectPath": "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/GameUI/GameUI.csproj"
           },
-          "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/battleship-by-oleg-korotkov/Initializers/Initializers.csproj": {
-            "projectPath": "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/battleship-by-oleg-korotkov/Initializers/Initializers.csproj"
+          "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Initializers/Initializers.csproj": {
+            "projectPath": "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Initializers/Initializers.csproj"
           },
-          "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/battleship-by-oleg-korotkov/MenuSystem/MenuSystem.csproj": {
-            "projectPath": "/Users/olkoro/Desktop/Programmeerimine C# keeles (ICD0008)/battleship-by-oleg-korotkov/MenuSystem/MenuSystem.csproj"
+          "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/MenuSystem/MenuSystem.csproj": {
+            "projectPath": "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/MenuSystem/MenuSystem.csproj"
           }
         }
       }
