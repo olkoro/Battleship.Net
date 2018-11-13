@@ -18,6 +18,11 @@
         <e p="AppDbContext.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="DAL.csproj" t="IncludeRecursive" />
+        <e p="Migrations" t="Include">
+          <e p="20181113221045_InitialDbCreation.cs" t="Include" />
+          <e p="20181113221045_InitialDbCreation.Designer.cs" t="Include" />
+          <e p="AppDbContextModelSnapshot.cs" t="Include" />
+        </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netstandard2.0" t="Include">

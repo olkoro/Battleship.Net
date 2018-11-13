@@ -7,7 +7,7 @@ namespace Domain
     {
         public int SaveId { get; set; }
         public DateTime Time;
-        public List<State> States;
+        public List<State> States { get; set;}
         public string Status = "in progress";
         public bool CanTouch = false;
 
@@ -16,6 +16,10 @@ namespace Domain
             States = states;
             Time = DateTime.Now;
         }
-        public Save(){}
+
+        public Save()
+        {
+            Time = DateTime.Now;
+        }
     }
 }
