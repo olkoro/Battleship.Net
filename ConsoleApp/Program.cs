@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
@@ -17,9 +18,13 @@ namespace ConsoleApp
             Console.WriteLine(
                 "Hello Battleships!");
 
-            var dbContext = new DbContext();
+            var ctx = new AppDbContext();
+            List<List<State>> savesList = new List<List<State>>();
+            for (int i = 0; i < ctx.Saves.Count(); i++)
+            {
+                SaveSystem.SavesList.Add(ctx.Saves.ToList()[i].States);
+            }
             // Initialize extension method is added in DbInitializer class
-            dbContext.Initialize();
 
 //            var menuItemStartSP = ApplicationMenu.ModeMenu.MenuItems.First();
 //            menuItemStartSP.CommandToExecute = BattleUI.RunGame;
@@ -39,6 +44,12 @@ namespace ConsoleApp
             Saves.Method = BattleUI.SavePick;
 
             TheMenu.MainMenu.Menu();
+
+            for (int i = 0; i < SaveSystem.SavesList.Count; i++)
+            {
+                ctx.Saves.Add(SaveSystem.Saves[i]);
+            }
+            
 
 
         }

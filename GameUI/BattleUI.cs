@@ -183,7 +183,9 @@ namespace GameUI
 
             if (SaveSystem.GameStates.Count != 0)
             {
-                SaveSystem.Saves.Add(new List<State>(SaveSystem.GameStates));
+                SaveSystem.SavesList.Add(new List<State>(SaveSystem.GameStates));
+                SaveSystem.Saves.Add(new Save(SaveSystem.GameStates));
+                
             }
             SaveSystem.GameStates = new List<State>();
         }
@@ -218,7 +220,7 @@ namespace GameUI
         {
             var index = 0;
             bool done = false;
-            DrawSaves(index,SaveSystem.Saves);
+            DrawSaves(index,SaveSystem.SavesList);
             while (!done)
             {
                 switch (Console.ReadKey(true).Key)
@@ -230,28 +232,28 @@ namespace GameUI
                         index--;
                         break;
                     case ConsoleKey.Enter:
-                        LoadGame(SaveSystem.Saves[index]);
+                        LoadGame(SaveSystem.SavesList[index]);
                         break;
                     case ConsoleKey.X:
                         done = true;
                         break;
                     case ConsoleKey.Backspace:
-                        SaveSystem.Saves.Remove(SaveSystem.Saves[index]);
+                        SaveSystem.SavesList.Remove(SaveSystem.SavesList[index]);
                         break;
                     case ConsoleKey.R:
-                        PlayReplay(SaveSystem.Saves[index]);
+                        PlayReplay(SaveSystem.SavesList[index]);
                         break;
                 }
                 if (index < 0)
                 {
-                    index = SaveSystem.Saves.Count - 1;
+                    index = SaveSystem.SavesList.Count - 1;
                 }
 
-                if (index > SaveSystem.Saves.Count - 1)
+                if (index > SaveSystem.SavesList.Count - 1)
                 {
                     index = 0;
                 }
-                DrawSaves(index,SaveSystem.Saves);
+                DrawSaves(index,SaveSystem.SavesList);
             }
         }
         

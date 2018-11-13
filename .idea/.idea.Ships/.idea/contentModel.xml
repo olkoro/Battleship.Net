@@ -15,9 +15,9 @@
         <e p="Program.cs" t="Include" />
       </e>
       <e p="DAL" t="IncludeRecursive">
+        <e p="AppDbContext.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="DAL.csproj" t="IncludeRecursive" />
-        <e p="DbContext.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netstandard2.0" t="Include">
@@ -43,6 +43,7 @@
         <e p="Orientation.cs" t="Include" />
         <e p="Person.cs" t="Include" />
         <e p="Rules.cs" t="Include" />
+        <e p="Save.cs" t="Include" />
         <e p="SaveSystem.cs" t="Include" />
         <e p="Ship.cs" t="Include" />
         <e p="ShipType.cs" t="Include" />
@@ -64,7 +65,6 @@
       <e p="Initializers" t="IncludeRecursive">
         <e p="ApplicationMenu.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
-        <e p="DbInitializer.cs" t="Include" />
         <e p="Initializers.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
