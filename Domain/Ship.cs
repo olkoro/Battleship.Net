@@ -6,6 +6,7 @@ namespace Domain
     public class Ship
     {
         public ShipType Type; 
+        public int ShipId { get; set; }
         public int Length { get; set; }
         public List<int[]> Locations { get; set; } = new List<int[]>();
         public int Health { get; set; }

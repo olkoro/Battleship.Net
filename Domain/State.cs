@@ -5,19 +5,12 @@ namespace Domain
 {
     public class State
     {
-        public int Turn;
         public Player P1;
         public Player P2;
-        public GameBoard P1GameBoard;
-        public GameBoard P2GameBoard;
-        public GameBoard P1Map;
-        public GameBoard P2Map;
-        public List<Ship> P1Ships;
-        public List<Ship> P2Ships;
         public bool CanTouch;
         public bool P2Turn;
         public DateTime time;
-        public int StateID { get; set; }
+        public int StateId { get; set; }
         
         public State(){}
 

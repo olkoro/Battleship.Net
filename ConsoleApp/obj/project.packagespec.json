@@ -1,13 +1,13 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/ConsoleApp/ConsoleApp.csproj",
+    "projectUniqueName": "D:\\ProgramStuff\\Rider\\battleship-by-oleg-korotkov\\ConsoleApp\\ConsoleApp.csproj",
     "projectName": "ConsoleApp",
-    "projectPath": "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/ConsoleApp/ConsoleApp.csproj",
-    "outputPath": "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/ConsoleApp/obj/",
+    "projectPath": "D:\\ProgramStuff\\Rider\\battleship-by-oleg-korotkov\\ConsoleApp\\ConsoleApp.csproj",
+    "outputPath": "D:\\ProgramStuff\\Rider\\battleship-by-oleg-korotkov\\ConsoleApp\\obj\\",
     "projectStyle": "PackageReference",
     "fallbackFolders": [
-      "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+      "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
     ],
     "originalTargetFrameworks": [
       "netcoreapp2.1"
@@ -15,20 +15,20 @@
     "frameworks": {
       "netcoreapp2.1": {
         "projectReferences": {
-          "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/DAL/DAL.csproj": {
-            "projectPath": "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/DAL/DAL.csproj"
+          "D:\\ProgramStuff\\Rider\\battleship-by-oleg-korotkov\\DAL\\DAL.csproj": {
+            "projectPath": "D:\\ProgramStuff\\Rider\\battleship-by-oleg-korotkov\\DAL\\DAL.csproj"
           },
-          "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Domain/Domain.csproj": {
-            "projectPath": "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Domain/Domain.csproj"
+          "D:\\ProgramStuff\\Rider\\battleship-by-oleg-korotkov\\Domain\\Domain.csproj": {
+            "projectPath": "D:\\ProgramStuff\\Rider\\battleship-by-oleg-korotkov\\Domain\\Domain.csproj"
           },
-          "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/GameUI/GameUI.csproj": {
-            "projectPath": "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/GameUI/GameUI.csproj"
+          "D:\\ProgramStuff\\Rider\\battleship-by-oleg-korotkov\\GameUI\\GameUI.csproj": {
+            "projectPath": "D:\\ProgramStuff\\Rider\\battleship-by-oleg-korotkov\\GameUI\\GameUI.csproj"
           },
-          "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Initializers/Initializers.csproj": {
-            "projectPath": "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Initializers/Initializers.csproj"
+          "D:\\ProgramStuff\\Rider\\battleship-by-oleg-korotkov\\Initializers\\Initializers.csproj": {
+            "projectPath": "D:\\ProgramStuff\\Rider\\battleship-by-oleg-korotkov\\Initializers\\Initializers.csproj"
           },
-          "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/MenuSystem/MenuSystem.csproj": {
-            "projectPath": "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/MenuSystem/MenuSystem.csproj"
+          "D:\\ProgramStuff\\Rider\\battleship-by-oleg-korotkov\\MenuSystem\\MenuSystem.csproj": {
+            "projectPath": "D:\\ProgramStuff\\Rider\\battleship-by-oleg-korotkov\\MenuSystem\\MenuSystem.csproj"
           }
         }
       }

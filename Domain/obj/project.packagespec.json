@@ -1,13 +1,13 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Domain/Domain.csproj",
+    "projectUniqueName": "D:\\ProgramStuff\\Rider\\battleship-by-oleg-korotkov\\Domain\\Domain.csproj",
     "projectName": "Domain",
-    "projectPath": "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Domain/Domain.csproj",
-    "outputPath": "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Domain/obj/",
+    "projectPath": "D:\\ProgramStuff\\Rider\\battleship-by-oleg-korotkov\\Domain\\Domain.csproj",
+    "outputPath": "D:\\ProgramStuff\\Rider\\battleship-by-oleg-korotkov\\Domain\\obj\\",
     "projectStyle": "PackageReference",
     "fallbackFolders": [
-      "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+      "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
     ],
     "originalTargetFrameworks": [
       "netstandard2.0"

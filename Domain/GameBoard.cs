@@ -6,6 +6,7 @@ namespace Domain
 {
     public class GameBoard
     {
+        public int GameBoardId { get; set; }
         public static List<string> Coordinates = new List<string>(new string[]     {
             "A",
             "B",

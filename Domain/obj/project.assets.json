@@ -176,23 +176,23 @@
     ]
   },
   "packageFolders": {
-    "/Users/olkoro/.nuget/packages/": {},
-    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "C:\\Users\\olehi\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Domain/Domain.csproj",
+      "projectUniqueName": "D:\\ProgramStuff\\Rider\\battleship-by-oleg-korotkov\\Domain\\Domain.csproj",
       "projectName": "Domain",
-      "projectPath": "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Domain/Domain.csproj",
-      "packagesPath": "/Users/olkoro/.nuget/packages/",
-      "outputPath": "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Domain/obj/",
+      "projectPath": "D:\\ProgramStuff\\Rider\\battleship-by-oleg-korotkov\\Domain\\Domain.csproj",
+      "packagesPath": "C:\\Users\\olehi\\.nuget\\packages\\",
+      "outputPath": "D:\\ProgramStuff\\Rider\\battleship-by-oleg-korotkov\\Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/Users/olkoro/.config/NuGet/NuGet.Config"
+        "C:\\Users\\olehi\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"
