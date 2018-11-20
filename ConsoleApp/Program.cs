@@ -47,7 +47,7 @@ namespace ConsoleApp
 
             for (int i = 0; i < SaveSystem.Saves.Count; i++)
             {
-                ctx.Saves.Add(new Save()
+                ctx.Saves.Add(new AppDbContext.Save()
                 {
                     SaveId = i,
                     States = SaveSystem.Saves[i].States

@@ -38,25 +38,28 @@ namespace DAL
 //                "MultipleActiveResultSets=true" // allow multiple  parallel queries
 //                );
         }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        public class Save
         {
-            // configure entities
-            modelBuilder.Entity<Save>()
-                .HasIndex(i => i.SaveId);
-            modelBuilder.Entity<State>().HasIndex(i => i.StateID);
-
-
-            // remove Cascade delete from all the entities <- this has to be at the end
-            foreach (var mutableForeignKey in 
-                modelBuilder.Model.GetEntityTypes()
-                    .Where(e => e.IsOwned() == false)
-                    .SelectMany(e => e.GetForeignKeys()))
-            {
-                mutableForeignKey.DeleteBehavior = DeleteBehavior.Restrict;
-            }
-
-            base.OnModelCreating(modelBuilder);
+            public int SaveId { get; set; }
+            public List<State> States { get; set; }
         }
+
+//        protected override void OnModelCreating(ModelBuilder modelBuilder)
+//        {
+//            // configure entities
+//            
+//
+//
+//            // remove Cascade delete from all the entities <- this has to be at the end
+//            foreach (var mutableForeignKey in 
+//                modelBuilder.Model.GetEntityTypes()
+//                    .Where(e => e.IsOwned() == false)
+//                    .SelectMany(e => e.GetForeignKeys()))
+//            {
+//                mutableForeignKey.DeleteBehavior = DeleteBehavior.Restrict;
+//            }
+//
+//            base.OnModelCreating(modelBuilder);
+//        }
     }
 }
