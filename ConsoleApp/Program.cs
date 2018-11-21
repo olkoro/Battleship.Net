@@ -8,6 +8,7 @@ using Domain;
 using GameUI;
 using Initializers;
 using MenuSystem;
+using Microsoft.EntityFrameworkCore.Design;
 
 namespace ConsoleApp
 {
@@ -16,13 +17,12 @@ namespace ConsoleApp
         static void Main(string[] args)
         {
             Console.WriteLine(
-                "Hello Battleships!");
+                "The Game is Loading...");
 
             var ctx = new AppDbContext();
-            List<List<State>> savesList = new List<List<State>>();
-            for (int i = 0; i < ctx.Saves.Count(); i++)
+            foreach (var save in ctx.Saves)
             {
-                SaveSystem.SavesList.Add(ctx.Saves.ToList()[i].States);
+                SaveSystem.SavesList.Add(save.States);
             }
             // Initialize extension method is added in DbInitializer class
 
@@ -45,10 +45,16 @@ namespace ConsoleApp
 
             TheMenu.MainMenu.Menu();
 
-            for (int i = 0; i < SaveSystem.SavesList.Count; i++)
+            for (int i = 0; i < SaveSystem.Saves.Count; i++)
             {
-                ctx.Saves.Add(SaveSystem.Saves[i]);
+                ctx.Saves.Add(new Save()
+                {
+                    SaveId = i,
+                    States = SaveSystem.Saves[i].States
+                });
             }
+            ctx.SaveChanges();
+
             
 
 

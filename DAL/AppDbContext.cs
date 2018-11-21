@@ -5,6 +5,7 @@ using Domain;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Console;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace DAL
 {
@@ -25,12 +26,17 @@ namespace DAL
             base.OnConfiguring(optionsBuilder);
             optionsBuilder
                 .UseLoggerFactory(MyLoggerFactory)
-                .UseSqlServer(
-                "Server=(localdb)\\mssqllocaldb;" + // server to use
-                "Database=MyDatabase;" + // database to use or create
-                "Trusted_Connection=True;" + // no credentials needed, this is local sql instance
-                "MultipleActiveResultSets=true" // allow multiple  parallel queries
-                );
+                .UseMySQL(
+                    "server=alpha.akaver.com;" +
+                    "database=student2018_olkoro_Db;" +
+                    "user=student2018;" +
+                    "password=student2018");
+//                .UseSqlServer(
+//                "Server=(localdb)\\mssqllocaldb;" + // server to use
+//                "Database=MyDatabase;" + // database to use or create
+//                "Trusted_Connection=True;" + // no credentials needed, this is local sql instance
+//                "MultipleActiveResultSets=true" // allow multiple  parallel queries
+//                );
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -38,6 +44,7 @@ namespace DAL
             // configure entities
             modelBuilder.Entity<Save>()
                 .HasIndex(i => i.SaveId);
+            modelBuilder.Entity<State>().HasIndex(i => i.StateID);
 
 
             // remove Cascade delete from all the entities <- this has to be at the end
