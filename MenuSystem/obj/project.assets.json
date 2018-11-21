@@ -176,23 +176,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\olehi\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "/Users/olkoro/.nuget/packages/": {},
+    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\ProgramStuff\\Rider\\battleship-by-oleg-korotkov\\MenuSystem\\MenuSystem.csproj",
+      "projectUniqueName": "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/MenuSystem/MenuSystem.csproj",
       "projectName": "MenuSystem",
-      "projectPath": "D:\\ProgramStuff\\Rider\\battleship-by-oleg-korotkov\\MenuSystem\\MenuSystem.csproj",
-      "packagesPath": "C:\\Users\\olehi\\.nuget\\packages\\",
-      "outputPath": "D:\\ProgramStuff\\Rider\\battleship-by-oleg-korotkov\\MenuSystem\\obj\\",
+      "projectPath": "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/MenuSystem/MenuSystem.csproj",
+      "packagesPath": "/Users/olkoro/.nuget/packages/",
+      "outputPath": "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/MenuSystem/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\olehi\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/Users/olkoro/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"

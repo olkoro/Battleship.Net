@@ -1,13 +1,13 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "D:\\ProgramStuff\\Rider\\battleship-by-oleg-korotkov\\DAL\\DAL.csproj",
+    "projectUniqueName": "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/DAL/DAL.csproj",
     "projectName": "DAL",
-    "projectPath": "D:\\ProgramStuff\\Rider\\battleship-by-oleg-korotkov\\DAL\\DAL.csproj",
-    "outputPath": "D:\\ProgramStuff\\Rider\\battleship-by-oleg-korotkov\\DAL\\obj\\",
+    "projectPath": "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/DAL/DAL.csproj",
+    "outputPath": "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/DAL/obj/",
     "projectStyle": "PackageReference",
     "fallbackFolders": [
-      "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
     ],
     "originalTargetFrameworks": [
       "netstandard2.0"
@@ -15,8 +15,8 @@
     "frameworks": {
       "netstandard2.0": {
         "projectReferences": {
-          "D:\\ProgramStuff\\Rider\\battleship-by-oleg-korotkov\\Domain\\Domain.csproj": {
-            "projectPath": "D:\\ProgramStuff\\Rider\\battleship-by-oleg-korotkov\\Domain\\Domain.csproj"
+          "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Domain/Domain.csproj": {
+            "projectPath": "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Domain/Domain.csproj"
           }
         }
       }
@@ -45,10 +45,6 @@
         "Microsoft.Extensions.Logging.Console": {
           "target": "Package",
           "version": "[2.2.0-preview3-35497, )"
-        },
-        "MySql.Data.EntityFrameworkCore": {
-          "target": "Package",
-          "version": "[8.0.13, )"
         },
         "NETStandard.Library": {
           "suppressParent": "All",

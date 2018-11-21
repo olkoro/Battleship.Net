@@ -5,7 +5,6 @@ using Domain;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Console;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace DAL
 {
@@ -26,40 +25,31 @@ namespace DAL
             base.OnConfiguring(optionsBuilder);
             optionsBuilder
                 .UseLoggerFactory(MyLoggerFactory)
-                .UseMySQL(
-                    "server=alpha.akaver.com;" +
-                    "database=student2018_olkoro_Db;" +
-                    "user=student2018;" +
-                    "password=student2018");
-//                .UseSqlServer(
-//                "Server=(localdb)\\mssqllocaldb;" + // server to use
-//                "Database=MyDatabase;" + // database to use or create
-//                "Trusted_Connection=True;" + // no credentials needed, this is local sql instance
-//                "MultipleActiveResultSets=true" // allow multiple  parallel queries
-//                );
-        }
-        public class Save
-        {
-            public int SaveId { get; set; }
-            public List<State> States { get; set; }
+                .UseSqlServer(
+                "Server=(localdb)\\mssqllocaldb;" + // server to use
+                "Database=MyDatabase;" + // database to use or create
+                "Trusted_Connection=True;" + // no credentials needed, this is local sql instance
+                "MultipleActiveResultSets=true" // allow multiple  parallel queries
+                );
         }
 
-//        protected override void OnModelCreating(ModelBuilder modelBuilder)
-//        {
-//            // configure entities
-//            
-//
-//
-//            // remove Cascade delete from all the entities <- this has to be at the end
-//            foreach (var mutableForeignKey in 
-//                modelBuilder.Model.GetEntityTypes()
-//                    .Where(e => e.IsOwned() == false)
-//                    .SelectMany(e => e.GetForeignKeys()))
-//            {
-//                mutableForeignKey.DeleteBehavior = DeleteBehavior.Restrict;
-//            }
-//
-//            base.OnModelCreating(modelBuilder);
-//        }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            // configure entities
+            modelBuilder.Entity<Save>()
+                .HasIndex(i => i.SaveId);
+
+
+            // remove Cascade delete from all the entities <- this has to be at the end
+            foreach (var mutableForeignKey in 
+                modelBuilder.Model.GetEntityTypes()
+                    .Where(e => e.IsOwned() == false)
+                    .SelectMany(e => e.GetForeignKeys()))
+            {
+                mutableForeignKey.DeleteBehavior = DeleteBehavior.Restrict;
+            }
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
