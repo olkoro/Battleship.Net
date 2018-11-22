@@ -90,7 +90,7 @@ namespace Domain
             sb.Append(" ");
             for (int i = 0; i < elemCountInRow; i++)
             {
-                sb.Append("+---");
+                sb.Append("+───");
             }
 
             sb.Append("+");
@@ -114,9 +114,9 @@ namespace Domain
             switch (state)
             {
                 case BoardSquareState.Empty: return " ";
-                case BoardSquareState.Ship: return "+";
-                case BoardSquareState.Miss: return "*";
-                case BoardSquareState.Hit: return "x";
+                case BoardSquareState.Ship: return "□";
+                case BoardSquareState.Miss: return "·";
+                case BoardSquareState.Hit: return "■";
                 case BoardSquareState.Dead: return "F";
                 default:
                     throw new ArgumentOutOfRangeException(nameof(state), state, null);

@@ -20,10 +20,10 @@ namespace ConsoleApp
                 "The Game is Loading...");
 
             var ctx = new AppDbContext();
-            foreach (var save in ctx.Saves)
-            {
-                SaveSystem.SavesList.Add(save.States);
-            }
+//            foreach (var save in ctx.Saves)
+//            {
+//                SaveSystem.SavesList.Add(save.States);
+//            }
             // Initialize extension method is added in DbInitializer class
 
 //            var menuItemStartSP = ApplicationMenu.ModeMenu.MenuItems.First();
@@ -45,15 +45,15 @@ namespace ConsoleApp
 
             TheMenu.MainMenu.Menu();
 
-            for (int i = 0; i < SaveSystem.Saves.Count; i++)
-            {
-                ctx.Saves.Add(new AppDbContext.Save()
-                {
-                    SaveId = i,
-                    States = SaveSystem.Saves[i].States
-                });
-            }
-            ctx.SaveChanges();
+//            for (int i = 0; i < SaveSystem.Saves.Count; i++)
+//            {
+//                ctx.Saves.Add(new AppDbContext.Save()
+//                {
+//                    SaveId = i,
+//                    States = SaveSystem.Saves[i].States
+//                });
+//            }
+//            ctx.SaveChanges();
 
             
 
