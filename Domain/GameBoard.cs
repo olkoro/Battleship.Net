@@ -90,10 +90,10 @@ namespace Domain
             sb.Append(" ");
             for (int i = 0; i < elemCountInRow; i++)
             {
-                sb.Append("+───");
+                sb.Append("┼───");
             }
 
-            sb.Append("+");
+            sb.Append("┼");
             return sb.ToString();
         }
 
@@ -102,10 +102,10 @@ namespace Domain
             var sb = new StringBuilder();
             foreach (var boardSquareState in boardRow)
             {
-                sb.Append("| " + GetBoardSquareStateSymbol(boardSquareState) + " ");
+                sb.Append("│ " + GetBoardSquareStateSymbol(boardSquareState) + " ");
             }
 
-            sb.Append("|");
+            sb.Append("│");
             return sb.ToString();
         }
 

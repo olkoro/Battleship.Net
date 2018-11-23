@@ -7,11 +7,13 @@ namespace Domain
 {
     public class Player
     {
+        public int PlayerId { get; set; }
+        
         public string Name { get; set; }
 
         public GameBoard Board;
         public GameBoard Map;
-        public bool AI;
+        public bool AI { get; set; }
         public List<Ship> Ships { get; set; } = new List<Ship>();
 
         public Player(string name, GameBoard board, GameBoard map)

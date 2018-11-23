@@ -33,3 +33,6 @@
 /Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Domain/obj/Debug/netstandard2.0/Domain.AssemblyInfo.cs
 /Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Domain/obj/Debug/netstandard2.0/Domain.dll
 /Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Domain/obj/Debug/netstandard2.0/Domain.pdb
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Domain/bin/Debug/netstandard2.0/DbSaveSystem.dll
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Domain/bin/Debug/netstandard2.0/DbSaveSystem.pdb
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Domain/obj/Debug/netstandard2.0/Domain.csproj.CopyComplete

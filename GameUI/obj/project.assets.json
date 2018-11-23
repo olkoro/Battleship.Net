@@ -905,6 +905,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "DbSaveSystem": "1.0.0",
           "Domain": "1.0.0",
           "Microsoft.EntityFrameworkCore": "2.2.0-preview3-35497",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.2.0-preview3-35497",
@@ -919,9 +920,22 @@
           "bin/placeholder/DAL.dll": {}
         }
       },
+      "DbSaveSystem/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/DbSaveSystem.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DbSaveSystem.dll": {}
+        }
+      },
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "DbSaveSystem": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/Domain.dll": {}
         },
@@ -3395,6 +3409,11 @@
       "path": "../DAL/DAL.csproj",
       "msbuildProject": "../DAL/DAL.csproj"
     },
+    "DbSaveSystem/1.0.0": {
+      "type": "project",
+      "path": "../SaveSystem/SaveSystem.csproj",
+      "msbuildProject": "../SaveSystem/SaveSystem.csproj"
+    },
     "Domain/1.0.0": {
       "type": "project",
       "path": "../Domain/Domain.csproj",
@@ -3435,7 +3454,7 @@
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/Users/olkoro/.config/NuGet/NuGet.Config"
+        "/Users/olkoro/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"

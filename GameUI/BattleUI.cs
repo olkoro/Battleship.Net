@@ -15,21 +15,8 @@ namespace GameUI
 {
     public static class BattleUI
     {   
-        //settings
-        // -------------
         public static bool Abort;
-        static BattleUI()
-        {
-            
-            ApplicationMenu.GameMenu.MenuItems.Insert(0, new MenuItem()
-            {
-                ShortcutDescription = "numbers",
-                LongDescription = "choose the column"
-            });
-            ApplicationMenu.GameMenu.ClearScreenInMenuStart = false;
-
-            
-        }
+        
         public static void RunGame()
         {
             Abort = false;
@@ -184,7 +171,6 @@ namespace GameUI
             if (SaveSystem.GameStates.Count != 0)
             {
                 SaveSystem.SavesList.Add(new List<State>(SaveSystem.GameStates));
-                SaveSystem.Saves.Add(new Save(SaveSystem.GameStates));
                 
             }
             SaveSystem.GameStates = new List<State>();

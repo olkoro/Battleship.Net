@@ -70,3 +70,5 @@
 /Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/GameUI/obj/Debug/netstandard2.0/GameUI.csproj.CopyComplete
 /Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/GameUI/obj/Debug/netstandard2.0/GameUI.dll
 /Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/GameUI/obj/Debug/netstandard2.0/GameUI.pdb
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/GameUI/bin/Debug/netstandard2.0/DbSaveSystem.dll
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/GameUI/bin/Debug/netstandard2.0/DbSaveSystem.pdb

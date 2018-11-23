@@ -19,7 +19,7 @@ namespace ConsoleApp
             Console.WriteLine(
                 "The Game is Loading...");
 
-            var ctx = new AppDbContext();
+//            var ctx = new AppDbContext();
 //            foreach (var save in ctx.Saves)
 //            {
 //                SaveSystem.SavesList.Add(save.States);
@@ -44,26 +44,12 @@ namespace ConsoleApp
             Saves.Method = BattleUI.SavePick;
 
             TheMenu.MainMenu.Menu();
-
-//            for (int i = 0; i < SaveSystem.Saves.Count; i++)
-//            {
-//                ctx.Saves.Add(new AppDbContext.Save()
-//                {
-//                    SaveId = i,
-//                    States = SaveSystem.Saves[i].States
-//                });
-//            }
-//            ctx.SaveChanges();
+            Console.WriteLine("Saving Changes to Database");
+            AppDbContext.SaveToDb();
 
             
 
 
-        }
-
-
-        static void PrintPerson(Player person)
-        {
-            Console.WriteLine(person);
         }
     }
 }

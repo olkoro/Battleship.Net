@@ -17,7 +17,31 @@
       <e p="DAL" t="IncludeRecursive">
         <e p="AppDbContext.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
+        <e p="BoardShips.cs" t="Include" />
         <e p="DAL.csproj" t="IncludeRecursive" />
+        <e p="GameBoard.cs" t="Include" />
+        <e p="GameboardSquare.cs" t="Include" />
+        <e p="Migrations" t="Include">
+          <e p="20181123144358_DbMigration.cs" t="Include" />
+          <e p="20181123144358_DbMigration.Designer.cs" t="Include" />
+          <e p="20181123150117_DbMigration1.cs" t="Include" />
+          <e p="20181123150117_DbMigration1.Designer.cs" t="Include" />
+          <e p="20181123150321_DbMigration2.cs" t="Include" />
+          <e p="20181123150321_DbMigration2.Designer.cs" t="Include" />
+          <e p="20181123151656_DbMigration3.cs" t="Include" />
+          <e p="20181123151656_DbMigration3.Designer.cs" t="Include" />
+          <e p="20181123151739_DbMigration4.cs" t="Include" />
+          <e p="20181123151739_DbMigration4.Designer.cs" t="Include" />
+          <e p="20181123151920_DbMigration5.cs" t="Include" />
+          <e p="20181123151920_DbMigration5.Designer.cs" t="Include" />
+          <e p="20181123152530_DbMigration6.cs" t="Include" />
+          <e p="20181123152530_DbMigration6.Designer.cs" t="Include" />
+          <e p="20181123152809_DbMigration7.cs" t="Include" />
+          <e p="20181123152809_DbMigration7.Designer.cs" t="Include" />
+          <e p="20181123154427_DbMigration8.cs" t="Include" />
+          <e p="20181123154427_DbMigration8.Designer.cs" t="Include" />
+          <e p="AppDbContextModelSnapshot.cs" t="Include" />
+        </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netstandard2.0" t="Include">
@@ -25,6 +49,14 @@
             </e>
           </e>
         </e>
+        <e p="Player.cs" t="Include" />
+        <e p="Rules.cs" t="Include" />
+        <e p="Save.cs" t="Include" />
+        <e p="SaveState.cs" t="Include" />
+        <e p="Ship.cs" t="Include" />
+        <e p="ShipsLocation.cs" t="Include" />
+        <e p="State.cs" t="Include" />
+        <e p="Test.cs" t="Include" />
       </e>
       <e p="Domain" t="IncludeRecursive">
         <e p="AI.cs" t="Include" />
@@ -46,7 +78,6 @@
         <e p="Save.cs" t="Include" />
         <e p="SaveSystem.cs" t="Include" />
         <e p="Ship.cs" t="Include" />
-        <e p="ShipType.cs" t="Include" />
         <e p="State.cs" t="Include" />
         <e p="Status.cs" t="Include" />
       </e>
@@ -63,7 +94,6 @@
         </e>
       </e>
       <e p="Initializers" t="IncludeRecursive">
-        <e p="ApplicationMenu.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="Initializers.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
@@ -77,7 +107,6 @@
       </e>
       <e p="MenuSystem" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
-        <e p="Menu.cs" t="Include" />
         <e p="MenuElement.cs" t="Include" />
         <e p="MenuItem.cs" t="Include" />
         <e p="MenuSystem.csproj" t="IncludeRecursive" />
