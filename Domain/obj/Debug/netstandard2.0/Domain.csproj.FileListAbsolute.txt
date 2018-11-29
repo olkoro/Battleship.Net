@@ -33,12 +33,3 @@
 /Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Domain/obj/Debug/netstandard2.0/Domain.AssemblyInfo.cs
 /Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Domain/obj/Debug/netstandard2.0/Domain.dll
 /Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Domain/obj/Debug/netstandard2.0/Domain.pdb
-D:\ProgramStuff\Rider\battleship-by-oleg-korotkov\Domain\bin\Debug\netstandard2.0\Domain.deps.json
-D:\ProgramStuff\Rider\battleship-by-oleg-korotkov\Domain\bin\Debug\netstandard2.0\Domain.dll
-D:\ProgramStuff\Rider\battleship-by-oleg-korotkov\Domain\bin\Debug\netstandard2.0\Domain.pdb
-D:\ProgramStuff\Rider\battleship-by-oleg-korotkov\Domain\obj\Debug\netstandard2.0\Domain.csprojAssemblyReference.cache
-D:\ProgramStuff\Rider\battleship-by-oleg-korotkov\Domain\obj\Debug\netstandard2.0\Domain.csproj.CoreCompileInputs.cache
-D:\ProgramStuff\Rider\battleship-by-oleg-korotkov\Domain\obj\Debug\netstandard2.0\Domain.AssemblyInfoInputs.cache
-D:\ProgramStuff\Rider\battleship-by-oleg-korotkov\Domain\obj\Debug\netstandard2.0\Domain.AssemblyInfo.cs
-D:\ProgramStuff\Rider\battleship-by-oleg-korotkov\Domain\obj\Debug\netstandard2.0\Domain.dll
-D:\ProgramStuff\Rider\battleship-by-oleg-korotkov\Domain\obj\Debug\netstandard2.0\Domain.pdb

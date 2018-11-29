@@ -46,15 +46,3 @@
 /Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/DAL/obj/Debug/netstandard2.0/DAL.csproj.CopyComplete
 /Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/DAL/obj/Debug/netstandard2.0/DAL.dll
 /Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/DAL/obj/Debug/netstandard2.0/DAL.pdb
-D:\ProgramStuff\Rider\battleship-by-oleg-korotkov\DAL\bin\Debug\netstandard2.0\DAL.deps.json
-D:\ProgramStuff\Rider\battleship-by-oleg-korotkov\DAL\bin\Debug\netstandard2.0\DAL.dll
-D:\ProgramStuff\Rider\battleship-by-oleg-korotkov\DAL\bin\Debug\netstandard2.0\DAL.pdb
-D:\ProgramStuff\Rider\battleship-by-oleg-korotkov\DAL\bin\Debug\netstandard2.0\Domain.dll
-D:\ProgramStuff\Rider\battleship-by-oleg-korotkov\DAL\bin\Debug\netstandard2.0\Domain.pdb
-D:\ProgramStuff\Rider\battleship-by-oleg-korotkov\DAL\obj\Debug\netstandard2.0\DAL.csprojAssemblyReference.cache
-D:\ProgramStuff\Rider\battleship-by-oleg-korotkov\DAL\obj\Debug\netstandard2.0\DAL.csproj.CoreCompileInputs.cache
-D:\ProgramStuff\Rider\battleship-by-oleg-korotkov\DAL\obj\Debug\netstandard2.0\DAL.AssemblyInfoInputs.cache
-D:\ProgramStuff\Rider\battleship-by-oleg-korotkov\DAL\obj\Debug\netstandard2.0\DAL.AssemblyInfo.cs
-D:\ProgramStuff\Rider\battleship-by-oleg-korotkov\DAL\obj\Debug\netstandard2.0\DAL.csproj.CopyComplete
-D:\ProgramStuff\Rider\battleship-by-oleg-korotkov\DAL\obj\Debug\netstandard2.0\DAL.dll
-D:\ProgramStuff\Rider\battleship-by-oleg-korotkov\DAL\obj\Debug\netstandard2.0\DAL.pdb

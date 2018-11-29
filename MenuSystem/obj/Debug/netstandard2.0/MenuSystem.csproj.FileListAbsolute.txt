@@ -34,12 +34,3 @@
 /Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/MenuSystem/obj/Debug/netstandard2.0/MenuSystem.AssemblyInfo.cs
 /Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/MenuSystem/obj/Debug/netstandard2.0/MenuSystem.dll
 /Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/MenuSystem/obj/Debug/netstandard2.0/MenuSystem.pdb
-D:\ProgramStuff\Rider\battleship-by-oleg-korotkov\MenuSystem\bin\Debug\netstandard2.0\MenuSystem.deps.json
-D:\ProgramStuff\Rider\battleship-by-oleg-korotkov\MenuSystem\bin\Debug\netstandard2.0\MenuSystem.dll
-D:\ProgramStuff\Rider\battleship-by-oleg-korotkov\MenuSystem\bin\Debug\netstandard2.0\MenuSystem.pdb
-D:\ProgramStuff\Rider\battleship-by-oleg-korotkov\MenuSystem\obj\Debug\netstandard2.0\MenuSystem.csprojAssemblyReference.cache
-D:\ProgramStuff\Rider\battleship-by-oleg-korotkov\MenuSystem\obj\Debug\netstandard2.0\MenuSystem.csproj.CoreCompileInputs.cache
-D:\ProgramStuff\Rider\battleship-by-oleg-korotkov\MenuSystem\obj\Debug\netstandard2.0\MenuSystem.AssemblyInfoInputs.cache
-D:\ProgramStuff\Rider\battleship-by-oleg-korotkov\MenuSystem\obj\Debug\netstandard2.0\MenuSystem.AssemblyInfo.cs
-D:\ProgramStuff\Rider\battleship-by-oleg-korotkov\MenuSystem\obj\Debug\netstandard2.0\MenuSystem.dll
-D:\ProgramStuff\Rider\battleship-by-oleg-korotkov\MenuSystem\obj\Debug\netstandard2.0\MenuSystem.pdb

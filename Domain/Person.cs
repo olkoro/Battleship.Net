@@ -10,7 +10,6 @@ namespace Domain
         public int PlayerId { get; set; }
         
         public string Name { get; set; }
-        public int PlayerId { get; set; }
 
         public GameBoard Board;
         public GameBoard Map;

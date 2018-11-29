@@ -46,6 +46,10 @@
           "target": "Package",
           "version": "[2.2.0-preview3-35497, )"
         },
+        "MySql.Data.EntityFrameworkCore": {
+          "target": "Package",
+          "version": "[8.0.13, )"
+        },
         "NETStandard.Library": {
           "suppressParent": "All",
           "target": "Package",
