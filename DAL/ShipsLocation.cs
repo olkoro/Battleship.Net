@@ -16,6 +16,7 @@ namespace DAL
         public int ShipId { get; set; }
         public Ship Ship { get; set; }
 
+
         public ShipsLocation()
         {
         }

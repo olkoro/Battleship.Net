@@ -152,10 +152,10 @@ namespace GameUI
                     }
                 }
                 //check win                
-                if (GetWinner(Player1,Player2) != null)
+                if (AI.GetWinner(Player1,Player2) != null)
                 {
                     StringBuilder sb = new StringBuilder();
-                    sb.Append(GetWinner(Player1,Player2));
+                    sb.Append(AI.GetWinner(Player1,Player2));
                     sb.Append(" won!");
                     FullscreenMessage(sb.ToString());
                     break;
@@ -255,8 +255,9 @@ namespace GameUI
                         done = true;
                         break;
                     case ConsoleKey.Backspace:
-                        ctx.Saves.Remove(ctx.Saves.Where(s => s.SaveId.Equals(query[index].SaveId)).First());
-                        ctx.SaveChanges();
+                        Console.WriteLine("Deleting...");
+                        var saveid = query[index].SaveId;
+                        DAL.Save.DeleteSave(saveid, ctx);
                         query = ctx.Saves.Include(s => s.Player1).Include(s => s.Player2).ToList();
                         break;
                     case ConsoleKey.R:
@@ -281,7 +282,6 @@ namespace GameUI
             Console.Clear();
             Console.WriteLine("Available Saves:\n" +
                               "----------------");
-            Console.WriteLine(index);
             for (int i = 0; i < saves.Count; i++)
             {
                 if (i == index)
@@ -304,19 +304,19 @@ namespace GameUI
                               " X - Back, Enter - Load Save, Backspace - Delete Save, R - Replay Save");
         }
 
-        public static Player GetWinner(Player player1, Player player2)
-        {
-            if (player1.Board.Ships.Count == 0)
-            {
-                return player2;
-            }
-
-            if (player2.Board.Ships.Count == 0)
-            {
-                return player2;
-            }
-            return null;
-        }
+//        public static Player GetWinner(Player player1, Player player2)
+//        {
+//            if (player1.Board.Ships.Count == 0)
+//            {
+//                return player2;
+//            }
+//
+//            if (player2.Board.Ships.Count == 0)
+//            {
+//                return player2;
+//            }
+//            return null;
+//        }
         
         public static void Draw(Player player,string left,string right, string message = "|", int[] shot = null)
         {

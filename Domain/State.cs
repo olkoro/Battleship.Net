@@ -17,6 +17,7 @@ namespace Domain
         public bool CanTouch;
         public bool P2Turn;
         public DateTime time;
+        public string Status;
         public int StateID { get; set; }
         
         public State(){}

@@ -79,10 +79,18 @@ namespace DAL
                 var player2 = new Player(){Name = save[0].P2.Name, AI = save[0].P2.AI};
                 
                 
-                var ansave = new Save(){Rules = rules, Player1 = player1,Player2 = player2};
+                var ansave = new Save(){Rules = rules, Player1 = player1,Player2 = player2, Replay = true};
 
                 State laststate = new State();
-                foreach (var state in save)
+                var thissave = save;
+                if (Domain.Rules.SaveReplays == false)
+                {
+                    thissave = new List<Domain.State>(){save.Last()};
+                    ansave.Replay = false;
+
+                }
+
+                foreach (var state in thissave)
                 {
                     var p1gb = new GameBoard(){rows = rules.Rows, cols = rules.Columns};
                     var p2gb = new GameBoard(){rows = rules.Rows, cols = rules.Columns};
@@ -107,8 +115,13 @@ namespace DAL
                     ansave.States.Add(laststate);
                     ctx.SaveChanges();
 
+
                 }
 
+                if (AI.GetWinner(save.Last().P1,save.Last().P1) != null)
+                {
+                    ansave.Status = "Finished: "+AI.GetWinner(save.Last().P1, save.Last().P1).ToString() + " Won!";
+                }
                 ansave.LastState = laststate;
                 ctx.Saves.Add(ansave);
                 ctx.SaveChanges();

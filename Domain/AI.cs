@@ -377,5 +377,18 @@ namespace Domain
             }
             return GameBoard.Shoot(board,randomCoords(map), map);
         }
+        public static Player GetWinner(Player player1, Player player2)
+        {
+            if (player1.Board.Ships.Count == 0)
+            {
+                return player2;
+            }
+
+            if (player2.Board.Ships.Count == 0)
+            {
+                return player2;
+            }
+            return null;
+        }
     }
 }

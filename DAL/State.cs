@@ -21,6 +21,9 @@ namespace DAL
         public int Player2MapId { get; set; }  
         public GameBoard Player2Map { get; set; }
         
+//        public int SaveId { get; set; }  
+//        public Save Save { get; set; }
+        
         [Column(TypeName = "bit")]
         public bool P2Turn { get; set; }
 

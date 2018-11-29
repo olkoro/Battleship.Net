@@ -97,7 +97,12 @@ namespace DAL.Migrations
 
                     b.Property<int>("Player2Id");
 
+                    b.Property<short>("Replay")
+                        .HasColumnType("bit");
+
                     b.Property<int>("RulesId");
+
+                    b.Property<string>("Status");
 
                     b.Property<string>("TimeStamp");
 

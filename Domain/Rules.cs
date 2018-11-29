@@ -12,6 +12,8 @@ namespace Domain
         public static List<Ship> Ships = new List<Ship>()
         {new Ship(5),new Ship(4),new Ship(3),new Ship(2),new Ship(1),};
 
+        public static bool SaveReplays = true;
+
         public static void SetTouchTrue()
         {
             CanTouch = true;
