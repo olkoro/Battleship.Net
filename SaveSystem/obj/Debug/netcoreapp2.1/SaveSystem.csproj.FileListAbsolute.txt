@@ -1,0 +1,9 @@
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/SaveSystem/bin/Debug/netcoreapp2.1/DbSaveSystem.deps.json
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/SaveSystem/bin/Debug/netcoreapp2.1/DbSaveSystem.dll
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/SaveSystem/bin/Debug/netcoreapp2.1/DbSaveSystem.pdb
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/SaveSystem/obj/Debug/netcoreapp2.1/SaveSystem.csprojAssemblyReference.cache
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/SaveSystem/obj/Debug/netcoreapp2.1/SaveSystem.csproj.CoreCompileInputs.cache
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/SaveSystem/obj/Debug/netcoreapp2.1/SaveSystem.AssemblyInfoInputs.cache
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/SaveSystem/obj/Debug/netcoreapp2.1/SaveSystem.AssemblyInfo.cs
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/SaveSystem/obj/Debug/netcoreapp2.1/DbSaveSystem.dll
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/SaveSystem/obj/Debug/netcoreapp2.1/DbSaveSystem.pdb
