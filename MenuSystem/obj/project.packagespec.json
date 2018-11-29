@@ -1,13 +1,13 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/MenuSystem/MenuSystem.csproj",
+    "projectUniqueName": "D:\\ProgramStuff\\Rider\\battleship-by-oleg-korotkov\\MenuSystem\\MenuSystem.csproj",
     "projectName": "MenuSystem",
-    "projectPath": "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/MenuSystem/MenuSystem.csproj",
-    "outputPath": "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/MenuSystem/obj/",
+    "projectPath": "D:\\ProgramStuff\\Rider\\battleship-by-oleg-korotkov\\MenuSystem\\MenuSystem.csproj",
+    "outputPath": "D:\\ProgramStuff\\Rider\\battleship-by-oleg-korotkov\\MenuSystem\\obj\\",
     "projectStyle": "PackageReference",
     "fallbackFolders": [
-      "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+      "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
     ],
     "originalTargetFrameworks": [
       "netstandard2.0"
