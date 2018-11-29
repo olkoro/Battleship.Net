@@ -30,10 +30,10 @@ namespace DAL
         public DbSet<GameBoard> GameBoards { get; set; }
         public DbSet<Player> Players { get; set; }
         public DbSet<Ship> Ships { get; set; }
-        public DbSet<BoardShips> BoardShips { get; set; }
+        //public DbSet<BoardShips> BoardShips { get; set; }
         public DbSet<Rules> Ruleses { get; set; }
         public DbSet<ShipsLocation> ShipsLocations { get; set; }
-        public DbSet<SaveState> SaveStates { get; set; }
+        //public DbSet<SaveState> SaveStates { get; set; }
         public DbSet<GameboardSquare> GameboardSquares { get; set; }
         public DbSet<Test> Tests { get; set; }
 
@@ -59,6 +59,7 @@ namespace DAL
         }
         public static void SaveToDb()
         {
+            Console.WriteLine("Saving...");
             var ctx = new AppDbContext();
             ctx.Tests.Add(new Test() {value = "test0", HitOrMiss = true.ToString(),Number = 0});
             ctx.Tests.Add(new Test() {value = "test1", HitOrMiss = false.ToString(),Number = 1});
@@ -73,26 +74,20 @@ namespace DAL
                     Rows = Domain.Rules.Boardrows,
                     Columns = Domain.Rules.Boardcolumns
                 };
-                ctx.Ruleses.Add(rules);
-                ctx.SaveChanges();
                 
                 var player1 = new Player(){Name = save[0].P1.Name, AI = save[0].P1.AI};
                 var player2 = new Player(){Name = save[0].P2.Name, AI = save[0].P2.AI};
-                ctx.Players.Add(player1);
-                ctx.Players.Add(player2);
                 
-                ctx.SaveChanges();
-
                 
                 var ansave = new Save(){Rules = rules, Player1 = player1,Player2 = player2};
 
                 State laststate = new State();
                 foreach (var state in save)
                 {
-                    var p1gb = new GameBoard();
-                    var p2gb = new GameBoard();
-                    var p1map = new GameBoard();
-                    var p2map = new GameBoard();
+                    var p1gb = new GameBoard(){rows = rules.Rows, cols = rules.Columns};
+                    var p2gb = new GameBoard(){rows = rules.Rows, cols = rules.Columns};
+                    var p1map = new GameBoard(){rows = rules.Rows, cols = rules.Columns};
+                    var p2map = new GameBoard(){rows = rules.Rows, cols = rules.Columns};
                     laststate = new State()
                     {
                         Player1GB = p1gb,Player1Map = p1map,
@@ -109,13 +104,16 @@ namespace DAL
                     //placing ships
                     FillShips(ctx,state.P1.Board,p1gb);
                     FillShips(ctx,state.P2.Board,p2gb);
-                    
+                    ansave.States.Add(laststate);
+                    ctx.SaveChanges();
+
                 }
 
                 ansave.LastState = laststate;
                 ctx.Saves.Add(ansave);
                 ctx.SaveChanges();
             }
+            SaveSystem.SavesList = new List<List<Domain.State>>();
         }
 
         public static void FillSquares(AppDbContext ctx,Domain.GameBoard ogboard, GameBoard tofillboard)
@@ -124,10 +122,12 @@ namespace DAL
             {
                 for (int j = 0; j < ogboard.Board[i].Count; j++)
                 {
-                    ctx.GameboardSquares.Add(new GameboardSquare()
+                    var gameBoardSquare = new GameboardSquare()
                     {
-                        GameBoard = tofillboard, x = i,y = j, Value = ogboard.Board[i][j].ToString()
-                    });
+                        GameBoard = tofillboard, x = i, y = j, Value = ogboard.Board[i][j].ToString()
+                    };
+                    tofillboard.Squares.Add(gameBoardSquare);
+                    ctx.GameboardSquares.Add(gameBoardSquare);
                 }
             }
         }
@@ -137,12 +137,15 @@ namespace DAL
             foreach (var ship in ogboard.Ships)//p1
             {
                 var lastship = new Ship() {Health = ship.Health, Length = ship.Length};
-                ctx.Ships.Add(lastship);
-                ctx.BoardShips.Add(new BoardShips(){GameBoard = tofillboard, Ship = lastship});
+                //ctx.BoardShips.Add(new BoardShips(){GameBoard = tofillboard, Ship = lastship});
                 foreach (var location in ship.Locations)
                 {
-                    ctx.ShipsLocations.Add(new ShipsLocation() {x = location[0],y=location[1],Ship = lastship});
+                    var loc = new ShipsLocation() {y = location[0], x = location[1], Ship = lastship};
+                    lastship.ShipsLocations.Add(loc);
                 }
+
+                lastship.GameBoard = tofillboard;
+                tofillboard.Ships.Add(lastship);
             }
         }
 

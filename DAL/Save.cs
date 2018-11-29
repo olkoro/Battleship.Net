@@ -24,12 +24,23 @@ namespace DAL
         public int LastStateId { get; set; }
         public State LastState { get; set; }
         
-        public List<State> SaveState { get; set; }= new List<State>();
+        public List<State> States { get; set; }= new List<State>();
 
         public Save()
         {
             TimeStamp = DateTime.Now.ToString();
         }
 
+        public override string ToString()
+        {
+            try
+            {
+                return Player1.Name + " VS "+ Player2.Name + " " + TimeStamp;
+            }
+            catch (Exception e)
+            {
+                return "could not get the name of this save";
+            }
+        }
     }
 }

@@ -30,8 +30,7 @@ namespace Domain
             Map = GameBoard.CloneBoard(player.Map);
             Ships = new List<Ship>(player.Ships);
             AI = player.AI;
-        }
-        
+        }       
 
         public override string ToString()
         {

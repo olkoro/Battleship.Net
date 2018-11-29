@@ -84,6 +84,7 @@ namespace Initializers
                 },
             }
         };
+
         public static MenuUI MainMenu = new MenuUI()
         {
             Title = "Main menu: Battleships",
@@ -101,11 +102,15 @@ namespace Initializers
                 },
                 new MenuElement()
                 {
+                    Title = "Save",
+                    Method = DAL.AppDbContext.SaveToDb,
+                },
+                new MenuElement()
+                {
                     Title = "Rules & Settings",
                     Method = RuleMenu.Menu,
                 },
             }
         };
-        
     }
 }

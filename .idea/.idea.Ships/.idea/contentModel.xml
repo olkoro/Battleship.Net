@@ -22,24 +22,10 @@
         <e p="GameBoard.cs" t="Include" />
         <e p="GameboardSquare.cs" t="Include" />
         <e p="Migrations" t="Include">
-          <e p="20181123144358_DbMigration.cs" t="Include" />
-          <e p="20181123144358_DbMigration.Designer.cs" t="Include" />
-          <e p="20181123150117_DbMigration1.cs" t="Include" />
-          <e p="20181123150117_DbMigration1.Designer.cs" t="Include" />
-          <e p="20181123150321_DbMigration2.cs" t="Include" />
-          <e p="20181123150321_DbMigration2.Designer.cs" t="Include" />
-          <e p="20181123151656_DbMigration3.cs" t="Include" />
-          <e p="20181123151656_DbMigration3.Designer.cs" t="Include" />
-          <e p="20181123151739_DbMigration4.cs" t="Include" />
-          <e p="20181123151739_DbMigration4.Designer.cs" t="Include" />
-          <e p="20181123151920_DbMigration5.cs" t="Include" />
-          <e p="20181123151920_DbMigration5.Designer.cs" t="Include" />
-          <e p="20181123152530_DbMigration6.cs" t="Include" />
-          <e p="20181123152530_DbMigration6.Designer.cs" t="Include" />
-          <e p="20181123152809_DbMigration7.cs" t="Include" />
-          <e p="20181123152809_DbMigration7.Designer.cs" t="Include" />
-          <e p="20181123154427_DbMigration8.cs" t="Include" />
-          <e p="20181123154427_DbMigration8.Designer.cs" t="Include" />
+          <e p="20181129182416_DbMigration11.cs" t="Include" />
+          <e p="20181129182416_DbMigration11.Designer.cs" t="Include" />
+          <e p="20181129183204_DbMigration1.cs" t="Include" />
+          <e p="20181129183204_DbMigration1.Designer.cs" t="Include" />
           <e p="AppDbContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
@@ -62,7 +48,6 @@
         <e p="AI.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="BoardSquareState.cs" t="Include" />
-        <e p="CoordLetters.cs" t="Include" />
         <e p="Domain.csproj" t="IncludeRecursive" />
         <e p="GameBoard.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">

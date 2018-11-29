@@ -17,9 +17,6 @@
         "projectReferences": {
           "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Domain/Domain.csproj": {
             "projectPath": "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Domain/Domain.csproj"
-          },
-          "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/SaveSystem/SaveSystem.csproj": {
-            "projectPath": "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/SaveSystem/SaveSystem.csproj"
           }
         }
       }

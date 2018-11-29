@@ -86,5 +86,3 @@
 /Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/ConsoleApp/obj/Debug/netcoreapp2.1/ConsoleApp.csproj.CopyComplete
 /Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/ConsoleApp/obj/Debug/netcoreapp2.1/ConsoleApp.dll
 /Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/ConsoleApp/obj/Debug/netcoreapp2.1/ConsoleApp.pdb
-/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/ConsoleApp/bin/Debug/netcoreapp2.1/DbSaveSystem.dll
-/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/ConsoleApp/bin/Debug/netcoreapp2.1/DbSaveSystem.pdb

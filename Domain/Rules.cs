@@ -10,40 +10,7 @@ namespace Domain
         public static int Boardcolumns = 10;
         public static bool CanTouch = false;
         public static List<Ship> Ships = new List<Ship>()
-        {
-            new Ship(5)
-            {
-                
-            },
-            new Ship(4)
-            {
-                
-            },
-            new Ship(3)
-            {
-                
-            },
-            new Ship(2)
-            {
-                
-            },
-            new Ship(1)
-            {
-                
-            },
-        };
-
-        public Rules()
-        {
-            
-        }
-
-        public Rules(int rows, int columns, bool touch)
-        {
-            Boardrows = rows;
-            Boardcolumns = columns;
-            CanTouch = touch;
-        }
+        {new Ship(5),new Ship(4),new Ship(3),new Ship(2),new Ship(1),};
 
         public static void SetTouchTrue()
         {
@@ -114,11 +81,6 @@ namespace Domain
                 }
                 DrawShips(index,Ships);
             }
-        }
-
-        private static void ShipSettings(Ship ship)
-        {
-            
         }
 
         private static void DrawShips(int index, List<Ship> ships)

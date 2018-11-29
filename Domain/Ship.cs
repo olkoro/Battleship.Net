@@ -16,6 +16,11 @@ namespace Domain
             Length = length;
             Health = length;
         }
+        public Ship(int length,int health)
+        {
+            Length = length;
+            Health = health;
+        }
         
         public void SetHealth(int health)
         {

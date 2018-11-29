@@ -7,9 +7,17 @@ using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Text.RegularExpressions;
+using DAL;
 using Domain;
 using Initializers;
 using MenuSystem;
+using Microsoft.EntityFrameworkCore;
+using GameBoard = Domain.GameBoard;
+using Player = Domain.Player;
+using Rules = Domain.Rules;
+using Save = DAL.Save;
+using Ship = Domain.Ship;
+using State = Domain.State;
 
 namespace GameUI
 {
@@ -98,13 +106,13 @@ namespace GameUI
             {
                 if (!P2turn)
                 {
-                    coords = Target(Player1.Map.GetBoardString(), Player1,coords, true);
+                    coords = Target(GetBoardString(Player1.Map), Player1,coords, true);
                     if (Player1.Map.Board[coords[0]][coords[1]] != BoardSquareState.Empty || Abort)
                     {
                         continue;
                     }
                     status = GameBoard.Shoot(Player2.Board, coords, Player1.Map);
-                    Draw(Player1,Player1.Board.GetBoardString(), Player1.Map.GetBoardString(), status);
+                    Draw(Player1,GetBoardString(Player1.Board), GetBoardString(Player1.Map), status);
                     if (status == "MISS ")
                     {
                         P2turn = true;
@@ -118,7 +126,7 @@ namespace GameUI
                     {
                         FullscreenMessage("The AI is making a move.");
                         status = AI.AIShoot(Player1.Board, Player2.Map);
-                        Draw(Player1,Player1.Board.GetBoardString(), Player1.Map.GetBoardString(), status);
+                        Draw(Player1,GetBoardString(Player1.Board), GetBoardString(Player1.Map), status);
                         if (status == "MISS ")
                         {
                             P2turn = false;
@@ -126,15 +134,15 @@ namespace GameUI
                     }
                     else
                     {
-                        Draw(Player2, Player2.Board.GetBoardString(), Player2.Map.GetBoardString());
-                        coords = Target(Player2.Map.GetBoardString(), Player2, coords, true);
+                        Draw(Player2, GetBoardString(Player2.Board), GetBoardString(Player2.Map));
+                        coords = Target(GetBoardString(Player2.Map), Player2, coords, true);
                         if (Player2.Map.Board[coords[0]][coords[1]] != BoardSquareState.Empty || Abort)
                         {
                             continue;
                         }
 
                         status = GameBoard.Shoot(Player1.Board, coords, Player2.Map);
-                        Draw(Player2, Player2.Board.GetBoardString(), Player2.Map.GetBoardString(), status);
+                        Draw(Player2, GetBoardString(Player2.Board), GetBoardString(Player2.Map), status);
                         if (status == "MISS ")
                         {
                             P2turn = false;
@@ -182,7 +190,7 @@ namespace GameUI
             for (int i = 0; i < replay.Count; i++)
             {
                 state = replay[i];
-                Draw(state.P1,state.P1 + new string(' ', state.P1.Board.Board[0].Count * 4 +3 - state.P1.Name.Length) +"\n" + state.P1.Board.GetBoardString(),state.P2 + "\n" + state.P2.Board.GetBoardString());
+                Draw(state.P1,state.P1 + new string(' ', state.P1.Board.Board[0].Count * 4 +3 - state.P1.Name.Length) +"\n" + GetBoardString(state.P1.Board),state.P2 + "\n" + GetBoardString(state.P2.Board));
                 switch (Console.ReadKey(true).Key)
                 {
                     case ConsoleKey.Enter:
@@ -191,13 +199,18 @@ namespace GameUI
             }
         }
 
-        public static void LoadGame(List<State> save)
+        public static void LoadGame(Save save)
         {
             Console.WriteLine("Loading...");
-            Player player1 = save.Last().P1;
-            Player player2 = save.Last().P2;
-            Rules.CanTouch = save.Last().CanTouch;
-            bool p2Turn = save.Last().P2Turn;
+            Player player1 = new Domain.Player(save.Player1.Name, 
+                save.LastState.Player1GB.GetDomainBoard(),
+                save.LastState.Player1Map.GetDomainBoard()){AI = save.Player1.AI};
+            
+            Player player2 = new Domain.Player(save.Player2.Name, 
+                save.LastState.Player2GB.GetDomainBoard(),
+                save.LastState.Player2Map.GetDomainBoard()){AI = save.Player2.AI};
+            Rules.CanTouch = save.Rules.CanTouch;
+            bool p2Turn = save.LastState.P2Turn;
             PlayGame(player1,player2, p2Turn);
 
         }
@@ -206,7 +219,10 @@ namespace GameUI
         {
             var index = 0;
             bool done = false;
-            DrawSaves(index,SaveSystem.SavesList);
+            Console.WriteLine("Downloading Saves...");
+            var ctx = new AppDbContext();
+            var query = ctx.Saves.Include(s => s.Player1).Include(s => s.Player2).ToList();
+            DrawSaves(index,query);
             while (!done)
             {
                 switch (Console.ReadKey(true).Key)
@@ -218,13 +234,30 @@ namespace GameUI
                         index--;
                         break;
                     case ConsoleKey.Enter:
-                        LoadGame(SaveSystem.SavesList[index]);
+                        LoadGame(ctx.Saves.Where(s => s.SaveId.Equals(query[index].SaveId))
+                            .Include(s => s.Player1).Include(s => s.Player2)
+                            .Include(s => s.LastState)
+                                .ThenInclude(s => s.Player1GB).ThenInclude(g =>g.Ships).ThenInclude(s=>s.ShipsLocations)
+                            .Include(s => s.LastState)
+                                .ThenInclude(s =>s.Player2GB).ThenInclude(g =>g.Ships).ThenInclude(s=>s.ShipsLocations)
+                            .Include(s => s.LastState)
+                                .ThenInclude(s => s.Player1GB).ThenInclude(g => g.Squares)
+                            .Include(s => s.LastState)
+                                .ThenInclude(s => s.Player2GB).ThenInclude(g => g.Squares)
+                            .Include(s => s.LastState)
+                                .ThenInclude(s => s.Player1Map).ThenInclude(g=>g.Squares)
+                            .Include(s => s.LastState)
+                                .ThenInclude(s =>s.Player2Map).ThenInclude(g=>g.Squares)
+                            .Include(s=>s.Rules)
+                            .First());
                         break;
                     case ConsoleKey.X:
                         done = true;
                         break;
                     case ConsoleKey.Backspace:
-                        SaveSystem.SavesList.Remove(SaveSystem.SavesList[index]);
+                        ctx.Saves.Remove(ctx.Saves.Where(s => s.SaveId.Equals(query[index].SaveId)).First());
+                        ctx.SaveChanges();
+                        query = ctx.Saves.Include(s => s.Player1).Include(s => s.Player2).ToList();
                         break;
                     case ConsoleKey.R:
                         PlayReplay(SaveSystem.SavesList[index]);
@@ -232,22 +265,23 @@ namespace GameUI
                 }
                 if (index < 0)
                 {
-                    index = SaveSystem.SavesList.Count - 1;
+                    index = query.Count - 1;
                 }
 
-                if (index > SaveSystem.SavesList.Count - 1)
+                if (index > query.Count - 1)
                 {
                     index = 0;
                 }
-                DrawSaves(index,SaveSystem.SavesList);
+                DrawSaves(index,query);
             }
         }
         
-        private static void DrawSaves(int index, List<List<State>> saves)
+        private static void DrawSaves(int index, List<DAL.Save> saves)
         {
             Console.Clear();
             Console.WriteLine("Available Saves:\n" +
                               "----------------");
+            Console.WriteLine(index);
             for (int i = 0; i < saves.Count; i++)
             {
                 if (i == index)
@@ -256,14 +290,14 @@ namespace GameUI
                     Console.BackgroundColor = ConsoleColor.Blue;
                     Console.Write(" ");
                     Console.Write((i+1).ToString() + ". ");
-                    Console.Write(saves[i].Last());
+                    Console.Write(saves[i].ToString());
                     Console.Write(" ");
                     Console.ResetColor();
                     Console.Write("\n");
                 }
                 else
                 {
-                    Console.WriteLine(" "+(i+1).ToString() + ". "+saves[i].Last());
+                    Console.WriteLine(" "+(i+1).ToString() + ". "+saves[i].ToString());
                 }
             }
             Console.WriteLine("--------------------------------------------------\n" +
@@ -318,9 +352,7 @@ namespace GameUI
             var board = player.Board;
             var x = (coords[1])* 4 +3 ;
             var y = (coords[0])* 2 + 2;
-            var TargetBG = ConsoleColor.DarkRed;
-            var TargetFG = ConsoleColor.Black;
-            var leftlines = Regex.Split(board.GetBoardString(), "\r\n|\r|\n");
+            var leftlines = Regex.Split(GetBoardString(board), "\r\n|\r|\n");
             var rightlines = new string[leftlines.Length];
             var rightlinessplit = Regex.Split(right, "\r\n|\r|\n");
             for (int i = 0; i < leftlines.Length; i++)
@@ -393,7 +425,7 @@ namespace GameUI
             var x = (coords[1])* 4 +3 ;
             var y = (coords[0])* 2 + 2;
             var TargetBG = ConsoleColor.Red;
-            var leftlines = Regex.Split(board.GetBoardString(), "\r\n|\r|\n");
+            var leftlines = Regex.Split(GetBoardString(board), "\r\n|\r|\n");
             var rightlines = new string[leftlines.Length];
             var rightlinessplit = Regex.Split(right, "\r\n|\r|\n");
             for (int i = 0; i < leftlines.Length; i++)
@@ -679,7 +711,7 @@ namespace GameUI
             {
                 var sb = new StringBuilder();
                 sb.Append("PRESS ANY KEY TO CONFIRM");
-                Draw(player, board.GetBoardString(), sb.ToString());
+                Draw(player, GetBoardString(board), sb.ToString());
                 switch (Console.ReadKey(true).Key)
                 {
                     case ConsoleKey.Enter:
@@ -697,7 +729,7 @@ namespace GameUI
             GameBoard previewBoard = new GameBoard(player.Board.Board.Count,player.Board.Board[0].Count);
             previewBoard = GameBoard.CloneBoard(player.Board);
             AI.SetPlace(previewBoard,coords,shipLen,rotation);
-            var lines = Regex.Split(previewBoard.GetBoardString(), "\r\n|\r|\n");
+            var lines = Regex.Split(GetBoardString(previewBoard), "\r\n|\r|\n");
             var rightlines = new string[lines.Length];
             var rightlinessplit = Regex.Split(right, "\r\n|\r|\n");
             for (int i = 0; i < lines.Length; i++)
@@ -806,6 +838,72 @@ namespace GameUI
         public static void Replay()
         {
             
+        }
+        public static string GetBoardString(GameBoard gameBoard)
+        {
+            var sb = new StringBuilder();
+            //sb.Append("    A.  B.  C.  D.  E.  F.  G.  H.  I.  J. \n");
+            sb.Append("    ");
+            for (int j = 0; j < Rules.Boardcolumns - 1; j++)
+            {
+                sb.Append(GameBoard.Coordinates[j]);
+                sb.Append(".  ");
+            }
+            sb.Append(GameBoard.Coordinates[Rules.Boardcolumns - 1]);
+            sb.Append(". \n");
+            int i = 0;
+
+            foreach (var boardRow in gameBoard.Board)
+            {
+                sb.Append(" "+GetRowSeparator(boardRow.Count) + "\n");
+                sb.Append((i + 1).ToString());
+                if((i + 1) < 10)
+                {
+                    sb.Append(" ");
+                }
+                i++;
+                sb.Append(GetRowWithData(boardRow) + "\n");
+            }
+            sb.Append(" "+GetRowSeparator(gameBoard.Board.First().Count));
+            return sb.ToString();
+        }
+        public static string GetRowSeparator(int elemCountInRow)
+        {
+            var sb = new StringBuilder();
+            sb.Append(" ");
+            for (int i = 0; i < elemCountInRow; i++)
+            {
+                sb.Append("┼───");
+            }
+
+            sb.Append("┼");
+            return sb.ToString();
+        }
+
+        public static string GetRowWithData(List<BoardSquareState> boardRow)
+        {
+            var sb = new StringBuilder();
+            foreach (var boardSquareState in boardRow)
+            {
+                sb.Append("│ " + GetBoardSquareStateSymbol(boardSquareState) + " ");
+            }
+
+            sb.Append("│");
+            return sb.ToString();
+        }
+
+        public static string GetBoardSquareStateSymbol(BoardSquareState state)
+        {
+            switch (state)
+            {
+                case BoardSquareState.Empty: return " ";
+                case BoardSquareState.Ship: return "□";
+                case BoardSquareState.Miss: return "·";
+                case BoardSquareState.Hit: return "■";
+                case BoardSquareState.Dead: return "F";
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(state), state, null);
+            }
         }
         
     }

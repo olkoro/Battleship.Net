@@ -46,5 +46,3 @@
 /Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/DAL/obj/Debug/netstandard2.0/DAL.csproj.CopyComplete
 /Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/DAL/obj/Debug/netstandard2.0/DAL.dll
 /Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/DAL/obj/Debug/netstandard2.0/DAL.pdb
-/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/DAL/bin/Debug/netstandard2.0/DbSaveSystem.dll
-/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/DAL/bin/Debug/netstandard2.0/DbSaveSystem.pdb

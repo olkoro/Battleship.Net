@@ -14,11 +14,7 @@
     ],
     "frameworks": {
       "netstandard2.0": {
-        "projectReferences": {
-          "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/SaveSystem/SaveSystem.csproj": {
-            "projectPath": "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/SaveSystem/SaveSystem.csproj"
-          }
-        }
+        "projectReferences": {}
       }
     },
     "warningProperties": {

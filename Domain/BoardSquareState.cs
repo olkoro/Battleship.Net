@@ -8,5 +8,6 @@ namespace Domain
         Hit,
         Dead
     }
+
     
 }

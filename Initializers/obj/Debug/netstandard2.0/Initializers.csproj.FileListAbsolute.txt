@@ -62,5 +62,3 @@
 /Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Initializers/obj/Debug/netstandard2.0/Initializers.csproj.CopyComplete
 /Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Initializers/obj/Debug/netstandard2.0/Initializers.dll
 /Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Initializers/obj/Debug/netstandard2.0/Initializers.pdb
-/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Initializers/bin/Debug/netstandard2.0/DbSaveSystem.dll
-/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Initializers/bin/Debug/netstandard2.0/DbSaveSystem.pdb

@@ -901,22 +901,9 @@
           "ref/netstandard1.3/System.Threading.Tasks.dll": {}
         }
       },
-      "DbSaveSystem/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
-        "compile": {
-          "bin/placeholder/DbSaveSystem.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DbSaveSystem.dll": {}
-        }
-      },
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
-        "dependencies": {
-          "DbSaveSystem": "1.0.0"
-        },
         "compile": {
           "bin/placeholder/Domain.dll": {}
         },
@@ -3361,11 +3348,6 @@
         "system.threading.tasks.nuspec"
       ]
     },
-    "DbSaveSystem/1.0.0": {
-      "type": "project",
-      "path": "../SaveSystem/SaveSystem.csproj",
-      "msbuildProject": "../SaveSystem/SaveSystem.csproj"
-    },
     "Domain/1.0.0": {
       "type": "project",
       "path": "../Domain/Domain.csproj",
@@ -3374,7 +3356,6 @@
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
-      "DbSaveSystem >= 1.0.0",
       "Domain >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 2.2.0-preview3-35497",
       "Microsoft.EntityFrameworkCore.SqlServer >= 2.2.0-preview3-35497",
@@ -3414,9 +3395,6 @@
           "projectReferences": {
             "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Domain/Domain.csproj": {
               "projectPath": "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Domain/Domain.csproj"
-            },
-            "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/SaveSystem/SaveSystem.csproj": {
-              "projectPath": "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/SaveSystem/SaveSystem.csproj"
             }
           }
         }
