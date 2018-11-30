@@ -17,5 +17,11 @@ namespace DAL
         {
             Name = "unnamed";
         }
+
+        public Domain.Player GetDomainPlayer(Domain.GameBoard board, Domain.GameBoard map)
+        {
+            var domainplayer = new Domain.Player(Name,board,map);
+            return domainplayer;
+        }
     }
 }

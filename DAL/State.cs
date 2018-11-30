@@ -31,6 +31,14 @@ namespace DAL
         {
             TimeStamp = DateTime.Now.ToString();
         }
-        
+
+        public Domain.State GetDomailState(Domain.Player player1, Domain.Player player2, bool cantouch)
+        {
+            var domainstate = new Domain.State(player1, player2,cantouch,P2Turn);
+
+            
+            return domainstate;
+        }
+
     }
 }

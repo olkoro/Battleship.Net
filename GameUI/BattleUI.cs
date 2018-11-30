@@ -184,12 +184,22 @@ namespace GameUI
             SaveSystem.GameStates = new List<State>();
         }
 
-        public static void PlayReplay(List<State> replay)
+        public static void PlayReplay(Save save)
         {
-            State state = replay[0];
+            var replay = new List<State>();
+            for (int i = 0; i < save.States.Count; i++)
+            {
+                var p1gb = save.States[i].Player1GB.GetDomainBoard();
+                var p1map = save.States[i].Player1Map.GetDomainBoard();
+                var player1 = save.Player1.GetDomainPlayer(p1gb, p1map);
+                var player2 = save.Player2.GetDomainPlayer(save.States[i].Player2GB.GetDomainBoard(),save.States[i].Player2Map.GetDomainBoard());
+                State state = save.States[i].GetDomailState(player1,player2,save.Rules.CanTouch);
+                replay.Add(state);
+            }
+            
             for (int i = 0; i < replay.Count; i++)
             {
-                state = replay[i];
+                var state = replay[i];
                 Draw(state.P1,state.P1 + new string(' ', state.P1.Board.Board[0].Count * 4 +3 - state.P1.Name.Length) +"\n" + GetBoardString(state.P1.Board),state.P2 + "\n" + GetBoardString(state.P2.Board));
                 switch (Console.ReadKey(true).Key)
                 {
@@ -261,7 +271,13 @@ namespace GameUI
                         query = ctx.Saves.Include(s => s.Player1).Include(s => s.Player2).ToList();
                         break;
                     case ConsoleKey.R:
-                        PlayReplay(SaveSystem.SavesList[index]);
+                        PlayReplay(ctx.Saves.Where(s => s.SaveId.Equals(query[index].SaveId))
+                            .Include(s => s.Player1).Include(s => s.Player2).Include(s=>s.Rules)
+                            .Include(s=>s.States).ThenInclude(s=>s.Player1GB).ThenInclude(g => g.Squares)
+                            .Include(s=>s.States).ThenInclude(s=>s.Player2GB).ThenInclude(g => g.Squares)
+                            .Include(s=>s.States).ThenInclude(s=>s.Player1Map).ThenInclude(g => g.Squares)
+                            .Include(s=>s.States).ThenInclude(s=>s.Player2Map).ThenInclude(g => g.Squares)
+                        .First());
                         break;
                 }
                 if (index < 0)
