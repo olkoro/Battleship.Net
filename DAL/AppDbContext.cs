@@ -90,6 +90,10 @@ namespace DAL
 
                 }
 
+//                var p1gb = new GameBoard();
+//                var p2gb = new GameBoard();
+//                var p1map = new GameBoard();
+//                var p2map = new GameBoard();
                 foreach (var state in thissave)
                 {
                     var p1gb = new GameBoard(){rows = rules.Rows, cols = rules.Columns};
@@ -106,18 +110,19 @@ namespace DAL
                     //filling in the squares
                     FillSquares(ctx,state.P1.Board,p1gb);
                     FillSquares(ctx,state.P2.Board,p2gb);
-                    FillSquares(ctx,state.P1.Map,p1map);
-                    FillSquares(ctx,state.P2.Map,p2map);
-                    
-                    //placing ships
-                    FillShips(ctx,state.P1.Board,p1gb);
-                    FillShips(ctx,state.P2.Board,p2gb);
+                    if (state==thissave.Last())
+                    {
+                        FillSquares(ctx,state.P1.Map,p1map);
+                        FillSquares(ctx,state.P2.Map,p2map);
+                        //placing ships
+                        FillShips(ctx,state.P1.Board,p1gb);
+                        FillShips(ctx,state.P2.Board,p2gb);
+                    }          
                     ansave.States.Add(laststate);
                     ctx.SaveChanges();
 
 
                 }
-
                 if (AI.GetWinner(save.Last().P1,save.Last().P1) != null)
                 {
                     ansave.Status = "Finished: "+AI.GetWinner(save.Last().P1, save.Last().P1).ToString() + " Won!";

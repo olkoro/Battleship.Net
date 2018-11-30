@@ -26,6 +26,7 @@ namespace DAL
         public int LastStateId { get; set; }
         public State LastState { get; set; }
         
+        
         [Column(TypeName = "bit")]
         public bool Replay { get; set; }
 

@@ -41,6 +41,25 @@ namespace Initializers
                 },
             }
         };
+        public static MenuUI SetReplayMenu = new MenuUI()
+        {
+            Title = "Save Replays?",
+            MenuElements = new List<MenuElement>()
+            {
+                new MenuElement()
+                {
+                    Title = "Yeah",
+                    Method = Rules.SetReplaysTrue,
+                    GoBackAfter = true,
+                },
+                new MenuElement()
+                {
+                    Title = "Nah",
+                    Method = Rules.SetReplaysFalse,
+                    GoBackAfter = true,
+                },
+            }
+        };
         
         public static MenuUI RuleMenu = new MenuUI()
         {
@@ -66,6 +85,11 @@ namespace Initializers
                 {
                     Title = "Ships",
                     Method = Rules.SetShips,
+                },
+                new MenuElement()
+                {
+                    Title = "Save Replays" ,
+                    Method = SetReplayMenu.Menu,
                 },
             }
         };

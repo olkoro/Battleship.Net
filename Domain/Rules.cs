@@ -23,6 +23,16 @@ namespace Domain
             CanTouch = false;
         }
 
+        public static void SetReplaysTrue()
+        {
+            SaveReplays = true;
+        }
+
+        public static void SetReplaysFalse()
+        {
+            SaveReplays = false;
+        }
+
         public static void SetRows()
         {
             Console.Clear();

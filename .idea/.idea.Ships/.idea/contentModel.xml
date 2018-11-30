@@ -24,6 +24,8 @@
         <e p="Migrations" t="Include">
           <e p="20181129215428_DbMigration11111.cs" t="Include" />
           <e p="20181129215428_DbMigration11111.Designer.cs" t="Include" />
+          <e p="20181130131820_DbMigration1.cs" t="Include" />
+          <e p="20181130131820_DbMigration1.Designer.cs" t="Include" />
           <e p="AppDbContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
