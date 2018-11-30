@@ -44,11 +44,11 @@ namespace DAL
             try
             {
                 var replaystr = "";
-                if (Replay==true)
+                if (Replay==false)
                 {
-                    replaystr = "[Replay Available]";
+                    replaystr = "[No Replay Available]";
                 }
-                return Player1.Name + " VS "+ Player2.Name + " " + TimeStamp +" "+ Status+" "+replaystr;
+                return TimeStamp + " | " + Player1.Name + " VS "+ Player2.Name + " "+ Status+" "+replaystr;
             }
             catch (Exception e)
             {

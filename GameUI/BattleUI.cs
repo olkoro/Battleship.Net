@@ -194,19 +194,55 @@ namespace GameUI
                 var player1 = save.Player1.GetDomainPlayer(p1gb, p1map);
                 var player2 = save.Player2.GetDomainPlayer(save.States[i].Player2GB.GetDomainBoard(),save.States[i].Player2Map.GetDomainBoard());
                 State state = save.States[i].GetDomailState(player1,player2,save.Rules.CanTouch);
+                state.time = save.States[i].TimeStamp;
                 replay.Add(state);
             }
-            
-            for (int i = 0; i < replay.Count; i++)
+
+            var rePlayer = new Player("Replay", replay[0].P1.Board, replay[0].P1.Board );
+            int index = 0;
+            while (true)
             {
-                var state = replay[i];
-                Draw(state.P1,state.P1 + new string(' ', state.P1.Board.Board[0].Count * 4 +3 - state.P1.Name.Length) +"\n" + GetBoardString(state.P1.Board),state.P2 + "\n" + GetBoardString(state.P2.Board));
+                if (index <0)
+                {
+                    index = 0;
+                }
+
+                if (index > replay.Count - 1)
+                {
+                    break;
+                }
+
+                var state = replay[index];
+                rePlayer.Name = state.time.ToString();
+                Draw(rePlayer,state.P1 + new string(' ', state.P1.Board.Board[0].Count * 4 +3 - state.P1.Name.Length) +"\n" + GetBoardString(state.P1.Board),state.P2 + "\n" + GetBoardString(state.P2.Board));
+                Console.WriteLine("---------------------------------------------" +
+                                  "\nX - Back, <- Play Backward, Play Forward -> ");
                 switch (Console.ReadKey(true).Key)
                 {
-                    case ConsoleKey.Enter:
+                    case ConsoleKey.X:
+                        index = replay.Count;
                         break;
+                    case ConsoleKey.Enter:
+                        continue;
+                    case ConsoleKey.RightArrow:
+                        index++;
+                        continue;
+                    case ConsoleKey.LeftArrow:
+                        index--;
+                        continue;
                 }
             }
+//            for (int i = 0; i < replay.Count; i++)
+//            {
+//                var state = replay[i];
+//                rePlayer.Name = state.time.ToString();
+//                Draw(rePlayer,state.P1 + new string(' ', state.P1.Board.Board[0].Count * 4 +3 - state.P1.Name.Length) +"\n" + GetBoardString(state.P1.Board),state.P2 + "\n" + GetBoardString(state.P2.Board));
+//                switch (Console.ReadKey(true).Key)
+//                {
+//                    case ConsoleKey.Enter:
+//                        break;
+//                }
+//            }
         }
 
         public static void LoadGame(Save save)
@@ -227,21 +263,21 @@ namespace GameUI
 
         public static void SavePick()
         {
-            var index = 0;
             bool done = false;
             Console.WriteLine("Downloading Saves...");
             var ctx = new AppDbContext();
             var query = ctx.Saves.Include(s => s.Player1).Include(s => s.Player2).ToList();
+            var index = query.Count - 1;
             DrawSaves(index,query);
             while (!done)
             {
                 switch (Console.ReadKey(true).Key)
                 {
                     case ConsoleKey.DownArrow:
-                        index++;
+                        index--;
                         break;
                     case ConsoleKey.UpArrow:
-                        index--;
+                        index++;
                         break;
                     case ConsoleKey.Enter:
                         LoadGame(ctx.Saves.Where(s => s.SaveId.Equals(query[index].SaveId))
@@ -298,14 +334,15 @@ namespace GameUI
             Console.Clear();
             Console.WriteLine("Available Saves:\n" +
                               "----------------");
-            for (int i = 0; i < saves.Count; i++)
+            for (int i = saves.Count -1 ; i > -1; i--)
             {
+                var number = saves.Count - (i + 1) + 1;
                 if (i == index)
                 {
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.BackgroundColor = ConsoleColor.Blue;
                     Console.Write(" ");
-                    Console.Write((i+1).ToString() + ". ");
+                    Console.Write(number.ToString() + ". ");
                     Console.Write(saves[i].ToString());
                     Console.Write(" ");
                     Console.ResetColor();
@@ -313,11 +350,11 @@ namespace GameUI
                 }
                 else
                 {
-                    Console.WriteLine(" "+(i+1).ToString() + ". "+saves[i].ToString());
+                    Console.WriteLine(" "+number.ToString() + ". "+saves[i].ToString());
                 }
             }
             Console.WriteLine("--------------------------------------------------\n" +
-                              " X - Back, Enter - Load Save, Backspace - Delete Save, R - Replay Save");
+                              " X - Back, Enter - Load Save, R - Replay");
         }
 
 //        public static Player GetWinner(Player player1, Player player2)

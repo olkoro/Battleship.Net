@@ -16,7 +16,7 @@ namespace Domain
         public List<Ship> P2Ships;
         public bool CanTouch;
         public bool P2Turn;
-        public DateTime time;
+        public string time;
         public string Status;
         public int StateID { get; set; }
         
@@ -28,7 +28,7 @@ namespace Domain
             P2 = p2;
             CanTouch = canTouch;
             P2Turn = P2turn;
-            time = DateTime.Now;
+            time = DateTime.Now.ToString();
         }
 
         public override string ToString()
