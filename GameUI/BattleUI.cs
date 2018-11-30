@@ -99,7 +99,6 @@ namespace GameUI
         {
             //game starts
             Abort = false;
-            Player winner = null;
             var coords = new int[2]{0,0};
             var status = "|";
             while (Abort == false)//cycle
@@ -157,6 +156,9 @@ namespace GameUI
                     StringBuilder sb = new StringBuilder();
                     sb.Append(AI.GetWinner(Player1,Player2));
                     sb.Append(" won!");
+                    var wstate = new State(new Player(Player1),new Player(Player2),Rules.CanTouch, P2turn);
+                    wstate.Status = "[Finished: "+sb.ToString()+"]";
+                    SaveSystem.GameStates.Add(wstate);
                     FullscreenMessage(sb.ToString());
                     break;
                 }
@@ -178,6 +180,16 @@ namespace GameUI
 
             if (SaveSystem.GameStates.Count != 0)
             {
+                if (SaveSystem.GameStates.Last().Status == null)
+                {
+                    SaveSystem.GameStates.Last().Status = "[" + SaveSystem.GameStates.Last().P1.ToString() +
+                                                          ": " + SaveSystem.GameStates.Last().P1.Board.Ships.Count +
+                                                          " Ships Left, " +
+                                                          SaveSystem.GameStates.Last().P2.ToString() +
+                                                          ": " + SaveSystem.GameStates.Last().P2.Board.Ships.Count +
+                                                          " Ships Left]";
+                }
+
                 SaveSystem.SavesList.Add(new List<State>(SaveSystem.GameStates));
                 
             }

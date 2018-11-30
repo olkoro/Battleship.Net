@@ -35,7 +35,6 @@ namespace DAL
         public DbSet<ShipsLocation> ShipsLocations { get; set; }
         //public DbSet<SaveState> SaveStates { get; set; }
         public DbSet<GameboardSquare> GameboardSquares { get; set; }
-        public DbSet<Test> Tests { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -61,10 +60,6 @@ namespace DAL
         {
             Console.WriteLine("Saving...");
             var ctx = new AppDbContext();
-            ctx.Tests.Add(new Test() {value = "test0", HitOrMiss = true.ToString(),Number = 0});
-            ctx.Tests.Add(new Test() {value = "test1", HitOrMiss = false.ToString(),Number = 1});
-            ctx.SaveChanges();
-            ctx.Tests.Add(new Test() {value = "test2", Number = 2});
             
             foreach (var save in SaveSystem.SavesList)
             {
@@ -123,10 +118,8 @@ namespace DAL
 
 
                 }
-                if (AI.GetWinner(save.Last().P1,save.Last().P1) != null)
-                {
-                    ansave.Status = "Finished: "+AI.GetWinner(save.Last().P1, save.Last().P1).ToString() + " Won!";
-                }
+
+                ansave.Status = thissave.Last().Status;
                 ansave.LastState = laststate;
                 ctx.Saves.Add(ansave);
                 ctx.SaveChanges();

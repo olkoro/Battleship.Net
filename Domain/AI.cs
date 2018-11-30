@@ -264,7 +264,7 @@ namespace Domain
         {
             Domain.Orientation orientation = Orientation.Unknown;
             Random rnd = new Random();
-            for (int i = 0; i < map.Board.Count; i++)
+            for (int i = 0; i < map.Board.Count; i++)//TOdo: does not work correctly
             {
                 for (int j = 0; j < map.Board[i].Count; j++)
                 {
