@@ -386,7 +386,7 @@ namespace Domain
 
             if (player2.Board.Ships.Count == 0)
             {
-                return player2;
+                return player1;
             }
             return null;
         }

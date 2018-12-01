@@ -200,7 +200,7 @@ namespace GameUI
             SaveSystem.GameStates = new List<State>();
         }
 
-        public static void PlayReplay(Save save)
+        public static void PlayReplay(Save save)//todo:replays times are wrong
         {
             var replay = new List<State>();
             for (int i = 0; i < save.States.Count; i++)
@@ -335,7 +335,7 @@ namespace GameUI
                     case ConsoleKey.X:
                         done = true;
                         break;
-                    case ConsoleKey.Backspace:
+                    case ConsoleKey.Backspace://todo:delete function
                         Console.WriteLine("Deleting...");
                         var saveid = query[index].SaveId;
                         DAL.Save.DeleteSave(saveid, ctx);
