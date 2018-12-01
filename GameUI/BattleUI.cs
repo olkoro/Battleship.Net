@@ -115,8 +115,12 @@ namespace GameUI
                     if (status == "MISS ")
                     {
                         P2turn = true;
-                        coords[0] = 0;
-                        coords[1] = 0;
+                        if (!Player2.AI)
+                        {
+                            coords[0] = 0;
+                            coords[1] = 0;
+                        }
+                        
                     }
                 }
                 else
@@ -184,10 +188,10 @@ namespace GameUI
                 {
                     SaveSystem.GameStates.Last().Status = "[" + SaveSystem.GameStates.Last().P1.ToString() +
                                                           ": " + SaveSystem.GameStates.Last().P1.Board.Ships.Count +
-                                                          " Ships Left, " +
+                                                          " Ships, " +
                                                           SaveSystem.GameStates.Last().P2.ToString() +
                                                           ": " + SaveSystem.GameStates.Last().P2.Board.Ships.Count +
-                                                          " Ships Left]";
+                                                          " Ships]";
                 }
 
                 SaveSystem.SavesList.Add(new List<State>(SaveSystem.GameStates));
@@ -205,7 +209,7 @@ namespace GameUI
                 var p1map = save.States[i].Player1Map.GetDomainBoard();
                 var player1 = save.Player1.GetDomainPlayer(p1gb, p1map);
                 var player2 = save.Player2.GetDomainPlayer(save.States[i].Player2GB.GetDomainBoard(),save.States[i].Player2Map.GetDomainBoard());
-                State state = save.States[i].GetDomailState(player1,player2,save.Rules.CanTouch);
+                State state = save.States[i].GetDomainState(player1,player2,save.Rules.CanTouch);
                 state.time = save.States[i].TimeStamp;
                 replay.Add(state);
             }
@@ -260,6 +264,25 @@ namespace GameUI
         public static void LoadGame(Save save)
         {
             Console.WriteLine("Loading...");
+            if (save.Replay)
+            {
+                Console.WriteLine("Loading Replay...");
+                var ctx = new AppDbContext();
+                var replayquery = ctx.Saves.Where(s => s.SaveId == save.SaveId)
+                    .Include(s => s.Player1).Include(s => s.Player2).Include(s=>s.Rules)
+                    .Include(s=>s.States).ThenInclude(s=>s.Player1GB).ThenInclude(g => g.Squares)
+                    .Include(s=>s.States).ThenInclude(s=>s.Player2GB).ThenInclude(g => g.Squares)
+                    .Include(s=>s.States).ThenInclude(s=>s.Player1Map).ThenInclude(g => g.Squares)
+                    .Include(s=>s.States).ThenInclude(s=>s.Player2Map).ThenInclude(g => g.Squares)
+                    .First();
+                foreach (var state in replayquery.States)
+                {
+                    SaveSystem.GameStates.Add(state.GetDomainState(replayquery.Player1.GetDomainPlayer(state.Player1GB.GetDomainBoard(),state.Player1Map.GetDomainBoard()),
+                        replayquery.Player2.GetDomainPlayer(state.Player2GB.GetDomainBoard(),state.Player2Map.GetDomainBoard())
+                        ,replayquery.Rules.CanTouch));
+                }
+            }
+            Console.WriteLine("Loading Save...");
             Player player1 = new Domain.Player(save.Player1.Name, 
                 save.LastState.Player1GB.GetDomainBoard(),
                 save.LastState.Player1Map.GetDomainBoard()){AI = save.Player1.AI};
