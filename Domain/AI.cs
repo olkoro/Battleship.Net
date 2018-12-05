@@ -266,9 +266,9 @@ namespace Domain
             Random rnd = new Random();
             for (int i = 0; i < map.Board.Count; i++)//TOdo: does not work correctly
             {
-                for (int j = 0; j < map.Board[i].Count; j++)
+                for (int j = 0; j < map.Board[i].Count; j++)//look at board 
                 {
-                    if (map.Board[i][j] == BoardSquareState.Hit)
+                    if (map.Board[i][j] == BoardSquareState.Hit)//found a hit
                     {
                         //check for other hits
                         //up
@@ -318,7 +318,7 @@ namespace Domain
                         //guessing orientation
                         if (orientation == Orientation.Unknown)
                         {
-                            if (rnd.Next(0, 1) == 1)
+                            if (rnd.Next(0, 2) == 1)
                             {
                                 orientation = Orientation.Horisontal;
                             }
