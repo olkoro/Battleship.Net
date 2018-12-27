@@ -8,6 +8,9 @@
     <ItemGroup>
         <PackageReference Include="Microsoft.AspNetCore.App" />
         <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.0" />
+        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.4" />
+        <PackageReference Include="MySql.Data.EntityFrameworkCore" Version="8.0.13" />
     </ItemGroup>
 
     <ItemGroup>
@@ -17,5 +20,21 @@
       <ProjectReference Include="..\Initializers\Initializers.csproj" />
       <ProjectReference Include="..\MenuSystem\MenuSystem.csproj" />
     </ItemGroup>
+
+    <ItemGroup>
+        <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.4" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="wwwroot\css\site.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\css\site.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\favicon.ico" />
+      <_ContentIncludedByDefault Remove="wwwroot\images\banner1.svg" />
+      <_ContentIncludedByDefault Remove="wwwroot\images\banner2.svg" />
+      <_ContentIncludedByDefault Remove="wwwroot\images\banner3.svg" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\site.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\site.min.js" />
+    </ItemGroup>
+
 
 </Project>

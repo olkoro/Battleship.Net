@@ -1,0 +1,32 @@
+@page
+@model WebApp.Pages.Game
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Game in Progress</title>
+    <a href="Index">Home</a>
+</head>
+<body>
+<div style="white-space: pre-wrap;font-family: monospace;">
+    @Html.DisplayFor(t => Model.gbString)
+</div>
+<div>2nd player's move: @Html.DisplayFor(s => Model.Status)<br/></div>
+<div>
+    Please shoot:
+    <form ACTION="Shoot">
+        <INPUT TYPE="Text" NAME="where" value="">
+        <INPUT TYPE="Submit" VALUE="Shoot"> 
+    </form>
+    
+    <form ACTION="Shoot">
+        <INPUT TYPE="Submit" VALUE="Shoot Randomly"> 
+    </form>
+</div>
+</body>
+</html>

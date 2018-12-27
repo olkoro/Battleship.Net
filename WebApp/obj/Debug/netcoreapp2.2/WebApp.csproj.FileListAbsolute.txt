@@ -23,3 +23,17 @@
 /Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/WebApp/bin/Debug/netcoreapp2.2/Initializers.pdb
 /Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/WebApp/bin/Debug/netcoreapp2.2/MenuSystem.pdb
 /Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/WebApp/obj/Debug/netcoreapp2.2/WebApp.csproj.CopyComplete
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/WebApp/bin/Debug/netcoreapp2.2/WebApp.Views.dll
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/WebApp/bin/Debug/netcoreapp2.2/WebApp.Views.pdb
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/WebApp/obj/Debug/netcoreapp2.2/WebApp.TagHelpers.input.cache
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/WebApp/obj/Debug/netcoreapp2.2/WebApp.TagHelpers.output.cache
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/WebApp/obj/Debug/netcoreapp2.2/WebApp.RazorCoreGenerate.cache
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/WebApp/obj/Debug/netcoreapp2.2/WebApp.RazorTargetAssemblyInfo.cs
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/WebApp/obj/Debug/netcoreapp2.2/WebApp.Views.pdb
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/WebApp/obj/Debug/netcoreapp2.2/Razor/Pages/Menu.g.cshtml.cs
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/WebApp/obj/Debug/netcoreapp2.2/Razor/Pages/Index.g.cshtml.cs
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/WebApp/obj/Debug/netcoreapp2.2/Razor/Pages/Game.g.cshtml.cs
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/WebApp/obj/Debug/netcoreapp2.2/Razor/Pages/GameMenu.g.cshtml.cs
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/WebApp/obj/Debug/netcoreapp2.2/Razor/Pages/Saves.g.cshtml.cs
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/WebApp/obj/Debug/netcoreapp2.2/Razor/Pages/Place.g.cshtml.cs
+/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/WebApp/obj/Debug/netcoreapp2.2/Razor/Pages/Shoot.g.cshtml.cs

@@ -26,6 +26,8 @@
           <e p="20181129215428_DbMigration11111.Designer.cs" t="Include" />
           <e p="20181130131820_DbMigration1.cs" t="Include" />
           <e p="20181130131820_DbMigration1.Designer.cs" t="Include" />
+          <e p="20181227165306_InitialDbCreation.cs" t="Include" />
+          <e p="20181227165306_InitialDbCreation.Designer.cs" t="Include" />
           <e p="AppDbContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
@@ -109,13 +111,29 @@
         <e p="appsettings.Development.json" t="Include" />
         <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
-        <e p="Form.aspx" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp2.2" t="Include">
               <e p="WebApp.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
+        </e>
+        <e p="Pages" t="Include">
+          <e p="Game.cshtml" t="Include" />
+          <e p="Game.cshtml.cs" t="Include" />
+          <e p="GameMenu.cshtml" t="Include" />
+          <e p="GameMenu.cshtml.cs" t="Include" />
+          <e p="Index.cshtml" t="Include" />
+          <e p="Index.cshtml.cs" t="Include" />
+          <e p="Menu.cshtml" t="Include" />
+          <e p="Menu.cshtml.cs" t="Include" />
+          <e p="Place.cshtml" t="Include" />
+          <e p="Place.cshtml.cs" t="Include" />
+          <e p="Saves.cshtml" t="Include" />
+          <e p="Saves.cshtml.cs" t="Include" />
+          <e p="Shoot.cshtml" t="Include" />
+          <e p="Shoot.cshtml.cs" t="Include" />
+          <e p="style.css" t="Include" />
         </e>
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">

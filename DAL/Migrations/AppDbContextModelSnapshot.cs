@@ -14,7 +14,7 @@ namespace DAL.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.2.0-preview3-35497");
+                .HasAnnotation("ProductVersion", "2.2.0-rtm-35687");
 
             modelBuilder.Entity("DAL.GameBoard", b =>
                 {
@@ -93,20 +93,9 @@ namespace DAL.Migrations
 
                     b.Property<int>("LastStateId");
 
-                    b.Property<short>("P2Turn")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("Player1GBId");
-
                     b.Property<int>("Player1Id");
 
-                    b.Property<int>("Player1MapId");
-
-                    b.Property<int>("Player2GBId");
-
                     b.Property<int>("Player2Id");
-
-                    b.Property<int>("Player2MapId");
 
                     b.Property<short>("Replay")
                         .HasColumnType("bit");
@@ -121,17 +110,9 @@ namespace DAL.Migrations
 
                     b.HasIndex("LastStateId");
 
-                    b.HasIndex("Player1GBId");
-
                     b.HasIndex("Player1Id");
 
-                    b.HasIndex("Player1MapId");
-
-                    b.HasIndex("Player2GBId");
-
                     b.HasIndex("Player2Id");
-
-                    b.HasIndex("Player2MapId");
 
                     b.HasIndex("RulesId");
 
@@ -215,23 +196,6 @@ namespace DAL.Migrations
                     b.ToTable("States");
                 });
 
-            modelBuilder.Entity("DAL.Test", b =>
-                {
-                    b.Property<int>("TestId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("HitOrMiss");
-
-                    b.Property<int>("Number")
-                        .HasColumnType("int");
-
-                    b.Property<string>("value");
-
-                    b.HasKey("TestId");
-
-                    b.ToTable("Tests");
-                });
-
             modelBuilder.Entity("DAL.GameboardSquare", b =>
                 {
                     b.HasOne("DAL.GameBoard", "GameBoard")
@@ -247,34 +211,14 @@ namespace DAL.Migrations
                         .HasForeignKey("LastStateId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("DAL.GameBoard", "Player1GB")
-                        .WithMany()
-                        .HasForeignKey("Player1GBId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
                     b.HasOne("DAL.Player", "Player1")
                         .WithMany()
                         .HasForeignKey("Player1Id")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("DAL.GameBoard", "Player1Map")
-                        .WithMany()
-                        .HasForeignKey("Player1MapId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("DAL.GameBoard", "Player2GB")
-                        .WithMany()
-                        .HasForeignKey("Player2GBId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
                     b.HasOne("DAL.Player", "Player2")
                         .WithMany()
                         .HasForeignKey("Player2Id")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("DAL.GameBoard", "Player2Map")
-                        .WithMany()
-                        .HasForeignKey("Player2MapId")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("DAL.Rules", "Rules")

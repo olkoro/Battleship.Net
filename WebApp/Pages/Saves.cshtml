@@ -1,0 +1,25 @@
+@page
+@model WebApp.Pages.Saves
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<div>
+    Saves<br/><br/>
+    @foreach (var save in Model.Save)
+    {
+        var saveString = save.ToString();
+        @Html.DisplayFor(model => saveString)
+        <br/>
+    }
+</div>
+</body>
+</html>
