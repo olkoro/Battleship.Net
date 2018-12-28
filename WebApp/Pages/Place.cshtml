@@ -13,9 +13,24 @@
 </head>
 <body>
 <div>
-    <div style="white-space: pre-wrap;font-family: monospace;">
-        @Html.DisplayFor(t => Model.gbString)
+    <div class="content">
+        <table class="border">
+            <tbody>
+            @for (int i = 0; i < Model.GameBoard.Board.Count; i++)
+            {
+                <tr class="border">
+                    @for (var j = 0; j < Model.GameBoard.Board[i].Count; j++)
+                    {
+                        <td class="border">
+                            @WebUI.ConvertToSymbols(Model.GameBoard.Board[i][j].ToString())
+                        </td>
+                    }
+                </tr>
+            }
+            </tbody>
+        </table>
     </div>
+    <br/>
     <a href="Game">Play</a>
 </div>
 </body>
