@@ -5,12 +5,13 @@ namespace WebApp.Pages
 {
     public class Place : PageModel
     {
-        public string gbString = "No GB";
         public GameBoard GameBoard = new GameBoard(10,10);
-        public void OnGetAsync()
+        public void OnGetAsync(string cmd)
         {
-            WebUI.Run();
-            gbString = WebUI.GetString();
+            if (cmd == "random")
+            {
+                WebUI.Run();
+            }
             GameBoard = WebUI.GetGameBoard()[0];
 
         }

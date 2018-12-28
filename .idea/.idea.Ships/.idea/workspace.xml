@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c7e9156b-7976-45d0-a7f1-57243bc37745" name="Default Changelist" comment="" />
+    <list default="true" id="c7e9156b-7976-45d0-a7f1-57243bc37745" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Ships/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Ships/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConsoleApp/bin/Debug/netcoreapp2.1/DAL.dll" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleApp/bin/Debug/netcoreapp2.1/DAL.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConsoleApp/bin/Debug/netcoreapp2.1/DAL.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleApp/bin/Debug/netcoreapp2.1/DAL.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConsoleApp/obj/Debug/netcoreapp2.1/ConsoleApp.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ConsoleApp/obj/Debug/netcoreapp2.1/ConsoleApp.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ships.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Ships.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Place.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Place.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Place.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Place.cshtml.cs" afterDir="false" />
+    </list>
     <list id="36120e49-5077-4acc-8636-faabd16307a5" name="Revert &quot;new cool design&quot;" comment="Revert &quot;new cool design&quot;&#10;&#10;This reverts commit 4ec5752" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,11 +50,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebApp/Pages/Game.cshtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="17" column="2" lean-forward="true" selection-start-line="16" selection-end-line="17" selection-end-column="2" />
+            <state relative-caret-position="342">
+              <caret line="33" column="10" selection-start-line="17" selection-start-column="4" selection-end-line="33" selection-end-column="10" />
               <folding>
                 <marker date="1546023848938" expanded="true" signature="46:88" ph="@..." />
                 <marker date="1546023848938" expanded="true" signature="107:1507" ph="&lt;html.../&gt;" />
@@ -76,18 +84,42 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/WebApp/Pages/Place.cshtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="43" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
+            <state relative-caret-position="294">
+              <caret line="33" column="28" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
               <folding>
-                <marker date="1546016956069" expanded="true" signature="33:75" ph="@..." />
-                <marker date="1546016956069" expanded="true" signature="94:333" ph="&lt;html.../&gt;" />
-                <marker date="1546016956069" expanded="true" signature="101:148" ph="&lt;head.../&gt;" />
-                <marker date="1546016956069" expanded="true" signature="149:325" ph="&lt;body.../&gt;" />
-                <marker date="1546016956069" expanded="true" signature="156:317" ph="&lt;div.../&gt;" />
-                <marker date="1546016956069" expanded="true" signature="166:282" ph="&lt;div.../&gt;" />
+                <marker date="1546025042833" expanded="true" signature="33:75" ph="@..." />
+                <marker date="1546025042833" expanded="true" signature="94:837" ph="&lt;html.../&gt;" />
+                <marker date="1546025042833" expanded="true" signature="101:148" ph="&lt;head.../&gt;" />
+                <marker date="1546025042833" expanded="true" signature="149:829" ph="&lt;body.../&gt;" />
+                <marker date="1546025042833" expanded="true" signature="156:821" ph="&lt;div.../&gt;" />
+                <marker date="1546025042833" expanded="true" signature="166:728" ph="&lt;div.../&gt;" />
+                <marker date="1546025042833" expanded="true" signature="196:717" ph="&lt;table.../&gt;" />
+                <marker date="1546025042833" expanded="true" signature="231:700" ph="&lt;tbody.../&gt;" />
+                <marker date="1546025042833" expanded="true" signature="251:679" ph="@..." />
+                <marker date="1546025042833" expanded="true" signature="305:679" ph="{...}" />
+                <marker date="1546025042833" expanded="true" signature="336:665" ph="&lt;tr.../&gt;" />
+                <marker date="1546025042833" expanded="true" signature="376:643" ph="@..." />
+                <marker date="1546025042833" expanded="true" signature="433:643" ph="{...}" />
+                <marker date="1546025042833" expanded="true" signature="480:621" ph="&lt;td.../&gt;" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebApp/Pages/Place.cshtml.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
+              <folding>
+                <marker date="1546024969771" expanded="true" signature="6:56" ph="..." />
+                <marker date="1546024969771" expanded="true" signature="80:393" ph="{...}" />
+                <marker date="1546024969771" expanded="true" signature="117:391" ph="{...}" />
+                <marker date="1546024969771" expanded="true" signature="225:385" ph="{...}" />
+                <marker date="1546024969771" expanded="true" signature="268:325" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -161,20 +193,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebApp/Pages/Index.cshtml.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <marker date="1546015822752" expanded="false" signature="6:171" ph="..." />
-                <marker date="1546015822752" expanded="true" signature="195:299" ph="{...}" />
-                <marker date="1546015822752" expanded="true" signature="237:297" ph="{...}" />
-                <marker date="1546015822752" expanded="true" signature="271:291" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebApp/wwwroot/css/site.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="250">
@@ -186,8 +204,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebApp/Pages/Game.cshtml.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="20" column="28" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
+            <state relative-caret-position="167">
+              <caret line="18" column="33" selection-start-line="18" selection-end-line="19" />
               <folding>
                 <marker date="1546022001594" expanded="false" signature="6:120" ph="..." />
                 <marker date="1546022001594" expanded="true" signature="144:1125" ph="{...}" />
@@ -267,6 +285,7 @@
     <setting file="file://$PROJECT_DIR$/DAL/SaveState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/DAL/Rules.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/WebApp/Pages/Place.cshtml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/WebApp/Pages/Place.cshtml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/DAL/BoardShips.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/WebApp/Pages/Saves.cshtml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/DAL/Save.cs" root0="FORCE_HIGHLIGHTING" />
@@ -347,11 +366,9 @@
         <option value="$PROJECT_DIR$/WebApp/Pages/Saves.cshtml.cs" />
         <option value="$PROJECT_DIR$/WebApp/Pages/Shoot.cshtml.cs" />
         <option value="$PROJECT_DIR$/WebApp/Pages/Shoot.cshtml" />
-        <option value="$PROJECT_DIR$/WebApp/Pages/Place.cshtml.cs" />
         <option value="$PROJECT_DIR$/WebApp/Pages/style.css" />
         <option value="$PROJECT_DIR$/WebApp/Startup.cs" />
         <option value="$PROJECT_DIR$/WebApp/Pages/GameMenu.cshtml.cs" />
-        <option value="$PROJECT_DIR$/WebApp/Pages/Place.cshtml" />
         <option value="$PROJECT_DIR$/WebApp/Pages/Saves.cshtml" />
         <option value="$PROJECT_DIR$/WebApp/Pages/Shared/_Layout.cshtml" />
         <option value="$PROJECT_DIR$/WebApp/WebUI.cs" />
@@ -360,6 +377,8 @@
         <option value="$PROJECT_DIR$/WebApp/Pages/Game.cshtml" />
         <option value="$PROJECT_DIR$/WebApp/Pages/GameMenu.cshtml" />
         <option value="$PROJECT_DIR$/WebApp/Pages/Index.cshtml" />
+        <option value="$PROJECT_DIR$/WebApp/Pages/Place.cshtml.cs" />
+        <option value="$PROJECT_DIR$/WebApp/Pages/Place.cshtml" />
       </list>
     </option>
   </component>
@@ -419,6 +438,13 @@
               <item name="WebApp" type="24d0babc:SolutionExplorerModelNode" />
               <item name="Pages" type="24d0babc:SolutionExplorerModelNode" />
               <item name="Index.cshtml" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="Ships" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="WebApp" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Pages" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Place.cshtml" type="24d0babc:SolutionExplorerModelNode" />
             </path>
             <path>
               <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
@@ -568,7 +594,7 @@
       <workItem from="1545148055804" duration="644000" />
       <workItem from="1545817045066" duration="1612000" />
       <workItem from="1545926142504" duration="22105000" />
-      <workItem from="1546015726866" duration="8669000" />
+      <workItem from="1546015726866" duration="9150000" />
     </task>
     <task id="LOCAL-00001" summary="c">
       <created>1539895048682</created>
@@ -773,11 +799,18 @@
       <option name="project" value="LOCAL" />
       <updated>1546024235737</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="use table in placing">
+      <created>1546024798721</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1546024798721</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="282272000" />
+    <option name="totallyTimeSpent" value="282753000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -790,9 +823,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="777" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49788135" visible="true" weight="0.26655897" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49788135" visible="true" weight="0.26655897" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.50211865" side_tool="true" weight="0.26655897" />
       <window_info id="Image Layers" order="3" />
@@ -800,7 +832,7 @@
       <window_info anchor="bottom" id="REST Client" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32866243" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49919224" visible="true" weight="0.3109489" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49919224" visible="true" weight="0.3109489" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.24379562" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -869,7 +901,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="changed the menu system" />
     <MESSAGE value="added ships to menu" />
     <MESSAGE value="customizable ships" />
     <MESSAGE value="corrected default ships" />
@@ -894,7 +925,8 @@
     <MESSAGE value="commit" />
     <MESSAGE value="The WebApp Version is playable, but ships can only be placed randomly, and single player only" />
     <MESSAGE value="started using tables" />
-    <option name="LAST_COMMIT_MESSAGE" value="started using tables" />
+    <MESSAGE value="use table in placing" />
+    <option name="LAST_COMMIT_MESSAGE" value="use table in placing" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1195,13 +1227,6 @@
             <marker date="1544011059895" expanded="true" signature="13862:13922" ph="{...}" />
             <marker date="1544011059895" expanded="true" signature="13971:14031" ph="{...}" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebApp/Pages/Place.cshtml.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="9" column="24" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -1560,25 +1585,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebApp/Pages/Game.cshtml.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="20" column="28" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
-          <folding>
-            <marker date="1546022001594" expanded="false" signature="6:120" ph="..." />
-            <marker date="1546022001594" expanded="true" signature="144:1125" ph="{...}" />
-            <marker date="1546022001594" expanded="true" signature="180:1123" ph="{...}" />
-            <marker date="1546022001594" expanded="true" signature="341:394" ph="/* public void OnGet() ... */" />
-            <marker date="1546022001594" expanded="true" signature="497:1117" ph="{...}" />
-            <marker date="1546022001594" expanded="true" signature="630:700" ph="{...}" />
-            <marker date="1546022001594" expanded="true" signature="717:790" ph="{...}" />
-            <marker date="1546022001594" expanded="true" signature="820:890" ph="{...}" />
-            <marker date="1546022001594" expanded="true" signature="933:1007" ph="{...}" />
-            <marker date="1546022001594" expanded="true" signature="1024:1106" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WebApp/WebUI.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -1637,25 +1643,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebApp/Pages/Place.cshtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="43" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
-          <folding>
-            <marker date="1546016956069" expanded="true" signature="33:75" ph="@..." />
-            <marker date="1546016956069" expanded="true" signature="94:333" ph="&lt;html.../&gt;" />
-            <marker date="1546016956069" expanded="true" signature="101:148" ph="&lt;head.../&gt;" />
-            <marker date="1546016956069" expanded="true" signature="149:325" ph="&lt;body.../&gt;" />
-            <marker date="1546016956069" expanded="true" signature="156:317" ph="&lt;div.../&gt;" />
-            <marker date="1546016956069" expanded="true" signature="166:282" ph="&lt;div.../&gt;" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WebApp/Pages/Game.cshtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="17" column="2" lean-forward="true" selection-start-line="16" selection-end-line="17" selection-end-column="2" />
+        <state relative-caret-position="342">
+          <caret line="33" column="10" selection-start-line="17" selection-start-column="4" selection-end-line="33" selection-end-column="10" />
           <folding>
             <marker date="1546023848938" expanded="true" signature="46:88" ph="@..." />
             <marker date="1546023848938" expanded="true" signature="107:1507" ph="&lt;html.../&gt;" />
@@ -1680,6 +1671,62 @@
             <marker date="1546023848938" expanded="true" signature="1117:1399" ph="@..." />
             <marker date="1546023848938" expanded="true" signature="1168:1399" ph="{...}" />
             <marker date="1546023848938" expanded="true" signature="1215:1377" ph="&lt;td.../&gt;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebApp/Pages/Game.cshtml.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="18" column="33" selection-start-line="18" selection-end-line="19" />
+          <folding>
+            <marker date="1546022001594" expanded="false" signature="6:120" ph="..." />
+            <marker date="1546022001594" expanded="true" signature="144:1125" ph="{...}" />
+            <marker date="1546022001594" expanded="true" signature="180:1123" ph="{...}" />
+            <marker date="1546022001594" expanded="true" signature="341:394" ph="/* public void OnGet() ... */" />
+            <marker date="1546022001594" expanded="true" signature="497:1117" ph="{...}" />
+            <marker date="1546022001594" expanded="true" signature="630:700" ph="{...}" />
+            <marker date="1546022001594" expanded="true" signature="717:790" ph="{...}" />
+            <marker date="1546022001594" expanded="true" signature="820:890" ph="{...}" />
+            <marker date="1546022001594" expanded="true" signature="933:1007" ph="{...}" />
+            <marker date="1546022001594" expanded="true" signature="1024:1106" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebApp/Pages/Place.cshtml.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+          <folding>
+            <marker date="1546024969771" expanded="true" signature="6:56" ph="..." />
+            <marker date="1546024969771" expanded="true" signature="80:393" ph="{...}" />
+            <marker date="1546024969771" expanded="true" signature="117:391" ph="{...}" />
+            <marker date="1546024969771" expanded="true" signature="225:385" ph="{...}" />
+            <marker date="1546024969771" expanded="true" signature="268:325" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebApp/Pages/Place.cshtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="33" column="28" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
+          <folding>
+            <marker date="1546025042833" expanded="true" signature="33:75" ph="@..." />
+            <marker date="1546025042833" expanded="true" signature="94:837" ph="&lt;html.../&gt;" />
+            <marker date="1546025042833" expanded="true" signature="101:148" ph="&lt;head.../&gt;" />
+            <marker date="1546025042833" expanded="true" signature="149:829" ph="&lt;body.../&gt;" />
+            <marker date="1546025042833" expanded="true" signature="156:821" ph="&lt;div.../&gt;" />
+            <marker date="1546025042833" expanded="true" signature="166:728" ph="&lt;div.../&gt;" />
+            <marker date="1546025042833" expanded="true" signature="196:717" ph="&lt;table.../&gt;" />
+            <marker date="1546025042833" expanded="true" signature="231:700" ph="&lt;tbody.../&gt;" />
+            <marker date="1546025042833" expanded="true" signature="251:679" ph="@..." />
+            <marker date="1546025042833" expanded="true" signature="305:679" ph="{...}" />
+            <marker date="1546025042833" expanded="true" signature="336:665" ph="&lt;tr.../&gt;" />
+            <marker date="1546025042833" expanded="true" signature="376:643" ph="@..." />
+            <marker date="1546025042833" expanded="true" signature="433:643" ph="{...}" />
+            <marker date="1546025042833" expanded="true" signature="480:621" ph="&lt;td.../&gt;" />
           </folding>
         </state>
       </provider>
