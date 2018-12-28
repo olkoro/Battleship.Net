@@ -20,7 +20,7 @@ namespace WebApp.Pages
             Map = WebUI.GetGameBoard()[1];
             if (where == null)
             {
-                Status = WebUI.ShootAI();
+                //Status = WebUI.ShootAI();
             }
             else
             {

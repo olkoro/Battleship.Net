@@ -22,15 +22,12 @@ namespace WebApp
         public static string ShootAI()
         {
             var ret = "unknown";
-            if (P2Turn)
-            {
-                ret = AI.AIShoot(Player1.Board, Player2.Map);
-            }
+            ret = AI.AIShoot(Player1.Board, Player2.Map);
+            if(ret == "MISS "){SwitchSwitch();}
             else
             {
-                ret = AI.AIShoot(Player2.Board, Player1.Map);
+                ShootAI();
             }
-            if(ret == "MISS "){SwitchSwitch();}
             return ret;
         }
         public static string Shoot(string data)
