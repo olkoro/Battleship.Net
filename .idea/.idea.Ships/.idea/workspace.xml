@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c7e9156b-7976-45d0-a7f1-57243bc37745" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Ships/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Ships/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Game.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Game.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/WebUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/WebUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/bin/Debug/netcoreapp2.2/WebApp.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/bin/Debug/netcoreapp2.2/WebApp.Views.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/bin/Debug/netcoreapp2.2/WebApp.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/bin/Debug/netcoreapp2.2/WebApp.Views.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/bin/Debug/netcoreapp2.2/WebApp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/bin/Debug/netcoreapp2.2/WebApp.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/bin/Debug/netcoreapp2.2/WebApp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/bin/Debug/netcoreapp2.2/WebApp.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/obj/Debug/netcoreapp2.2/Razor/Pages/Index.g.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/obj/Debug/netcoreapp2.2/Razor/Pages/Index.g.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/obj/Debug/netcoreapp2.2/WebApp.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/obj/Debug/netcoreapp2.2/WebApp.Views.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/obj/Debug/netcoreapp2.2/WebApp.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/obj/Debug/netcoreapp2.2/WebApp.Views.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/obj/Debug/netcoreapp2.2/WebApp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/obj/Debug/netcoreapp2.2/WebApp.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/obj/Debug/netcoreapp2.2/WebApp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/obj/Debug/netcoreapp2.2/WebApp.pdb" afterDir="false" />
-    </list>
+    <list default="true" id="c7e9156b-7976-45d0-a7f1-57243bc37745" name="Default Changelist" comment="" />
     <list id="36120e49-5077-4acc-8636-faabd16307a5" name="Revert &quot;new cool design&quot;" comment="Revert &quot;new cool design&quot;&#10;&#10;This reverts commit 4ec5752" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -146,7 +132,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebApp/WebUI.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="129">
@@ -192,11 +178,34 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebApp/wwwroot/css/site.css">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Domain/GameBoard.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+            <state relative-caret-position="181">
+              <caret line="43" column="16" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="16" />
+              <folding>
+                <marker date="1542999171000" expanded="false" signature="6:66" ph="..." />
+                <marker date="1542999171000" expanded="true" signature="84:2969" ph="{...}" />
+                <marker date="1542999171000" expanded="true" signature="113:2967" ph="{...}" />
+                <marker date="1542999171000" expanded="true" signature="203:355" ph="{...}" />
+                <marker date="1542999171000" expanded="true" signature="581:880" ph="{...}" />
+                <marker date="1542999171000" expanded="true" signature="639:870" ph="{...}" />
+                <marker date="1542999171000" expanded="true" signature="762:856" ph="{...}" />
+                <marker date="1542999171000" expanded="true" signature="991:1874" ph="{...}" />
+                <marker date="1542999171000" expanded="true" signature="1138:1328" ph="{...}" />
+                <marker date="1542999171000" expanded="true" signature="1345:1828" ph="{...}" />
+                <marker date="1542999171000" expanded="true" signature="1651:1723" ph="{...}" />
+                <marker date="1542999171000" expanded="true" signature="1744:1814" ph="{...}" />
+                <marker date="1542999171000" expanded="true" signature="1937:2368" ph="{...}" />
+                <marker date="1542999171000" expanded="true" signature="2084:2273" ph="{...}" />
+                <marker date="1542999171000" expanded="true" signature="2161:2259" ph="{...}" />
+                <marker date="1542999171000" expanded="true" signature="2429:2961" ph="{...}" />
+                <marker date="1542999171000" expanded="true" signature="2463:2537" ph="{...}" />
+                <marker date="1542999171000" expanded="true" signature="2570:2643" ph="{...}" />
+                <marker date="1542999171000" expanded="true" signature="2677:2751" ph="{...}" />
+                <marker date="1542999171000" expanded="true" signature="2785:2859" ph="{...}" />
+                <marker date="1542999171000" expanded="true" signature="2876:2951" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -419,6 +428,11 @@
             <path>
               <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
               <item name="Ships" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Domain" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="Ships" type="24d0babc:SolutionExplorerModelNode" />
               <item name="WebApp" type="24d0babc:SolutionExplorerModelNode" />
             </path>
             <path>
@@ -610,7 +624,7 @@
       <workItem from="1545148055804" duration="644000" />
       <workItem from="1545817045066" duration="1612000" />
       <workItem from="1545926142504" duration="22105000" />
-      <workItem from="1546015726866" duration="9798000" />
+      <workItem from="1546015726866" duration="10442000" />
     </task>
     <task id="LOCAL-00001" summary="c">
       <created>1539895048682</created>
@@ -829,11 +843,18 @@
       <option name="project" value="LOCAL" />
       <updated>1546025237411</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="ai shoots more if hit">
+      <created>1546025812911</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1546025812911</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="283401000" />
+    <option name="totallyTimeSpent" value="284045000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -925,7 +946,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="customizable ships" />
     <MESSAGE value="corrected default ships" />
     <MESSAGE value="added random placing(but a pretty bad one)" />
     <MESSAGE value="save system" />
@@ -950,7 +970,8 @@
     <MESSAGE value="started using tables" />
     <MESSAGE value="use table in placing" />
     <MESSAGE value="is possible to restart" />
-    <option name="LAST_COMMIT_MESSAGE" value="is possible to restart" />
+    <MESSAGE value="ai shoots more if hit" />
+    <option name="LAST_COMMIT_MESSAGE" value="ai shoots more if hit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1107,36 +1128,6 @@
             <marker date="1543513219000" expanded="true" signature="564:1098" ph="{...}" />
             <marker date="1543513219000" expanded="true" signature="759:883" ph="{...}" />
             <marker date="1543513219000" expanded="true" signature="924:1056" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Domain/GameBoard.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="33" column="18" lean-forward="true" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="18" />
-          <folding>
-            <marker date="1542999171000" expanded="false" signature="6:66" ph="..." />
-            <marker date="1542999171000" expanded="true" signature="84:2969" ph="{...}" />
-            <marker date="1542999171000" expanded="true" signature="113:2967" ph="{...}" />
-            <marker date="1542999171000" expanded="true" signature="203:355" ph="{...}" />
-            <marker date="1542999171000" expanded="true" signature="581:880" ph="{...}" />
-            <marker date="1542999171000" expanded="true" signature="639:870" ph="{...}" />
-            <marker date="1542999171000" expanded="true" signature="762:856" ph="{...}" />
-            <marker date="1542999171000" expanded="true" signature="991:1874" ph="{...}" />
-            <marker date="1542999171000" expanded="true" signature="1138:1328" ph="{...}" />
-            <marker date="1542999171000" expanded="true" signature="1345:1828" ph="{...}" />
-            <marker date="1542999171000" expanded="true" signature="1651:1723" ph="{...}" />
-            <marker date="1542999171000" expanded="true" signature="1744:1814" ph="{...}" />
-            <marker date="1542999171000" expanded="true" signature="1937:2368" ph="{...}" />
-            <marker date="1542999171000" expanded="true" signature="2084:2273" ph="{...}" />
-            <marker date="1542999171000" expanded="true" signature="2161:2259" ph="{...}" />
-            <marker date="1542999171000" expanded="true" signature="2429:2961" ph="{...}" />
-            <marker date="1542999171000" expanded="true" signature="2463:2537" ph="{...}" />
-            <marker date="1542999171000" expanded="true" signature="2570:2643" ph="{...}" />
-            <marker date="1542999171000" expanded="true" signature="2677:2751" ph="{...}" />
-            <marker date="1542999171000" expanded="true" signature="2785:2859" ph="{...}" />
-            <marker date="1542999171000" expanded="true" signature="2876:2951" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1750,6 +1741,36 @@
             <marker date="1546025721780" expanded="true" signature="5036:5149" ph="{...}" />
             <marker date="1546025721780" expanded="true" signature="5302:5769" ph="{...}" />
             <marker date="1546025721780" expanded="true" signature="5339:5759" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Domain/GameBoard.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="43" column="16" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="16" />
+          <folding>
+            <marker date="1542999171000" expanded="false" signature="6:66" ph="..." />
+            <marker date="1542999171000" expanded="true" signature="84:2969" ph="{...}" />
+            <marker date="1542999171000" expanded="true" signature="113:2967" ph="{...}" />
+            <marker date="1542999171000" expanded="true" signature="203:355" ph="{...}" />
+            <marker date="1542999171000" expanded="true" signature="581:880" ph="{...}" />
+            <marker date="1542999171000" expanded="true" signature="639:870" ph="{...}" />
+            <marker date="1542999171000" expanded="true" signature="762:856" ph="{...}" />
+            <marker date="1542999171000" expanded="true" signature="991:1874" ph="{...}" />
+            <marker date="1542999171000" expanded="true" signature="1138:1328" ph="{...}" />
+            <marker date="1542999171000" expanded="true" signature="1345:1828" ph="{...}" />
+            <marker date="1542999171000" expanded="true" signature="1651:1723" ph="{...}" />
+            <marker date="1542999171000" expanded="true" signature="1744:1814" ph="{...}" />
+            <marker date="1542999171000" expanded="true" signature="1937:2368" ph="{...}" />
+            <marker date="1542999171000" expanded="true" signature="2084:2273" ph="{...}" />
+            <marker date="1542999171000" expanded="true" signature="2161:2259" ph="{...}" />
+            <marker date="1542999171000" expanded="true" signature="2429:2961" ph="{...}" />
+            <marker date="1542999171000" expanded="true" signature="2463:2537" ph="{...}" />
+            <marker date="1542999171000" expanded="true" signature="2570:2643" ph="{...}" />
+            <marker date="1542999171000" expanded="true" signature="2677:2751" ph="{...}" />
+            <marker date="1542999171000" expanded="true" signature="2785:2859" ph="{...}" />
+            <marker date="1542999171000" expanded="true" signature="2876:2951" ph="{...}" />
           </folding>
         </state>
       </provider>

@@ -37,7 +37,7 @@ namespace Domain
                 board.Board[row][column] = BoardSquareState.Miss;
                 return "MISS ";
             }
-            else
+            else if(board.Board[row][column] == BoardSquareState.Ship)
             {
                 var ship = AI.FindShip(board, coords);
                 ship.SetHealth(ship.Health - 1);
