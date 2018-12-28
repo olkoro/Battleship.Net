@@ -1,0 +1,207 @@
+body {
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 0;
+    font-size: 16px;
+    font-family: "Helvetica", sans-serif; color: black;
+    background-image: url("img/yosemite.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+h1 {font-size: 20px; color: black; font-family: Impact, sans-serif}
+
+#outer-div { height: 100px;
+    width: 400px;
+    border: 1px solid black; }
+#inner-div { height: 18px;
+    width: 120px;
+    border: 20px solid lightgray; margin: 15px;
+    padding: 10px;}
+input[type='submit'] {
+    width: 8em; }
+menu {
+    text-align: left;
+    background-position: center;
+    background-color: white;
+    padding: 10px;
+    height: 18px;
+    -webkit-transition: height 0.3s, transform 0.3s;
+    transition: height 0.3s, padding-top 0.3s, transform 0.3s;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    border: none;
+    background: rgba(255, 255, 255, .9);
+
+}
+menu:hover{
+    transform: scale(1);
+
+}
+#inputs{
+    padding-top: 20px;
+    padding-left: 7px;
+    padding-bottom: 20px;
+}
+.inputs{
+    font-family: Impact,sans-serif;
+    font-size: 20px;
+    text-align: left;
+    color: black;
+    margin-right: 30%;
+    margin-left: 30%;
+    transition:margin-left 2s, margin-right 2s;
+}
+.center{
+    text-align: center;
+}
+.textinput{
+    margin-top: 4px;
+    margin-bottom: 4px;
+    width: 90%;
+    padding: 4px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    font-size: 16px;
+    border: 1px solid black;
+    outline: none;
+    transition: transform 0.3s;
+}
+.textinput:focus{
+    transform: scale(1.05);
+    border-color: dodgerblue;
+}
+.salvesta{
+    color: white;
+    margin-top: 16px;
+    padding: 6px;
+    font-size: 15px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 333px;
+    border-radius: 333px;
+    background-color: black;
+    border: none;
+    transition: transform 0.3s;
+}
+.salvesta:hover{
+    transform: scale(1.05);
+    transition: transform 0.5s;
+    background-color: dodgerblue;
+}
+.salvesta:active{
+    transform: scale(0.9);
+    color: lightskyblue;
+    background-color: dodgerblue;
+}
+.salvesta:focus{
+    background-color: dodgerblue;
+    transition: transform 0.5s;
+    outline: none;
+}
+.my-bborder { border-bottom-width: 3px; border-bottom-color: black; border-bottom-style: solid;
+}
+
+.my-bold {
+    font-weight: bolder; font-size: 20px;
+}
+.link{
+}
+.link:hover{
+}
+.link:link{
+}
+.link:active{
+
+}
+.element{
+    transition: background-color 0.5s, ease-in, transform 0.3s;
+}
+.element:hover{
+    background-color: dodgerblue;
+    transform: scale(1.00);
+    color: white;
+    transition: transform 0.3s;
+}
+.element:active{
+    transform: scale(0.98);
+}
+
+.message{
+    background-color: #EEffEE;
+    padding: 6px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    border: none;
+}
+.error_message{
+    background-color: indianred;
+    padding: 6px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    border: none;
+}
+
+.content{
+    padding: 6px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background-color: white;
+    border: none;
+    background: rgba(255, 255, 255, .9);
+
+}
+.content:hover{
+}
+
+message-block, error-block { color: #000;
+    background-color: #EEffEE;
+...
+}
+error-block { background-color: #ffEEEE; border-color: #ff0000;
+}
+#d1 {
+    width: 600px;
+}
+
+.content{
+    transition: transform 0.3s;
+}
+.content:hover{
+    transform: scale(1);
+}
+
+#tablica table {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+    position: center;
+    text-align: center;
+}
+
+table tr:nth-child(odd) {
+    background-color: rgba(255, 255, 255, 0);
+}
+
+table tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+@media (max-width: 768px) {
+    .inputs {
+        transition: margin-right 2s, margin-left 2s, transform 0.3s;
+        margin-right: 0%;
+        margin-left: 0%;
+    }
+}
+@media (min-width: 768px){
+    .inputs {
+        transition: margin-right 2s, margin-left 2s, transform 0.3s;
+        margin-right: 30%;
+        margin-left: 30%;
+    }
+}

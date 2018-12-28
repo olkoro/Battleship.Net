@@ -23,12 +23,6 @@
           },
           "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/GameUI/GameUI.csproj": {
             "projectPath": "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/GameUI/GameUI.csproj"
-          },
-          "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Initializers/Initializers.csproj": {
-            "projectPath": "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/Initializers/Initializers.csproj"
-          },
-          "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/MenuSystem/MenuSystem.csproj": {
-            "projectPath": "/Users/olkoro/CodeProjects/battleship-by-oleg-korotkov/MenuSystem/MenuSystem.csproj"
           }
         }
       }
@@ -58,18 +52,6 @@
           "target": "Package",
           "version": "[2.2.0, )",
           "autoReferenced": true
-        },
-        "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
-          "target": "Package",
-          "version": "[2.2.0, )"
-        },
-        "Microsoft.VisualStudio.Web.CodeGeneration.Tools": {
-          "target": "Package",
-          "version": "[2.0.4, )"
-        },
-        "MySql.Data.EntityFrameworkCore": {
-          "target": "Package",
-          "version": "[8.0.13, )"
         }
       },
       "imports": [

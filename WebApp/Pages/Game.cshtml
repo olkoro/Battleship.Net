@@ -1,8 +1,9 @@
 @page
+@using Domain
 @model WebApp.Pages.Game
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Game Setup";
 }
 
 <!DOCTYPE html>
@@ -10,23 +11,44 @@
 <html>
 <head>
     <title>Game in Progress</title>
-    <a href="Index">Home</a>
+    <link href="style.css">
 </head>
 <body>
-<div style="white-space: pre-wrap;font-family: monospace;">
-    @Html.DisplayFor(t => Model.gbString)
-</div>
-<div>2nd player's move: @Html.DisplayFor(s => Model.Status)<br/></div>
-<div>
-    Please shoot:
-    <form ACTION="Shoot">
-        <INPUT TYPE="Text" NAME="where" value="">
-        <INPUT TYPE="Submit" VALUE="Shoot"> 
-    </form>
-    
-    <form ACTION="Shoot">
-        <INPUT TYPE="Submit" VALUE="Shoot Randomly"> 
-    </form>
+<div style="padding-left: 15%; padding-right: 15%;font-size: 180%">
+    <div class="content">
+        <table class="border" style="float: left;">
+            <tbody>
+            @for (int i = 0; i < Model.GameBoard.Board.Count; i++)
+            {
+                <tr class="border">
+                    @for (var j = 0; j < Model.GameBoard.Board[i].Count; j++)
+                    {
+                        <td class="border">
+                            @WebUI.ConvertToSymbols(Model.GameBoard.Board[i][j].ToString())
+                        </td>
+                    }
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+    <div class="content" style="float: right;">
+        <table class="border" style="display: inline-block;">
+            <tbody>
+            @for (int i = 0; i < Model.Map.Board.Count; i++)
+            {
+                <tr class="border">
+                    @for (var j = 0; j < Model.Map.Board[i].Count; j++)
+                    {
+                        <td class="border">
+                            <a href="?Where=@i,@j">@WebUI.ConvertToSymbols(Model.Map.Board[i][j].ToString())</a>
+                        </td>
+                    }
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
 </div>
 </body>
 </html>

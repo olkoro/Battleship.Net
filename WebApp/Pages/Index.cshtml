@@ -1,22 +1,16 @@
-@page
-@model WebApp.Pages.Index
-
+﻿@page
+@model IndexModel
 @{
-    Layout = null;
+    ViewData["Title"] = "Home page";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <title></title>
-</head>
+<div class="text-center">
+    <h1 class="display-4">Welcome 👋</h1>
+</div>
 <body>
-<div>
-    Index Page<br/><br/>
-    <a href="GameMenu">Start Game</a><br/>
+<div class="text-center">
+    <a href="GameMenu">🏁 Start Game</a><br/>
     <a href="Saves">Load Game</a><br/>
     <a href="Game">Resume</a>
 </div>
 </body>
-</html>

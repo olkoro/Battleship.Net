@@ -55,6 +55,38 @@ namespace WebApp
             return "Could not parse your input: "+data;
         }
 
+        public static GameBoard[] GetGameBoard()
+        {
+            return new []{Player1.Board, Player1.Map};
+        }
+
+        public static string ConvertToSymbols(string s)
+        {
+            if (s == "Empty")
+            {
+                return "💧";
+            }else if (s == "Ship")
+            {
+                return "⚓️";}
+
+            if (s == "Dead")
+            {
+                return "🔥";
+            }
+
+            if (s == "Hit")
+            {
+                return "💥";
+            }
+
+            if (s == "Miss")
+            {
+                return "💦";
+            }
+
+            return s;
+        }
+
         public static void SwitchSwitch()
         {
             if (P2Turn)

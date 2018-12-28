@@ -2,18 +2,20 @@
 @model WebApp.Pages.Place
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Game Setup";
 }
 
 <!DOCTYPE html>
 
 <html>
 <head>
-    <title></title>
+    <title>Placing ships</title>
 </head>
 <body>
 <div>
-    Placed<br/><br/>
+    <div style="white-space: pre-wrap;font-family: monospace;">
+        @Html.DisplayFor(t => Model.gbString)
+    </div>
     <a href="Game">Play</a>
 </div>
 </body>

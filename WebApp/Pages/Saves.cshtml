@@ -2,7 +2,7 @@
 @model WebApp.Pages.Saves
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Save Loading";
 }
 
 <!DOCTYPE html>
@@ -12,14 +12,25 @@
     <title></title>
 </head>
 <body>
-<div>
+<div id="tablica" class="content">
     Saves<br/><br/>
+    <table id="saves" class="tablecolors" border="0">
+    <tbody>
     @foreach (var save in Model.Save)
     {
         var saveString = save.ToString();
-        @Html.DisplayFor(model => saveString)
-        <br/>
+        //@Html.DisplayFor(model => saveString)
+        //<br/>
+        <tr>
+            <td class="my-bold my-bborder">
+                @saveString
+            </td>
+        </tr>
+        
     }
+    </tbody>
+    </table>
+    
 </div>
 </body>
 </html>
