@@ -14,41 +14,68 @@
     <link href="style.css">
 </head>
 <body>
-<div style="padding-left: 15%; padding-right: 15%;font-size: 180%">
-    <div class="content">
-        <table class="border" style="float: left;">
-            <tbody>
-            @for (int i = 0; i < Model.GameBoard.Board.Count; i++)
-            {
-                <tr class="border">
-                    @for (var j = 0; j < Model.GameBoard.Board[i].Count; j++)
-                    {
-                        <td class="border">
-                            @WebUI.ConvertToSymbols(Model.GameBoard.Board[i][j].ToString())
-                        </td>
-                    }
-                </tr>
-            }
-            </tbody>
-        </table>
+@if (WebUI.GetWinner() == null)
+{
+    <div class="text-center">
+        @if (Model.Player != WebUI.Current)
+        {
+            <a href="?cmd=go">🔄 @Html.DisplayFor(s => s.Player.Name)</a>
+        }
+        else
+        {
+            <a>👤 @Html.DisplayFor(s => s.Player.Name)</a>
+        }
     </div>
-    <div class="content" style="float: right;">
-        <table class="border" style="display: inline-block;">
-            <tbody>
-            @for (int i = 0; i < Model.Map.Board.Count; i++)
-            {
-                <tr class="border">
-                    @for (var j = 0; j < Model.Map.Board[i].Count; j++)
-                    {
-                        <td class="border">
-                            <a href="?Where=@i,@j">@WebUI.ConvertToSymbols(Model.Map.Board[i][j].ToString())</a>
-                        </td>
-                    }
-                </tr>
-            }
-            </tbody>
-        </table>
+    <div style="padding-left: 15%; padding-right: 15%; font-size: 180%">
+        <div class="content">
+            <table class="border" style="float: left;">
+                <tbody>
+                @for (int i = 0; i < Model.GameBoard.Board.Count; i++)
+                {
+                    <tr class="border">
+                        @for (var j = 0; j < Model.GameBoard.Board[i].Count; j++)
+                        {
+                            <td class="border">
+                                @WebUI.ConvertToSymbols(Model.GameBoard.Board[i][j].ToString())
+                            </td>
+                        }
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+        <div class="content" style="float: right;">
+            <table class="border" style="display: inline-block;">
+                <tbody>
+                @for (int i = 0; i < Model.Map.Board.Count; i++)
+                {
+                    <tr class="border">
+                        @for (var j = 0; j < Model.Map.Board[i].Count; j++)
+                        {
+                            <td class="border">
+                                @if (Model.Player != WebUI.Current)
+                                {
+                                    @WebUI.ConvertToSymbols(Model.Map.Board[i][j].ToString())
+                                }
+                                else
+                                {
+                                    <a href="?Where=@i,@j">@WebUI.ConvertToSymbols(Model.Map.Board[i][j].ToString())</a>
+                                }
+                            </td>
+                        }
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
     </div>
-</div>
+}
+else
+{
+    <div class="text-center">
+        @WebUI.GetWinner().Name Won!<br>
+        <a href="Index">Exit</a>
+    </div>
+}
 </body>
 </html>

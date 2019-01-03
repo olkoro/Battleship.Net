@@ -14,15 +14,16 @@
 <body>
 <div>
     <div class="content">
+        @Html.DisplayFor(s=>s.Player.Name)
         <table class="border">
             <tbody>
-            @for (int i = 0; i < Model.GameBoard.Board.Count; i++)
+            @for (int i = 0; i < Model.Player.Board.Board.Count; i++)
             {
                 <tr class="border">
-                    @for (var j = 0; j < Model.GameBoard.Board[i].Count; j++)
+                    @for (var j = 0; j < Model.Player.Board.Board[i].Count; j++)
                     {
                         <td class="border">
-                            @WebUI.ConvertToSymbols(Model.GameBoard.Board[i][j].ToString())
+                            @WebUI.ConvertToSymbols(Model.Player.Board.Board[i][j].ToString())
                         </td>
                     }
                 </tr>
@@ -31,6 +32,7 @@
         </table>
     </div>
     <br/>
+    <a href="?cmd=switch">🔄 Switch</a><br/>
     <a href="?cmd=random">🎲 Random</a><br/>
     <a href="Game">🎮 Play</a>
 </div>

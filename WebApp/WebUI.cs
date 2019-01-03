@@ -5,18 +5,40 @@ using System.Text;
 using Domain;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
+using WebApp.Pages;
 
 namespace WebApp
 {
     public class WebUI
     {
         public static Player Player1 = new Player("Player 1", new GameBoard(Rules.Boardrows, Rules.Boardcolumns),new GameBoard(Rules.Boardrows,Rules.Boardcolumns));
-        public static Player Player2 = new Player("AI", new GameBoard(Rules.Boardrows,Rules.Boardcolumns),new GameBoard(Rules.Boardrows,Rules.Boardcolumns));
+        public static Player Player2 = new Player("AI", new GameBoard(Rules.Boardrows,Rules.Boardcolumns),new GameBoard(Rules.Boardrows,Rules.Boardcolumns)){AI = true};
         public static bool P2Turn = false;
-        public static void Run()
+        public static Player Current = Player1;
+        public static Player Other = Player2;
+        public static void AIPlace()
         {
-            AI.AIPlacing(new List<Ship>(Rules.Ships), Player1.Board);
             AI.AIPlacing(new List<Ship>(Rules.Ships), Player2.Board);
+        }
+
+        public static void PlaceRandomly()
+        {
+            Current.Board = new GameBoard(Rules.Boardrows, Rules.Boardcolumns);
+            AI.AIPlacing(new List<Ship>(Rules.Ships), Current.Board);
+        }
+
+        public static void Switch()
+        {
+            if (Current == Player1)
+            {
+                Current = Player2;
+                Other = Player1;
+            }
+            else
+            {
+                Current = Player1;
+                Other = Player2;
+            }
         }
 
         public static string ShootAI()
@@ -40,7 +62,7 @@ namespace WebApp
                 if (Int32.TryParse(coords0[1].ToString(), out x))
                 {
                     int[] coords = new[]{y,x};
-                    var ret = Domain.GameBoard.Shoot(Player2.Board, coords, Player1.Map);
+                    var ret = Domain.GameBoard.Shoot(Other.Board, coords, Current.Map);
                     if (ret == "MISS ")
                     {
                         SwitchSwitch();
@@ -52,9 +74,9 @@ namespace WebApp
             return "Could not parse your input: "+data;
         }
 
-        public static GameBoard[] GetGameBoard()
+        public static GameBoard[] GetGameBoards()
         {
-            return new []{Player1.Board, Player1.Map};
+            return new []{Current.Board, Current.Map};
         }
 
         public static string ConvertToSymbols(string s)
@@ -94,6 +116,7 @@ namespace WebApp
             {
                 P2Turn = true;
             }
+            Switch();
         }
 
         public static Player GetWinner()

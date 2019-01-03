@@ -5,15 +5,31 @@ namespace WebApp.Pages
 {
     public class Place : PageModel
     {
-        public GameBoard GameBoard = new GameBoard(10,10);
-        public void OnGetAsync(string cmd)
+        public Player Player;
+        public void OnGet(string cmd)
         {
             if (cmd == "random")
             {
-                WebUI.Run();
+                WebUI.PlaceRandomly();
             }
-            GameBoard = WebUI.GetGameBoard()[0];
 
+            if (cmd == "switch")
+            {
+                WebUI.Switch();
+            }
+            Player = WebUI.Current;
+            if (cmd == "pvp")
+            {
+                WebUI.Player2.AI = false;
+                WebUI.Player2.Name = "Player 2";
+            }
+
+            if (cmd == "sp")
+            {
+                WebUI.AIPlace();
+                WebUI.Player2.AI = true;
+                WebUI.Player2.Name = "AI";
+            }
         }
     }
 }

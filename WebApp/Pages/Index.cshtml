@@ -9,8 +9,11 @@
 </div>
 <body>
 <div class="text-center">
-    <a href="GameMenu">Start Game</a><br/>
+    <a href="GameMenu">New Game</a><br/>
     <a href="Saves">Load Game</a><br/>
-    <a href="Game">Resume</a>
+    @if (WebUI.Player1.Board.Ships.Count > 0 && WebUI.Player2.Board.Ships.Count > 0)
+    {
+        <a href="Game">Resume</a>
+    }
 </div>
 </body>

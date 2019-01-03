@@ -16,6 +16,7 @@ namespace WebApp.Pages
             WebUI.Player2.Board = new GameBoard(10,10);
             WebUI.Player1.Map = new GameBoard(10,10);
             WebUI.Player2.Map = new GameBoard(10,10);
+
         }
     }
 }
