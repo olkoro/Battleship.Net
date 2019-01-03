@@ -28,7 +28,7 @@
     </div>
     <div style="padding-left: 15%; padding-right: 15%; font-size: 180%">
         
-        <div class="content" style="position: relative; width: 50%;">
+        <div style="position: relative; width: 50%;">
             @if (Model.Player != WebUI.Current)//blurred
             {
                 <table class="border" style="float: left; filter: blur(24px);">
@@ -65,7 +65,7 @@
                 </table>
             }
         </div>
-        <div class="content" style="float: right;width: 50%">
+        <div style="float: right;width: 50%">
             <table class="border" style="display: inline-block;">
                 <tbody>
                 @for (int i = 0; i < Model.Map.Board.Count; i++)

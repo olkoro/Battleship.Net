@@ -36,6 +36,10 @@ namespace DAL
         //public DbSet<SaveState> SaveStates { get; set; }
         public DbSet<GameboardSquare> GameboardSquares { get; set; }
 
+        public AppDbContext(DbContextOptions<AppDbContext> options): base(options)
+        {
+        }
+        public AppDbContext(){}
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);

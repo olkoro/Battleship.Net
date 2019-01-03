@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using DAL;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -11,7 +12,7 @@ namespace WebApp.Pages
     {
         private readonly DAL.AppDbContext _context;
 
-        public Saves(AppDbContext context)
+        public Saves(DAL.AppDbContext context)
         {
             _context = context;
         }

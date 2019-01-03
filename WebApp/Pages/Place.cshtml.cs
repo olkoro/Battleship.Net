@@ -9,6 +9,10 @@ namespace WebApp.Pages
         public Player Player;
         public void OnGet(string cmd)
         {
+            if (cmd.Contains("load-"))
+            {
+                WebUI.LoadSave(Int32.Parse(cmd.Substring(5)));
+            }
             if (cmd == "random")
             {
                 WebUI.PlaceRandomly();

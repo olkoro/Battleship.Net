@@ -39,6 +39,52 @@ button.accept-policy {
   font-size: 1rem;
   line-height: inherit;
 }
+.content{
+  padding: 6px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: white;
+  border: none;
+  background: rgba(255, 255, 255, .9);
+
+}
+
+.content{
+  transition: transform 0.3s;
+}
+.content:hover{
+  transform: scale(1);
+}
+
+#tablica table {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+  position: center;
+  text-align: center;
+}
+
+#tablica table tr:nth-child(odd) {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+#tablica table tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+.element{
+  transition: background-color 0.5s, ease-in, transform 0.3s;
+}
+.element:hover{
+  background-color: dodgerblue;
+  transform: scale(1.00);
+  color: white;
+  transition: transform 0.3s;
+}
+.element:active{
+  transform: scale(0.98);
+}
 
 /* Sticky footer styles
 -------------------------------------------------- */

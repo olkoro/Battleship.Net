@@ -2,10 +2,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using DAL;
 using Domain;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using WebApp.Pages;
+using GameBoard = Domain.GameBoard;
+using Player = Domain.Player;
+using Rules = Domain.Rules;
+using Ship = Domain.Ship;
 
 namespace WebApp
 {
@@ -33,6 +39,61 @@ namespace WebApp
         {
             Player1.Ships = new List<Ship>(Rules.Ships);
             Player2.Ships = new List<Ship>(Rules.Ships);
+        }
+
+        public static void LoadSave(int id)
+        {
+            var ctx = new AppDbContext();
+            var save = ctx.Saves.Where(s => s.SaveId.Equals(id))
+                .Include(s => s.Player1).Include(s => s.Player2)
+                .Include(s => s.LastState)
+                .ThenInclude(s => s.Player1GB).ThenInclude(g => g.Ships).ThenInclude(s => s.ShipsLocations)
+                .Include(s => s.LastState)
+                .ThenInclude(s => s.Player2GB).ThenInclude(g => g.Ships).ThenInclude(s => s.ShipsLocations)
+                .Include(s => s.LastState)
+                .ThenInclude(s => s.Player1GB).ThenInclude(g => g.Squares)
+                .Include(s => s.LastState)
+                .ThenInclude(s => s.Player2GB).ThenInclude(g => g.Squares)
+                .Include(s => s.LastState)
+                .ThenInclude(s => s.Player1Map).ThenInclude(g => g.Squares)
+                .Include(s => s.LastState)
+                .ThenInclude(s => s.Player2Map).ThenInclude(g => g.Squares)
+                .Include(s => s.Rules)
+                .First();
+            if (save.Replay)
+            {
+                var replayquery = ctx.Saves.Where(s => s.SaveId == save.SaveId)
+                    .Include(s => s.Player1).Include(s => s.Player2).Include(s=>s.Rules)
+                    .Include(s=>s.States).ThenInclude(s=>s.Player1GB).ThenInclude(g => g.Squares)
+                    .Include(s=>s.States).ThenInclude(s=>s.Player2GB).ThenInclude(g => g.Squares)
+                    .Include(s=>s.States).ThenInclude(s=>s.Player1Map).ThenInclude(g => g.Squares)
+                    .Include(s=>s.States).ThenInclude(s=>s.Player2Map).ThenInclude(g => g.Squares)
+                    .First();
+                foreach (var state in replayquery.States)
+                {
+                    SaveSystem.GameStates.Add(state.GetDomainState(replayquery.Player1.GetDomainPlayer(state.Player1GB.GetDomainBoard(),state.Player1Map.GetDomainBoard()),
+                        replayquery.Player2.GetDomainPlayer(state.Player2GB.GetDomainBoard(),state.Player2Map.GetDomainBoard())
+                        ,replayquery.Rules.CanTouch));
+                }
+            }
+            Player player1 = new Domain.Player(save.Player1.Name, 
+                save.LastState.Player1GB.GetDomainBoard(),
+                save.LastState.Player1Map.GetDomainBoard()){AI = save.Player1.AI};
+            
+            Player player2 = new Domain.Player(save.Player2.Name, 
+                save.LastState.Player2GB.GetDomainBoard(),
+                save.LastState.Player2Map.GetDomainBoard()){AI = save.Player2.AI};
+            Rules.CanTouch = save.Rules.CanTouch;
+            bool p2Turn = save.LastState.P2Turn;
+            Player1 = player1;
+            Player2 = player2;
+            Current = Player1;
+            Other = Player2;
+            if (p2Turn)
+            {
+                SwitchSwitch();
+            }
+            //PlayGame(player1,player2, p2Turn);
         }
 
         public static void PlaceRandomly()
