@@ -23,16 +23,25 @@
                     @for (var j = 0; j < Model.Player.Board.Board[i].Count; j++)
                     {
                         <td class="border">
-                            @WebUI.ConvertToSymbols(Model.Player.Board.Board[i][j].ToString())
+                            <a href="?cmd=@i,@j">@WebUI.ConvertToSymbols(Model.Player.Board.Board[i][j].ToString())</a>
                         </td>
                     }
                 </tr>
             }
             </tbody>
         </table>
+        <div>
+            <br>
+            @foreach (var ship in WebUI.Current.Ships)
+            {
+                <a href="?cmd=choose-@ship.Length">@ship.ToString().Replace("+", "⚓️")</a><br>
+
+            }
+            <a href="?cmd=rotate">Rotate</a><br/>
+        </div>
     </div>
     <br/>
-    <a href="?cmd=switch">🔄 Switch</a><br/>
+    <a href="?cmd=switch">🔄 Switch Board</a><br/>
     <a href="?cmd=random">🎲 Random</a><br/>
     <a href="Game">🎮 Play</a>
 </div>

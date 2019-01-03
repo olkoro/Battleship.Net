@@ -11,7 +11,7 @@ namespace WebApp.Pages
     {
         private readonly DAL.AppDbContext _context;
 
-        public Saves(DAL.AppDbContext context)
+        public Saves(AppDbContext context)
         {
             _context = context;
         }

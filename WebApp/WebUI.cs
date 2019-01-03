@@ -11,20 +11,34 @@ namespace WebApp
 {
     public class WebUI
     {
-        public static Player Player1 = new Player("Player 1", new GameBoard(Rules.Boardrows, Rules.Boardcolumns),new GameBoard(Rules.Boardrows,Rules.Boardcolumns));
-        public static Player Player2 = new Player("AI", new GameBoard(Rules.Boardrows,Rules.Boardcolumns),new GameBoard(Rules.Boardrows,Rules.Boardcolumns)){AI = true};
+        public static Player Player1 = new Player("Player 1", new GameBoard(Rules.Boardrows, Rules.Boardcolumns),new GameBoard(Rules.Boardrows,Rules.Boardcolumns))
+        {
+            Ships = new List<Ship>(Rules.Ships)
+        };
+        public static Player Player2 = new Player("AI", new GameBoard(Rules.Boardrows,Rules.Boardcolumns),new GameBoard(Rules.Boardrows,Rules.Boardcolumns))
+        {
+            AI = true,Ships = new List<Ship>(Rules.Ships)
+        };
         public static bool P2Turn = false;
         public static Player Current = Player1;
         public static Player Other = Player2;
+        public static int ShipInHand = 0;//Rules.Ships[0].Length;
+        public static bool RotationInHand = false;
         public static void AIPlace()
         {
-            AI.AIPlacing(new List<Ship>(Rules.Ships), Player2.Board);
+            AI.AIPlacing(Player2.Ships, Player2.Board);
+        }
+
+        public static void Run()
+        {
+            Player1.Ships = new List<Ship>(Rules.Ships);
+            Player2.Ships = new List<Ship>(Rules.Ships);
         }
 
         public static void PlaceRandomly()
         {
             Current.Board = new GameBoard(Rules.Boardrows, Rules.Boardcolumns);
-            AI.AIPlacing(new List<Ship>(Rules.Ships), Current.Board);
+            AI.AIPlacing(Current.Ships, Current.Board);
         }
 
         public static void Switch()
@@ -72,6 +86,22 @@ namespace WebApp
             }
 
             return "Could not parse your input: "+data;
+        }
+
+        public static int[] ParseCoords(string data)
+        {
+            string[] coords0 = data.Split(",");
+            int y = 0;
+            if (Int32.TryParse(coords0[0].ToString(), out y))
+            {
+                int x = 0;
+                if (Int32.TryParse(coords0[1].ToString(), out x))
+                {
+                    int[] coords = new[]{y,x};
+                    return coords;
+                }
+            }
+            return null;
         }
 
         public static GameBoard[] GetGameBoards()

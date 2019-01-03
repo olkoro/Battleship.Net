@@ -27,24 +27,45 @@
         }
     </div>
     <div style="padding-left: 15%; padding-right: 15%; font-size: 180%">
-        <div class="content">
-            <table class="border" style="float: left;">
-                <tbody>
-                @for (int i = 0; i < Model.GameBoard.Board.Count; i++)
-                {
-                    <tr class="border">
-                        @for (var j = 0; j < Model.GameBoard.Board[i].Count; j++)
-                        {
-                            <td class="border">
-                                @WebUI.ConvertToSymbols(Model.GameBoard.Board[i][j].ToString())
-                            </td>
-                        }
-                    </tr>
-                }
-                </tbody>
-            </table>
+        
+        <div class="content" style="position: relative; width: 50%;">
+            @if (Model.Player != WebUI.Current)//blurred
+            {
+                <table class="border" style="float: left; filter: blur(24px);">
+                    @for (int i = 0; i < WebUI.Player1.Map.Board.Count; i++)
+                    {
+                        <tr class="border">
+                            @for (var j = 0; j < WebUI.Player1.Map.Board[i].Count; j++)
+                            {
+                                <td class="border">
+                                    @WebUI.ConvertToSymbols(WebUI.Current.Map.Board[i][j].ToString())
+                                </td>
+                            }
+                        </tr>
+                    }
+                </table>
+                <div class="text-center" style="position: absolute; top: 120px; left: 35%">Hidden 🤐</div>
+            }
+            else
+            {
+                <table class="border" style="float: left;">
+                    <tbody>
+                    @for (int i = 0; i < Model.GameBoard.Board.Count; i++)
+                    {
+                        <tr class="border">
+                            @for (var j = 0; j < Model.GameBoard.Board[i].Count; j++)
+                            {
+                                <td class="border">
+                                    @WebUI.ConvertToSymbols(Model.GameBoard.Board[i][j].ToString())
+                                </td>
+                            }
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            }
         </div>
-        <div class="content" style="float: right;">
+        <div class="content" style="float: right;width: 50%">
             <table class="border" style="display: inline-block;">
                 <tbody>
                 @for (int i = 0; i < Model.Map.Board.Count; i++)
@@ -73,7 +94,15 @@
 else
 {
     <div class="text-center">
-        @WebUI.GetWinner().Name Won!<br>
+        @WebUI.GetWinner().Name Won!
+        @if (WebUI.GetWinner().AI)
+        {
+            <a>🤣🤣🤣</a>
+        }
+        else
+        {
+            <a>😎</a>
+        }<br>
         <a href="Index">Exit</a>
     </div>
 }
