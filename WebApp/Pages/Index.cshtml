@@ -14,6 +14,10 @@
     @if (WebUI.Player1.Board.Ships.Count > 0 && WebUI.Player2.Board.Ships.Count > 0)
     {
         <a href="Game">Resume</a>
+    }<br/>
+    @if (Domain.SaveSystem.SavesList.Count > 0)
+    {
+        <a href="">Save 💾</a>
     }
 </div>
 </body>

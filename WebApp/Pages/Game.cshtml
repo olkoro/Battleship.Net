@@ -24,7 +24,10 @@
         else
         {
             <a>👤 @Html.DisplayFor(s => s.Player.Name)</a>
-        }
+        }@if (SaveSystem.GameStates.Count > 0)
+         {
+             <a href="?Where=save" style="float: bottom">💾</a>
+         }
     </div>
     <div style="padding-left: 15%; padding-right: 15%; font-size: 180%">
         
@@ -106,5 +109,6 @@ else
         <a href="Index">Exit</a>
     </div>
 }
+
 </body>
 </html>
